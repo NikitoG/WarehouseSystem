@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace WarehouseSystem.Models
+﻿namespace WarehouseSystem.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class OrderQuantity
     {
         [Key]

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace WarehouseSystem.Models
+﻿namespace WarehouseSystem.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Organization
     {
         private ICollection<User> employees;
