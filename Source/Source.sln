@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Web", "Web\WarehouseSystem.Web\WarehouseSystem.Web.csproj", "{DA2B9C7A-03C2-472B-B140-E41785A0B08E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Data", "Data\Warehouse.Data\Warehouse.Data.csproj", "{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Models", "Data\Warehouse.Models\Warehouse.Models.csproj", "{AA2D7979-4E41-4C6C-8A78-9644CB915C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +27,21 @@ Global
 		{DA2B9C7A-03C2-472B-B140-E41785A0B08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA2B9C7A-03C2-472B-B140-E41785A0B08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA2B9C7A-03C2-472B-B140-E41785A0B08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2D7979-4E41-4C6C-8A78-9644CB915C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2D7979-4E41-4C6C-8A78-9644CB915C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2D7979-4E41-4C6C-8A78-9644CB915C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2D7979-4E41-4C6C-8A78-9644CB915C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DA2B9C7A-03C2-472B-B140-E41785A0B08E} = {574EEB1A-6D16-44A3-A813-F314D18268C8}
+		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D} = {67611D07-2119-4CAC-85EB-77DC6FB97C6B}
+		{AA2D7979-4E41-4C6C-8A78-9644CB915C59} = {67611D07-2119-4CAC-85EB-77DC6FB97C6B}
 	EndGlobalSection
 EndGlobal
