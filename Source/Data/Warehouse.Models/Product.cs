@@ -1,8 +1,8 @@
-﻿namespace Warehouse.Models
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
+namespace WarehouseSystem.Models
+{
     public class Product
     {
         private ICollection<OrderQuantity> orderQuantities;

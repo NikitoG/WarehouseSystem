@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Web", "Web\WarehouseSystem.Web\WarehouseSystem.Web.csproj", "{DA2B9C7A-03C2-472B-B140-E41785A0B08E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Data", "Data\Warehouse.Data\Warehouse.Data.csproj", "{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Data", "Data\Warehouse.Data\WarehouseSystem.Data.csproj", "{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Models", "Data\Warehouse.Models\Warehouse.Models.csproj", "{AA2D7979-4E41-4C6C-8A78-9644CB915C59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Models", "Data\Warehouse.Models\WarehouseSystem.Models.csproj", "{AA2D7979-4E41-4C6C-8A78-9644CB915C59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

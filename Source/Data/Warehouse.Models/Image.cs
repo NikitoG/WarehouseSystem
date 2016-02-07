@@ -1,7 +1,7 @@
-﻿namespace Warehouse.Models
-{
-    using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace WarehouseSystem.Models
+{
     public class Image
     {
         [Key]

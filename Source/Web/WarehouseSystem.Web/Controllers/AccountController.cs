@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Warehouse.Models;
+using WarehouseSystem.Models;
 using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web.Controllers

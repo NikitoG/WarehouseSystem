@@ -1,4 +1,4 @@
-﻿namespace Warehouse.Data.Repositories
+﻿namespace WarehouseSystem.Data.Repositories
 {
     using System;
     using System.Linq;

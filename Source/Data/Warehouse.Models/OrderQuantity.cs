@@ -1,9 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Warehouse.Models
+namespace WarehouseSystem.Models
 {
-    using System.ComponentModel.DataAnnotations;
-
     public class OrderQuantity
     {
         [Key]

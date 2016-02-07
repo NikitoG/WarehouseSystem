@@ -10,8 +10,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Warehouse.Data;
-using Warehouse.Models;
+using WarehouseSystem.Data;
+using WarehouseSystem.Models;
 using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web

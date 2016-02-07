@@ -311,13 +311,13 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\Warehouse.Data\Warehouse.Data.csproj">
+    <ProjectReference Include="..\..\Data\Warehouse.Data\WarehouseSystem.Data.csproj">
       <Project>{7f5bda8f-f51c-4b3a-a7aa-8f43e4e42a7d}</Project>
-      <Name>Warehouse.Data</Name>
+      <Name>WarehouseSystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\Warehouse.Models\Warehouse.Models.csproj">
+    <ProjectReference Include="..\..\Data\Warehouse.Models\WarehouseSystem.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
-      <Name>Warehouse.Models</Name>
+      <Name>WarehouseSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

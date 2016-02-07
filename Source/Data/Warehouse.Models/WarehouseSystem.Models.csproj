@@ -7,8 +7,8 @@
     <ProjectGuid>{AA2D7979-4E41-4C6C-8A78-9644CB915C59}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warehouse.Models</RootNamespace>
-    <AssemblyName>Warehouse.Models</AssemblyName>
+    <RootNamespace>WarehouseSystem.Models</RootNamespace>
+    <AssemblyName>WarehouseSystem.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

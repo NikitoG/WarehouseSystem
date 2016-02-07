@@ -5,8 +5,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Warehouse.Data;
-using Warehouse.Models;
+using WarehouseSystem.Data;
+using WarehouseSystem.Models;
 using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web

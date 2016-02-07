@@ -1,8 +1,8 @@
-﻿namespace Warehouse.Models
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
+namespace WarehouseSystem.Models
+{
     public class Message
     {
         [Key]

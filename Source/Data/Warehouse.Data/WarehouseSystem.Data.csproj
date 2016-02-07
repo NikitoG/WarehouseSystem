@@ -7,8 +7,8 @@
     <ProjectGuid>{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warehouse.Data</RootNamespace>
-    <AssemblyName>Warehouse.Data</AssemblyName>
+    <RootNamespace>WarehouseSystem.Data</RootNamespace>
+    <AssemblyName>WarehouseSystem.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -68,9 +68,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Warehouse.Models\Warehouse.Models.csproj">
+    <ProjectReference Include="..\Warehouse.Models\WarehouseSystem.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
-      <Name>Warehouse.Models</Name>
+      <Name>WarehouseSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

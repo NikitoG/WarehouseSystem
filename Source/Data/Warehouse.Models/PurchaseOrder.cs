@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Warehouse.Models
+﻿namespace WarehouseSystem.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class PurchaseOrder
