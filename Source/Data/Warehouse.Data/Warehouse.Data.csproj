@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="IWarehouseSystemDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="WarehouseSystemDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
