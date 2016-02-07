@@ -311,6 +311,16 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Warehouse.Data\Warehouse.Data.csproj">
+      <Project>{7f5bda8f-f51c-4b3a-a7aa-8f43e4e42a7d}</Project>
+      <Name>Warehouse.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Warehouse.Models\Warehouse.Models.csproj">
+      <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
+      <Name>Warehouse.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
