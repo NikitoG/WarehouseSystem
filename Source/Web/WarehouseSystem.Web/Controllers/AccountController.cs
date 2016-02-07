@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Warehouse.Models;
-using WarehouseSystem.Web.Models;
+using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web.Controllers
 {

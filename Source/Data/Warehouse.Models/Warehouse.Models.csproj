@@ -57,7 +57,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="Division.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="OrderQuantity.cs" />
+    <Compile Include="Organization.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs" />
+    <Compile Include="ScheduleOrder.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

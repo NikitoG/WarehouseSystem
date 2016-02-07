@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using Warehouse.Data;
 using Warehouse.Models;
-using WarehouseSystem.Web.Models;
+using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web
 {

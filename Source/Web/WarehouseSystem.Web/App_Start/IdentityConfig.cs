@@ -12,7 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Warehouse.Data;
 using Warehouse.Models;
-using WarehouseSystem.Web.Models;
+using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web
 {
