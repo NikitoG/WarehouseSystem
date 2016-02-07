@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using WarehouseSystem.Data;
-using WarehouseSystem.Models;
+using WarehouseSystem.Data.Models;
 using WarehouseSystem.Web.ViewModels;
 
 namespace WarehouseSystem.Web

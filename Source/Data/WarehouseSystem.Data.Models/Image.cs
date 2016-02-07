@@ -1,4 +1,4 @@
-﻿namespace WarehouseSystem.Models
+﻿namespace WarehouseSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
 

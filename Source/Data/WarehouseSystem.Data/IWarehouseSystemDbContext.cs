@@ -1,9 +1,10 @@
-﻿namespace WarehouseSystem.Data
+﻿using WarehouseSystem.Data.Models;
+
+namespace WarehouseSystem.Data
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using WarehouseSystem.Models;
 
     public interface IWarehouseSystemDbContext : IDisposable
     {

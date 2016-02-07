@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Warehouse.Models\WarehouseSystem.Models.csproj">
+    <ProjectReference Include="..\Warehouse.Models\WarehouseSystem.Data.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
-      <Name>WarehouseSystem.Models</Name>
+      <Name>WarehouseSystem.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

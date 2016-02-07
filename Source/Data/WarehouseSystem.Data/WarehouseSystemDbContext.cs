@@ -1,8 +1,9 @@
-﻿namespace WarehouseSystem.Data
+﻿using WarehouseSystem.Data.Models;
+
+namespace WarehouseSystem.Data
 {
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using WarehouseSystem.Models;
 
     public class WarehouseSystemDbContext : IdentityDbContext<User>, IWarehouseSystemDbContext
     {
