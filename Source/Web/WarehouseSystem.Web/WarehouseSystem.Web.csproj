@@ -109,6 +109,10 @@
       <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
       <Private>True</Private>
@@ -337,9 +341,9 @@
       <Project>{7f5bda8f-f51c-4b3a-a7aa-8f43e4e42a7d}</Project>
       <Name>WarehouseSystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\Warehouse.Services.Data\Warehouse.Services.Data.csproj">
+    <ProjectReference Include="..\..\Services\WarehouseSystem.Services.Data\WarehouseSystem.Services.Data.csproj">
       <Project>{b6c34989-1965-4971-84d7-7bb2f3ec5a35}</Project>
-      <Name>Warehouse.Services.Data</Name>
+      <Name>WarehouseSystem.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

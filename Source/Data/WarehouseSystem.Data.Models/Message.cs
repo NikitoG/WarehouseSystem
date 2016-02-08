@@ -1,4 +1,6 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WarehouseSystem.Data.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -17,11 +19,13 @@
         [Required]
         public string FromId { get; set; }
 
+        [ForeignKey("FromId")]
         public virtual User From { get; set; }
         
         [Required]
         public string ToId { get; set; }
 
+        [ForeignKey("ToId")]
         public  virtual User To { get; set; }
     }
 }

@@ -11,10 +11,14 @@
     public class User : IdentityUser
     {
         private ICollection<PurchaseOrder> orders;
+        private ICollection<Message> sendMessages;
+        private ICollection<Message> receivedMessages;
 
         public User()
         {
             this.orders = new HashSet<PurchaseOrder>();
+            this.sendMessages = new HashSet<Message>();
+            this.receivedMessages = new HashSet<Message>();
         }
 
         [Required]
@@ -41,6 +45,18 @@
         {
             get { return this.orders; }
             set { this.orders = value; }
+        }
+
+        public virtual ICollection<Message> SendMessages
+        {
+            get { return this.sendMessages; }
+            set { this.sendMessages = value; }
+        }
+
+        public virtual ICollection<Message> ReceivedMessages
+        {
+            get { return this.receivedMessages; }
+            set { this.receivedMessages = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

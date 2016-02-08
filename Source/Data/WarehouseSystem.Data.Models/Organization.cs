@@ -6,10 +6,18 @@
     public class Organization
     {
         private ICollection<User> employees;
+        private ICollection<PurchaseOrder> clients;
+        private ICollection<PurchaseOrder> suppliers;
+        private ICollection<ScheduleOrder> scheduleOrdersClient;
+        private ICollection<ScheduleOrder> scheduleOrdersSupplier;
 
         public Organization()
         {
             this.employees = new HashSet<User>();
+            this.clients = new HashSet<PurchaseOrder>();
+            this.suppliers = new HashSet<PurchaseOrder>();
+            this.scheduleOrdersClient = new HashSet<ScheduleOrder>();
+            this.scheduleOrdersSupplier = new HashSet<ScheduleOrder>();
         }
 
         [Key]
@@ -33,6 +41,30 @@
         {
             get { return this.employees; }
             set { this.employees = value; }
+        }
+
+        public virtual ICollection<PurchaseOrder> Clients
+        {
+            get { return this.clients; }
+            set { this.clients = value; }
+        }
+
+        public virtual ICollection<PurchaseOrder> Suppliers
+        {
+            get { return this.suppliers; }
+            set { this.suppliers = value; }
+        }
+
+        public virtual ICollection<ScheduleOrder> ScheduleOrdersClient
+        {
+            get { return this.scheduleOrdersClient; }
+            set { this.scheduleOrdersClient = value; }
+        }
+
+        public virtual ICollection<ScheduleOrder> ScheduleOrdersSupplier
+        {
+            get { return this.scheduleOrdersSupplier; }
+            set { this.scheduleOrdersSupplier = value; }
         }
     }
 }

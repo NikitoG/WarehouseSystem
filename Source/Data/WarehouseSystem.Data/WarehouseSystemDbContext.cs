@@ -1,9 +1,9 @@
-﻿using WarehouseSystem.Data.Models;
-
-namespace WarehouseSystem.Data
+﻿namespace WarehouseSystem.Data
 {
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
+
+    using WarehouseSystem.Data.Models;
 
     public class WarehouseSystemDbContext : IdentityDbContext<User>, IWarehouseSystemDbContext
     {
@@ -38,41 +38,89 @@ namespace WarehouseSystem.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
-                .Entity<User>()
-                .HasRequired(p => p.Organization)
-                .WithMany(x => x.Employees)
-                .WillCascadeOnDelete(true);
+                .Entity<Message>()
+                .HasRequired(m => m.To)
+                .WithMany(t => t.ReceivedMessages)
+                .HasForeignKey(m => m.ToId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder
-                .Entity<PurchaseOrder>()
-                .HasRequired(p => p.Creator)
-                .WithMany(x => x.Orders)
-                .WillCascadeOnDelete(true);
-
-            modelBuilder
-                .Entity<Product>()
-                .HasRequired(p => p.Category)
-                .WithMany(x => x.Products)
-                .WillCascadeOnDelete(true);
+                .Entity<Message>()
+                .HasRequired(m => m.From)
+                .WithMany(t => t.SendMessages)
+                .HasForeignKey(m => m.FromId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<Category>()
-                .HasRequired(p => p.Division)
-                .WithMany(x => x.Categories)
-                .WillCascadeOnDelete(true);
+                .HasRequired(m => m.Division)
+                .WithMany(t => t.Categories)
+                .HasForeignKey(m => m.DivisionId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<Product>()
+                .HasRequired(m => m.Category)
+                .WithMany(t => t.Products)
+                .HasForeignKey(m => m.CategoryId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<OrderQuantity>()
-                .HasRequired(p => p.Product)
-                .WithMany(x => x.OrderQuantities)
-                .WillCascadeOnDelete(true);
+                .HasRequired(m => m.Product)
+                .WithMany(t => t.OrderQuantities)
+                .HasForeignKey(m => m.ProductId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<OrderQuantity>()
-                .HasRequired(p => p.PurchaseOrder)
-                .WithMany(x => x.OrderQuantities)
-                .WillCascadeOnDelete(true);
+                .HasRequired(m => m.PurchaseOrder)
+                .WithMany(t => t.OrderQuantities)
+                .HasForeignKey(m => m.PurchaseOrderId)
+                .WillCascadeOnDelete(false);
 
+            modelBuilder
+                .Entity<PurchaseOrder>()
+                .HasRequired(m => m.Client)
+                .WithMany(t => t.Clients)
+                .HasForeignKey(m => m.ClientId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<PurchaseOrder>()
+                .HasRequired(m => m.Supplier)
+                .WithMany(t => t.Suppliers)
+                .HasForeignKey(m => m.SupplierId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<PurchaseOrder>()
+                .HasRequired(m => m.Creator)
+                .WithMany(t => t.Orders)
+                .HasForeignKey(m => m.CreatorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<ScheduleOrder>()
+                .HasRequired(m => m.Client)
+                .WithMany(t => t.ScheduleOrdersClient)
+                .HasForeignKey(m => m.ClientId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<ScheduleOrder>()
+                .HasRequired(m => m.Supplier)
+                .WithMany(t => t.ScheduleOrdersSupplier)
+                .HasForeignKey(m => m.SupplierId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<User>()
+                .HasRequired(m => m.Organization)
+                .WithMany(t => t.Employees)
+                .HasForeignKey(m => m.OrganizationId)
+                .WillCascadeOnDelete(false);
+            
             base.OnModelCreating(modelBuilder);
         }
     }

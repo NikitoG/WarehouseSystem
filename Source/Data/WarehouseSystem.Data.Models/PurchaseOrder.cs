@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class PurchaseOrder
     {
@@ -24,12 +25,12 @@
 
         [Required]
         public int ClientId { get; set; }
-
+        
         public virtual Organization Client { get; set; }
 
         [Required]
         public int SupplierId { get; set; }
-
+        
         public virtual Organization Supplier { get; set; }
 
         [Required]
