@@ -15,6 +15,7 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             DbConfig.Initialize();
+            AutoMapperConfig.Execute();
         }
     }
 }
