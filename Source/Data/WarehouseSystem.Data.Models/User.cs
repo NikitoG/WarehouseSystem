@@ -35,8 +35,7 @@
         public int? ImageId { get; set; }
 
         public virtual Image Image { get; set; }
-
-        [Required]
+        
         public int OrganizationId { get; set; }
 
         public virtual Organization Organization { get; set; }

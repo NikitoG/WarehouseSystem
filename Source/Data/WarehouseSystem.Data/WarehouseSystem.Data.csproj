@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\WarehouseSystem.Common\WarehouseSystem.Common.csproj">
+      <Project>{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}</Project>
+      <Name>WarehouseSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WarehouseSystem.Data.Models\WarehouseSystem.Data.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
       <Name>WarehouseSystem.Data.Models</Name>

@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Data.Models
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Services.Data", "Services\WarehouseSystem.Services.Data\WarehouseSystem.Services.Data.csproj", "{B6C34989-1965-4971-84D7-7BB2F3EC5A35}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{91F28054-32D8-41E1-AA4D-C06F120DA2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Common", "Common\WarehouseSystem.Common\WarehouseSystem.Common.csproj", "{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{B6C34989-1965-4971-84D7-7BB2F3EC5A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C34989-1965-4971-84D7-7BB2F3EC5A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C34989-1965-4971-84D7-7BB2F3EC5A35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +58,6 @@ Global
 		{7F5BDA8F-F51C-4B3A-A7AA-8F43E4E42A7D} = {67611D07-2119-4CAC-85EB-77DC6FB97C6B}
 		{AA2D7979-4E41-4C6C-8A78-9644CB915C59} = {67611D07-2119-4CAC-85EB-77DC6FB97C6B}
 		{B6C34989-1965-4971-84D7-7BB2F3EC5A35} = {B48C2F89-C073-45C5-8E05-04F9E4990413}
+		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D} = {91F28054-32D8-41E1-AA4D-C06F120DA2E1}
 	EndGlobalSection
 EndGlobal
