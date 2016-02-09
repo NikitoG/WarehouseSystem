@@ -10,6 +10,7 @@
         private ICollection<PurchaseOrder> suppliers;
         private ICollection<ScheduleOrder> scheduleOrdersClient;
         private ICollection<ScheduleOrder> scheduleOrdersSupplier;
+        private ICollection<Product> products;
 
         public Organization()
         {
@@ -18,6 +19,7 @@
             this.suppliers = new HashSet<PurchaseOrder>();
             this.scheduleOrdersClient = new HashSet<ScheduleOrder>();
             this.scheduleOrdersSupplier = new HashSet<ScheduleOrder>();
+            this.products = new HashSet<Product>();
         }
 
         [Key]
@@ -65,6 +67,12 @@
         {
             get { return this.scheduleOrdersSupplier; }
             set { this.scheduleOrdersSupplier = value; }
+        }
+
+        public virtual ICollection<Product> Products
+        {
+            get { return this.products; }
+            set { this.products = value; }
         }
     }
 }

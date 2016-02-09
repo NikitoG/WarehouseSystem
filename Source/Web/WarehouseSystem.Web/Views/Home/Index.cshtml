@@ -1,33 +1,81 @@
-﻿@model int
+﻿@using Microsoft.Ajax.Utilities
+@model IEnumerable<WarehouseSystem.Web.ViewModels.Home.StatisticsViewModel>
 
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>@Model</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="jumbotron app-header">
+    <div class="container">
+        <h2 class="text-center"><i class="app-logo fa fa-connectdevelop fa-5x color-white"></i>
+            <div class="color-white">Warehouse System - NG</div>
+        </h2>
+        <p class="text-center color-white app-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p class="text-center"><a class="btn btn-primary btn-lg app-btn" href="/" role="button">About us »</a>
+        </p>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+@{
+    var suppliers = Model.Where(o => o.IsSupplier == true).Count();
+    var customers = Model.Where(o => o.IsSupplier == false).Count();
+    var products = 0;
+    Model.Where(o => o.IsSupplier == true)
+        .ForEach(o => products += o.Products);
+}
+
+<div class="container-fluid app-content-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row no-margin no-gap">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="pricing-table dark-blue">
+                            <div class="pt-header">
+                                <div class="plan-pricing">
+                                    <div class="pricing">@suppliers</div>
+                                </div>
+                            </div>
+                            <div class="pt-body">
+                                <h4>Suppliers</h4>
+                            </div>
+                            <div class="pt-footer">
+                                <button type="button" class="btn btn-primary">Suppliers</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="pricing-table green">
+                            <div class="pt-header">
+                                <div class="plan-pricing">
+                                    <div class="pricing">@customers</div>
+                                </div>
+                            </div>
+                            <div class="pt-body">
+                                <h4>Customers</h4>
+                            </div>
+                            <div class="pt-footer">
+                                <button type="button" class="btn btn-success">Customers</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="pricing-table  dark-blue">
+                            <div class="pt-header">
+                                <div class="plan-pricing">
+                                    <div class="pricing">@products</div>
+                                </div>
+                            </div>
+                            <div class="pt-body">
+                                <h4>Products</h4>
+                            </div>
+                            <div class="pt-footer">
+                                <button type="button" class="btn btn-primary">Products</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

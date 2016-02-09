@@ -49,6 +49,10 @@
 
         public virtual Image Image { get; set; }
 
+        public int SupplierId { get; set; }
+
+        public virtual Organization Supplier { get; set; }
+
         public virtual ICollection<OrderQuantity> OrderQuantities
         {
             get { return this.orderQuantities; }

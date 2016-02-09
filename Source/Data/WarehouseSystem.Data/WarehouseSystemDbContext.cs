@@ -120,7 +120,14 @@
                 .WithMany(t => t.Employees)
                 .HasForeignKey(m => m.OrganizationId)
                 .WillCascadeOnDelete(false);
-            
+
+            modelBuilder
+                .Entity<Product>()
+                .HasRequired(m => m.Supplier)
+                .WithMany(t => t.Products)
+                .HasForeignKey(m => m.SupplierId)
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
     }
