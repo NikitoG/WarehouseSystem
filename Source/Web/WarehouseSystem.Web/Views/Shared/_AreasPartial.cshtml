@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNet.Identity
+@if (User.IsInRole("Administrator"))
+{
+    @Html.ActionLink("Administration area »", "About", "Home", null, new { @class = "btn btn-primary btn-lg app-btn" })
+}
+else if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("User area »", "About", "Home", null, new { @class = "btn btn-primary btn-lg app-btn" })
+}
+else
+{
+    @Html.ActionLink("About us »", "About", "Home", null, new {@class = "btn btn-primary btn-lg app-btn" })
+}

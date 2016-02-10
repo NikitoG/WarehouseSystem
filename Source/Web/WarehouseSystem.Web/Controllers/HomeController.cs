@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using Ninject;
-using WarehouseSystem.Services.Data.Contract;
-using WarehouseSystem.Web.ViewModels.Home;
-using WebGrease.Css.Extensions;
-
-namespace WarehouseSystem.Web.Controllers
+﻿namespace WarehouseSystem.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper.QueryableExtensions;
+    using Ninject;
+    using WarehouseSystem.Services.Data.Contract;
+    using WarehouseSystem.Web.ViewModels.Home;
+
     public class HomeController : Controller
     {
         [Inject]
-        public IOrganizationServices OrganizationServices { get; set; }
+        public IOrganizationServices Organization { get; set; }
 
+        //TODO: remove comment
+        //[OutputCache(Duration = 60 * 60)]
         public ActionResult Index()
         {
-            var allOrganizations = OrganizationServices
+            var allOrganizations = this.Organization
                 .GetAll()
                 .Project()
                 .To<StatisticsViewModel>()

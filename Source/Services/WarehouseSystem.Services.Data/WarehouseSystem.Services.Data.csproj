@@ -66,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\IOrganizationServices.cs" />
+    <Compile Include="Contract\IProductServices.cs" />
     <Compile Include="Contract\IUserServices.cs" />
     <Compile Include="OrganizationServices.cs" />
+    <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserServices.cs" />
   </ItemGroup>

@@ -7,11 +7,13 @@
 
 <div class="jumbotron app-header">
     <div class="container">
-        <h2 class="text-center"><i class="app-logo fa fa-connectdevelop fa-5x color-white"></i>
+        <h2 class="text-center">
+            <i class="app-logo fa fa-connectdevelop fa-5x color-white"></i>
             <div class="color-white">Warehouse System - NG</div>
         </h2>
         <p class="text-center color-white app-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p class="text-center"><a class="btn btn-primary btn-lg app-btn" href="/" role="button">About us »</a>
+        <p class="text-center">
+            @Html.Partial("_AreasPartial")
         </p>
     </div>
 </div>
@@ -40,7 +42,14 @@
                                 <h4>Suppliers</h4>
                             </div>
                             <div class="pt-footer">
-                                <button type="button" class="btn btn-primary">Suppliers</button>
+                                @Ajax.ActionLink("Suppliers", "AllSuppliers", "Statistics", null,
+                                         new AjaxOptions
+                                         {
+                                             UpdateTargetId = "content",
+                                             LoadingElementId = "displayLoading",
+                                             HttpMethod = "GET",
+                                             InsertionMode = InsertionMode.Replace
+                                         }, new {@class = "btn btn-primary"})
                             </div>
                         </div>
                     </div>
@@ -55,7 +64,14 @@
                                 <h4>Customers</h4>
                             </div>
                             <div class="pt-footer">
-                                <button type="button" class="btn btn-success">Customers</button>
+                                @Ajax.ActionLink("Customers", "AllCustomers", "Statistics", null,
+                                         new AjaxOptions
+                                         {
+                                             UpdateTargetId = "content",
+                                             LoadingElementId = "displayLoading",
+                                             HttpMethod = "GET",
+                                             InsertionMode = InsertionMode.Replace
+                                         }, new {@class = "btn btn-success"})
                             </div>
                         </div>
                     </div>
@@ -70,7 +86,14 @@
                                 <h4>Products</h4>
                             </div>
                             <div class="pt-footer">
-                                <button type="button" class="btn btn-primary">Products</button>
+                               @Ajax.ActionLink("Products", "AllProducts", "Statistics", null,
+                                         new AjaxOptions
+                                         {
+                                             UpdateTargetId = "content",
+                                             LoadingElementId = "displayLoading",
+                                             HttpMethod = "GET",
+                                             InsertionMode = InsertionMode.Replace
+                                         }, new {@class = "btn btn-primary"})
                             </div>
                         </div>
                     </div>
@@ -78,4 +101,8 @@
             </div>
         </div>
     </div>
+
+    <div id="content">
+    </div>
+    <div id="displayLoading" style="display: none">Loading...</div>
 </div>
