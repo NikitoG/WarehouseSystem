@@ -1,3 +1,4 @@
+using System;
 using System.Net.Configuration;
 
 namespace WarehouseSystem.Data.Migrations
@@ -33,6 +34,11 @@ namespace WarehouseSystem.Data.Migrations
 
         private void SeedOrganization(WarehouseSystemDbContext context)
         {
+            if (context.Organizations.Any())
+            {
+                return;
+            }
+
             var organization = new Organization
             {
                 Name = "WMS-NG",
@@ -65,7 +71,8 @@ namespace WarehouseSystem.Data.Migrations
                 Email = "admin@site.com",
                 PasswordHash = this.PasswordHasher.HashPassword("admin"),
                 FirstName = "Nikolay",
-                LastName = "Georgiev"
+                LastName = "Georgiev",
+                CreatedOn = DateTime.Now
             };
 
             var organization = context.Organizations.FirstOrDefault();

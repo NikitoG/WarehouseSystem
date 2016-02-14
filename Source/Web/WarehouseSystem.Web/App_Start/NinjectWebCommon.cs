@@ -1,3 +1,6 @@
+using System.Data.Entity;
+using WarehouseSystem.Data.Common;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WarehouseSystem.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WarehouseSystem.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -13,7 +16,6 @@ namespace WarehouseSystem.Web.App_Start
     using Ninject.Extensions.Conventions;
 
     using WarehouseSystem.Data;
-    using WarehouseSystem.Data.Repositories;
 
     public static class NinjectWebCommon
     {
@@ -66,7 +68,8 @@ namespace WarehouseSystem.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(IWarehouseSystemDbContext)).To(typeof(WarehouseSystemDbContext));
-            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(DbContext)).To(typeof(WarehouseSystemDbContext));
+            kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
 
             kernel.Bind(b => b
                 .From("WarehouseSystem.Services.Data")

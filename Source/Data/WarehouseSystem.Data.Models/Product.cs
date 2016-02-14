@@ -1,9 +1,11 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Product
+    public class Product : BaseModel<int>
     {
         private ICollection<OrderQuantity> orderQuantities;
 

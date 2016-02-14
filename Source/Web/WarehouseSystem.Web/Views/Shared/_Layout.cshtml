@@ -28,8 +28,12 @@
             <div id="navbar" class="navbar-collapse collapse " aria-expanded="true">
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="active">
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li class="active">
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
                     <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
             </div>

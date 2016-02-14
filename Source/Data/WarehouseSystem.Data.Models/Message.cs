@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using WarehouseSystem.Data.Common.Models;
 
 namespace WarehouseSystem.Data.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Message
+    public class Message : BaseModel<int>
     {
         [Key]
         public int Id { get; set; }

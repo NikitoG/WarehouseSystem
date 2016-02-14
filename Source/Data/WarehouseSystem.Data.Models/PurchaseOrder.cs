@@ -1,11 +1,13 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class PurchaseOrder
+    public class PurchaseOrder : BaseModel<int>
     {
         private ICollection<OrderQuantity> orderQuantities;
 

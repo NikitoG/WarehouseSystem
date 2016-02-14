@@ -1,16 +1,17 @@
-﻿namespace WarehouseSystem.Services.Data
+﻿using WarehouseSystem.Data.Common;
+
+namespace WarehouseSystem.Services.Data
 {
     using System.Linq;
 
     using WarehouseSystem.Data.Models;
-    using WarehouseSystem.Data.Repositories;
     using WarehouseSystem.Services.Data.Contract;
 
     public class UserServices : IUserServices
     {
-        private IRepository<User> users;
+        private IDbRepository<User> users;
 
-        public UserServices(IRepository<User> users)
+        public UserServices(IDbRepository<User> users)
         {
             this.users = users;
         } 

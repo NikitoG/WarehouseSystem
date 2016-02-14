@@ -1,8 +1,10 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class OrderQuantity
+    public class OrderQuantity : BaseModel<int>
     {
         [Key]
         public int Id { get; set; }

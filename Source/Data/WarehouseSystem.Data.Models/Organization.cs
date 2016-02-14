@@ -1,9 +1,11 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Organization
+    public class Organization : BaseModel<int>
     {
         private ICollection<User> employees;
         private ICollection<PurchaseOrder> clients;
@@ -30,6 +32,8 @@
         public string Name { get; set; }
         
         public string MateriallyResponsiblePerson { get; set; }
+
+        public string LogoUrl { get; set; }
 
         [Required]
         [StringLength(9, MinimumLength = 9)]

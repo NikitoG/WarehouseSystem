@@ -1,4 +1,8 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -8,7 +12,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class User : IdentityUser
+    public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
         private ICollection<PurchaseOrder> orders;
         private ICollection<Message> sendMessages;
@@ -39,6 +43,15 @@
         public int OrganizationId { get; set; }
 
         public virtual Organization Organization { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        [Index]
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
 
         public virtual ICollection<PurchaseOrder> Orders
         {

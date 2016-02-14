@@ -1,10 +1,12 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Category
+    public class Category : BaseModel<int>
     {
         private ICollection<Product> products;
 

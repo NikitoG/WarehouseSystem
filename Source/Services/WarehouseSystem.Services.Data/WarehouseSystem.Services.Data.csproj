@@ -74,6 +74,10 @@
     <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Common\WarehouseSystem.Data.Common.csproj">
+      <Project>{A11FB528-D078-4C89-8373-70D7400E35FF}</Project>
+      <Name>WarehouseSystem.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Models\WarehouseSystem.Data.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
       <Name>WarehouseSystem.Data.Models</Name>

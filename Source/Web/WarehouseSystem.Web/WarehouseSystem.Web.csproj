@@ -338,6 +338,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Scripts\theme\js\ace\ace.js" />
     <Content Include="Scripts\theme\js\ace\mode-html.js" />
     <Content Include="Scripts\theme\js\ace\theme-github.js" />
@@ -388,6 +389,7 @@
     <Content Include="Views\Statistics\_AllCustomersPartial.cshtml" />
     <Content Include="Views\Statistics\_AllProductsPartial.cshtml" />
     <Content Include="Views\Shared\_AreasPartial.cshtml" />
+    <Content Include="Scripts\theme\js\wow.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -399,6 +401,10 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Common\WarehouseSystem.Data.Common.csproj">
+      <Project>{a11fb528-d078-4c89-8373-70d7400e35ff}</Project>
+      <Name>WarehouseSystem.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Models\WarehouseSystem.Data.Models.csproj">
       <Project>{aa2d7979-4e41-4c6c-8a78-9644cb915c59}</Project>
       <Name>WarehouseSystem.Data.Models</Name>

@@ -1,9 +1,11 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using WarehouseSystem.Data.Common.Models;
+
+namespace WarehouseSystem.Data.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class ScheduleOrder
+    public class ScheduleOrder : BaseModel<int>
     {
         [Key]
         public int Id { get; set; }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper.QueryableExtensions;
+using WarehouseSystem.Data.Common;
 using WarehouseSystem.Data.Models;
-using WarehouseSystem.Data.Repositories;
 
 namespace WarehouseSystem.Services.Data
 {
@@ -11,9 +11,9 @@ namespace WarehouseSystem.Services.Data
 
     public class OrganizationServices : IOrganizationServices
     {
-        private IRepository<Organization> organizations;
+        private IDbRepository<Organization> organizations;
 
-        public OrganizationServices(IRepository<Organization> organizations)
+        public OrganizationServices(IDbRepository<Organization> organizations)
         {
             this.organizations = organizations;
         }
