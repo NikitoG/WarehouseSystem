@@ -7,12 +7,9 @@ namespace WarehouseSystem.Data.Models
 
     public class ScheduleOrder : BaseModel<int>
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public DayOfWeek OrderDay { get; set; }
-        
+
         [Required]
         public DayOfWeek DelivaryDay { get; set; }
 

@@ -24,13 +24,10 @@ namespace WarehouseSystem.Data.Models
             this.products = new HashSet<Product>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(50, MinimumLength = 2)]
         public string Name { get; set; }
-        
+
         public string MateriallyResponsiblePerson { get; set; }
 
         public string LogoUrl { get; set; }

@@ -6,7 +6,6 @@ namespace WarehouseSystem.Web.ViewModels.Home
 {
     public class StatisticsViewModel : IMapFrom<Organization>, IHaveCustomMappings
     {
-
         public bool IsSupplier { get; set; }
 
         public int Products { get; set; }

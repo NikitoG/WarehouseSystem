@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (User.IsInRole("Administrator"))
 {
-    @Html.ActionLink("Administration area »", "About", "Home", null, new { @class = "btn btn-primary btn-lg app-btn" })
+    @Html.ActionLink("Admin area »", "About", "Home", null, new { @class = "btn btn-primary btn-lg app-btn" })
 }
 else if (Request.IsAuthenticated)
 {
@@ -9,5 +9,5 @@ else if (Request.IsAuthenticated)
 }
 else
 {
-    @Html.ActionLink("About us »", "About", "Home", null, new {@class = "btn btn-primary btn-lg app-btn" })
+    @Html.ActionLink("Sign in »", "Login", "Account", null, new {@class = "btn btn-primary btn-lg app-btn" })
 }

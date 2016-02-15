@@ -258,6 +258,8 @@
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Home\SendMassageViewModel.cs" />
     <Compile Include="ViewModels\Home\StatisticsViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -338,7 +340,12 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\theme\alert.js" />
+    <Content Include="Scripts\theme\app.js" />
+    <Content Include="Scripts\theme\button.js" />
+    <Content Include="Scripts\theme\card.js" />
+    <Content Include="Scripts\theme\chartjs.js" />
+    <Content Include="Scripts\theme\index.js" />
     <Content Include="Scripts\theme\js\ace\ace.js" />
     <Content Include="Scripts\theme\js\ace\mode-html.js" />
     <Content Include="Scripts\theme\js\ace\theme-github.js" />
@@ -350,6 +357,9 @@
     <Content Include="Scripts\theme\js\jquery.matchHeight-min.js" />
     <Content Include="Scripts\theme\js\jquery.min.js" />
     <Content Include="Scripts\theme\js\select2.full.min.js" />
+    <Content Include="Scripts\theme\list.js" />
+    <Content Include="Scripts\theme\modal.js" />
+    <Content Include="Scripts\theme\theming.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -389,7 +399,8 @@
     <Content Include="Views\Statistics\_AllCustomersPartial.cshtml" />
     <Content Include="Views\Statistics\_AllProductsPartial.cshtml" />
     <Content Include="Views\Shared\_AreasPartial.cshtml" />
-    <Content Include="Scripts\theme\js\wow.min.js" />
+    <Content Include="stylecop.json" />
+    <Content Include="Views\Home\_ContactUsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,6 +428,11 @@
       <Project>{b6c34989-1965-4971-84d7-7bb2f3ec5a35}</Project>
       <Name>WarehouseSystem.Services.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
+using WarehouseSystem.Data.Models;
+using WarehouseSystem.Web.Infrastructure.Mapping;
 
 namespace WarehouseSystem.Web.ViewModels
 {
@@ -62,8 +65,23 @@ namespace WarehouseSystem.Web.ViewModels
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
+    public class RegisterViewModel : IMapFrom<User>
     {
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(20, MinimumLength = 2)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(20, MinimumLength = 2)]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Position")]
+        [StringLength(20, MinimumLength = 2)]
+        public string Position { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +97,8 @@ namespace WarehouseSystem.Web.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public HttpPostedFileBase UploadedImage { get; set; }
     }
 
     public class ResetPasswordViewModel

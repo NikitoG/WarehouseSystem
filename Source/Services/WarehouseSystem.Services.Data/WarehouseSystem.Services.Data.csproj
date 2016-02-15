@@ -67,10 +67,12 @@
   <ItemGroup>
     <Compile Include="Contract\IOrganizationServices.cs" />
     <Compile Include="Contract\IProductServices.cs" />
+    <Compile Include="Contract\IPublicMessageServices.cs" />
     <Compile Include="Contract\IUserServices.cs" />
     <Compile Include="OrganizationServices.cs" />
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicMessageServices.cs" />
     <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +89,11 @@
       <Name>WarehouseSystem.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

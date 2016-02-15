@@ -20,6 +20,8 @@
 
         IDbSet<Message> Messages { get; set; }
 
+        IDbSet<PublicMessage> PublicMessages { get; set; }
+
         IDbSet<OrderQuantity> OrderQuantities { get; set; }
 
         IDbSet<Organization> Organizations { get; set; }

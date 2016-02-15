@@ -32,15 +32,15 @@ namespace WarehouseSystem.Data.Models
         [Required]
         [StringLength(20, MinimumLength = 2)]
         public string LastName { get; set; }
-        
+
         [StringLength(20, MinimumLength = 2)]
         public string Position { get; set; }
 
         public int? ImageId { get; set; }
 
         public virtual Image Image { get; set; }
-        
-        public int OrganizationId { get; set; }
+
+        public int? OrganizationId { get; set; }
 
         public virtual Organization Organization { get; set; }
 

@@ -6,9 +6,6 @@ namespace WarehouseSystem.Data.Models
 
     public class OrderQuantity : BaseModel<int>
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public double Quantity { get; set; }
 

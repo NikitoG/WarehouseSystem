@@ -1,4 +1,8 @@
-﻿namespace WarehouseSystem.Web.Controllers
+﻿using System;
+using AutoMapper;
+using WarehouseSystem.Data.Models;
+
+namespace WarehouseSystem.Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
@@ -12,6 +16,9 @@
         [Inject]
         public IOrganizationServices Organization { get; set; }
 
+        [Inject]
+        public IPublicMessageServices PublicMessage { get; set; }
+
         //TODO: remove comment
         //[OutputCache(Duration = 60 * 60)]
         public ActionResult Index()
@@ -21,22 +28,36 @@
                 .Project()
                 .To<StatisticsViewModel>()
                 .ToList();
-             
-            return View(allOrganizations);
+
+            var viewModel = new IndexViewModel
+            {
+                Customers = allOrganizations.Count(o => o.IsSupplier == true),
+                Suppliers = allOrganizations.Count(o => o.IsSupplier == false),
+                Products = allOrganizations.Where(o => o.IsSupplier == true).Sum(o => o.Products)
+            };
+
+            return View(viewModel);
         }
 
-        public ActionResult About()
+        [ChildActionOnly]
+        public ActionResult Send()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return this.PartialView("_ContactUsPartial");
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Send(SendMassageViewModel message)
         {
-            ViewBag.Message = "Your contact page.";
+            if (!this.ModelState.IsValid)
+            {
+                return this.PartialView("_ContactUsPartial", message);
+            }
 
-            return View();
+            var newMessage = Mapper.Map<PublicMessage>(message);
+            newMessage.CreatedOn = DateTime.Now;
+            this.PublicMessage.Add(newMessage);
+            return this.Send();
         }
     }
 }

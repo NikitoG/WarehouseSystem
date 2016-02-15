@@ -1,0 +1,32 @@
+﻿@using Microsoft.Ajax.Utilities
+@model SendMassageViewModel
+
+@using (Ajax.BeginForm("Send",
+                null,
+                new AjaxOptions
+                {
+                    HttpMethod = "POST"
+                }, new { id = "sendMessage" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Full Name" })
+            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email address" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control", placeholder = "Your Message", rows = "5" })
+            @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success pull-right"/>
+    </div>
+}

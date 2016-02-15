@@ -16,9 +16,6 @@ namespace WarehouseSystem.Data.Models
             this.orderQuantities = new HashSet<OrderQuantity>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public DateTime DateOfOrder { get; set; }
 

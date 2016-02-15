@@ -31,9 +31,7 @@ namespace WarehouseSystem.Web
                       "~/Scripts/theme/js/ace/ace.js",
                       "~/Scripts/theme/js/ace/mode-html.js",
                       "~/Scripts/theme/js/ace/theme-github.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/theme/js/wow.min.js",
-                      "~/Scripts/script.js"));
+                      "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -47,6 +45,9 @@ namespace WarehouseSystem.Web
                       "~/Content/Theme/home/style.css",
                       "~/Content/Theme/home/flat-blue.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/login").Include(
+                      "~/Scripts/theme/app.js"));
         }
     }
 }

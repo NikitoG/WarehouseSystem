@@ -575,7 +575,7 @@ a:hover {
       margin-top: 15px; }
 
 body.login-page {
-  background: url(../../img/app-header-bg.jpg) no-repeat center center fixed;
+  background: url(../img/app-header-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -56,6 +56,8 @@ namespace WarehouseSystem.Data
 
         public IDbSet<Message> Messages { get; set; }
 
+        public IDbSet<PublicMessage> PublicMessages { get; set; }
+
         public IDbSet<OrderQuantity> OrderQuantities { get; set; }
 
         public IDbSet<Organization> Organizations { get; set; }
@@ -145,12 +147,12 @@ namespace WarehouseSystem.Data
                 .HasForeignKey(m => m.SupplierId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder
-                .Entity<User>()
-                .HasRequired(m => m.Organization)
-                .WithMany(t => t.Employees)
-                .HasForeignKey(m => m.OrganizationId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder
+            //    .Entity<User>()
+            //    .HasRequired(m => m.Organization)
+            //    .WithMany(t => t.Employees)
+            //    .HasForeignKey(m => m.OrganizationId)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<Product>()

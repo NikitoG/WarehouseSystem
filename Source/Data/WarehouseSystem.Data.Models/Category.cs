@@ -15,9 +15,6 @@ namespace WarehouseSystem.Data.Models
             this.products = new HashSet<Product>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [Index(IsUnique = true)]
         [StringLength(50, MinimumLength = 2)]

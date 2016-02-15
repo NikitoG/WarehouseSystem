@@ -14,9 +14,6 @@ namespace WarehouseSystem.Data.Models
             this.categories = new HashSet<Category>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(50, MinimumLength = 2)]
         public string Name { get; set; }

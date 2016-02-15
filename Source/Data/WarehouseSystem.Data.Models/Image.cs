@@ -6,9 +6,6 @@ namespace WarehouseSystem.Data.Models
 
     public class Image : BaseModel<int>
     {
-        [Key]
-        public int Id { get; set; }
-
         public byte[] Content { get; set; }
 
         public string FileExtension { get; set; }
