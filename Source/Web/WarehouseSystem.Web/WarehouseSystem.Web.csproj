@@ -76,6 +76,10 @@
       <HintPath>..\..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc, Version=2016.1.112.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -270,6 +274,59 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\KendoUi\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\KendoUi\images\back.png" />
+    <Content Include="Content\KendoUi\images\kendoui.svg" />
+    <Content Include="Content\KendoUi\images\wp8_icons.png" />
+    <Content Include="Content\KendoUi\images\wp8_inverseicons.png" />
+    <Content Include="Content\KendoUi\kendo.common.min.css" />
+    <Content Include="Content\KendoUi\kendo.moonlight.min.css" />
+    <Content Include="Content\KendoUi\kendo.moonlight.mobile.min.css" />
+    <Content Include="Content\KendoUi\Moonlight\editor.png" />
+    <Content Include="Content\KendoUi\Moonlight\imagebrowser.png" />
+    <Content Include="Content\KendoUi\Moonlight\indeterminate.gif" />
+    <Content Include="Content\KendoUi\Moonlight\loading-image.gif" />
+    <Content Include="Content\KendoUi\Moonlight\loading.gif" />
+    <Content Include="Content\KendoUi\Moonlight\loading_2x.gif" />
+    <Content Include="Content\KendoUi\Moonlight\markers.png" />
+    <Content Include="Content\KendoUi\Moonlight\markers_2x.png" />
+    <Content Include="Content\KendoUi\Moonlight\slider-h.gif" />
+    <Content Include="Content\KendoUi\Moonlight\slider-v.gif" />
+    <Content Include="Content\KendoUi\Moonlight\sprite.png" />
+    <Content Include="Content\KendoUi\Moonlight\sprite_2x.png" />
+    <Content Include="Content\KendoUi\Moonlight\sprite_kpi.png" />
+    <Content Include="Content\KendoUi\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="Content\KendoUi\textures\brushed-metal.png" />
+    <Content Include="Content\KendoUi\textures\dots1.png" />
+    <Content Include="Content\KendoUi\textures\dots10.png" />
+    <Content Include="Content\KendoUi\textures\dots11.png" />
+    <Content Include="Content\KendoUi\textures\dots12.png" />
+    <Content Include="Content\KendoUi\textures\dots13.png" />
+    <Content Include="Content\KendoUi\textures\dots2.png" />
+    <Content Include="Content\KendoUi\textures\dots3.png" />
+    <Content Include="Content\KendoUi\textures\dots4.png" />
+    <Content Include="Content\KendoUi\textures\dots5.png" />
+    <Content Include="Content\KendoUi\textures\dots6.png" />
+    <Content Include="Content\KendoUi\textures\dots7.png" />
+    <Content Include="Content\KendoUi\textures\dots8.png" />
+    <Content Include="Content\KendoUi\textures\dots9.png" />
+    <Content Include="Content\KendoUi\textures\glass-lighter.png" />
+    <Content Include="Content\KendoUi\textures\glass.png" />
+    <Content Include="Content\KendoUi\textures\highlight.png" />
+    <Content Include="Content\KendoUi\textures\hsv-gradient.png" />
+    <Content Include="Content\KendoUi\textures\hue.png" />
+    <Content Include="Content\KendoUi\textures\leather1.png" />
+    <Content Include="Content\KendoUi\textures\leather2.png" />
+    <Content Include="Content\KendoUi\textures\noise.png" />
+    <Content Include="Content\KendoUi\textures\stripe1.png" />
+    <Content Include="Content\KendoUi\textures\stripe2.png" />
+    <Content Include="Content\KendoUi\textures\stripe3.png" />
+    <Content Include="Content\KendoUi\textures\stripe4.png" />
+    <Content Include="Content\KendoUi\textures\stripe5.png" />
+    <Content Include="Content\KendoUi\textures\stripe6.png" />
+    <Content Include="Content\KendoUi\textures\transparency.png" />
+    <Content Include="Content\KendoUi\textures\transtexture.png" />
     <Content Include="Content\Theme\css\animate.min.css" />
     <Content Include="Content\Theme\css\bootstrap-switch.min.css" />
     <Content Include="Content\Theme\css\bootstrap.min.css" />
@@ -301,6 +358,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Libs\Kendo.Mvc.dll" />
+    <Content Include="Libs\Kendo.Mvc.xml" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -323,6 +382,27 @@
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\KendoUi\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\KendoUi\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\KendoUi\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\KendoUi\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\KendoUi\images\kendoui.ttf" />
+    <Content Include="Content\KendoUi\images\kendoui.woff" />
+    <Content Include="Content\KendoUi\kendo.common.min.css.map" />
+    <Content Include="Content\KendoUi\kendo.moonlight.min.css.map" />
+    <Content Include="Content\KendoUi\kendo.moonlight.mobile.min.css.map" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -335,6 +415,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\KendoUi\kendo.all.min.js" />
+    <Content Include="Scripts\KendoUi\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\KendoUi\messages\kendo.messages.bg-BG.min.js" />
+    <Content Include="Scripts\KendoUi\messages\kendo.messages.en-US.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -401,6 +485,20 @@
     <Content Include="Views\Shared\_AreasPartial.cshtml" />
     <Content Include="stylecop.json" />
     <Content Include="Views\Home\_ContactUsPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Scripts\KendoUi\kendo.all.min.js.map" />
+    <Content Include="Scripts\KendoUi\kendo.aspnetmvc.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

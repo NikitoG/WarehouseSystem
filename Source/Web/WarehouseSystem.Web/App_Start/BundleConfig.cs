@@ -20,7 +20,7 @@ namespace WarehouseSystem.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/bundles/theme").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/theme/js/Chart.min.js",
                       "~/Scripts/theme/js/bootstrap-switch.min.js",
@@ -32,6 +32,10 @@ namespace WarehouseSystem.Web
                       "~/Scripts/theme/js/ace/mode-html.js",
                       "~/Scripts/theme/js/ace/theme-github.js",
                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                      "~/Scripts/KendoUi/kendo.all.min.js",
+                      "~/Scripts/KendoUi/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -45,6 +49,11 @@ namespace WarehouseSystem.Web
                       "~/Content/Theme/home/style.css",
                       "~/Content/Theme/home/flat-blue.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/KendoUi/kendo.common.min.css",
+                      "~/Content/KendoUi/kendo.moonlight.min.css",
+                      "~/Content/KendoUi/kendo.moonlight.mobile.min.css"));
 
             bundles.Add(new StyleBundle("~/bundles/login").Include(
                       "~/Scripts/theme/app.js"));

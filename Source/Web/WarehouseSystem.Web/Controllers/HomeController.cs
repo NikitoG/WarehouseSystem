@@ -57,7 +57,8 @@ namespace WarehouseSystem.Web.Controllers
             var newMessage = Mapper.Map<PublicMessage>(message);
             newMessage.CreatedOn = DateTime.Now;
             this.PublicMessage.Add(newMessage);
-            return this.Send();
+            this.TempData["success"] = "Successfull";
+            return this.PartialView("_ContactUsPartial", new SendMassageViewModel());
         }
     }
 }

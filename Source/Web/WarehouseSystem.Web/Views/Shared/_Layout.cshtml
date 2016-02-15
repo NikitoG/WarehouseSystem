@@ -7,7 +7,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
 
 </head>
 <body class='@ViewBag.Body'>
@@ -41,15 +44,14 @@
         </div>
     </nav>
     @RenderBody()
-    <hr/>
+    <hr />
     <footer class="app-footer">
         <div class="container">
             <p class="text-muted">&copy; @DateTime.Now.Year, WS-NG.</p>
         </div>
     </footer>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/theme")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
