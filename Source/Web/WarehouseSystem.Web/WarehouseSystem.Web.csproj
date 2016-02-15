@@ -251,6 +251,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\User\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -403,6 +407,13 @@
     <Content Include="Content\KendoUi\kendo.common.min.css.map" />
     <Content Include="Content\KendoUi\kendo.moonlight.min.css.map" />
     <Content Include="Content\KendoUi\kendo.moonlight.mobile.min.css.map" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\User\Views\Shared\_LayoutAreas.cshtml" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\User\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -502,6 +513,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Areas\User\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

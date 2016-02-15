@@ -31,7 +31,9 @@ namespace WarehouseSystem.Web
                       "~/Scripts/theme/js/ace/ace.js",
                       "~/Scripts/theme/js/ace/mode-html.js",
                       "~/Scripts/theme/js/ace/theme-github.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/theme/app.js",
+                      "~/Scripts/theme/index.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                       "~/Scripts/KendoUi/kendo.all.min.js",
