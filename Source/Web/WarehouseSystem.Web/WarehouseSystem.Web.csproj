@@ -253,9 +253,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
-    <Compile Include="Areas\User\Controllers\UserController.cs" />
-    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\Private\Controllers\PartialController.cs" />
+    <Compile Include="Areas\Private\Controllers\UserController.cs" />
+    <Compile Include="Areas\Private\UserAreaRegistration.cs" />
+    <Compile Include="Areas\Private\ViewModels\PartialModels\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -407,13 +410,14 @@
     <Content Include="Content\KendoUi\kendo.common.min.css.map" />
     <Content Include="Content\KendoUi\kendo.moonlight.min.css.map" />
     <Content Include="Content\KendoUi\kendo.moonlight.mobile.min.css.map" />
-    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\Private\Views\web.config" />
     <Content Include="Areas\Administration\Views\web.config" />
-    <Content Include="Areas\User\Views\Shared\_LayoutAreas.cshtml" />
-    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_LayoutAreas.cshtml" />
+    <Content Include="Areas\Private\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\User\Views\User\Index.cshtml" />
+    <Content Include="Areas\Private\Views\User\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Private\Views\Partial\_HeaderPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -515,7 +519,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

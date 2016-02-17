@@ -1,11 +1,10 @@
-﻿using System;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-
-namespace WarehouseSystem.Web.Controllers
+﻿namespace WarehouseSystem.Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
     using AutoMapper.QueryableExtensions;
     using Ninject;
     using WarehouseSystem.Services.Data.Contract;

@@ -20,5 +20,10 @@ namespace WarehouseSystem.Services.Data
         {
             return this.users.All();
         }
+
+        public User GetByName(string name)
+        {
+            return this.users.All().FirstOrDefault(u => u.UserName == name);
+        }
     }
 }
