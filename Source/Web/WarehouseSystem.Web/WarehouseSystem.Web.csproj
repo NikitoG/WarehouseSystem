@@ -254,9 +254,11 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Private\Controllers\PartialController.cs" />
-    <Compile Include="Areas\Private\Controllers\UserController.cs" />
+    <Compile Include="Areas\Private\Controllers\OrganizationController.cs" />
+    <Compile Include="Areas\Private\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Private\UserAreaRegistration.cs" />
     <Compile Include="Areas\Private\ViewModels\PartialModels\UserViewModel.cs" />
+    <Compile Include="Areas\Private\ViewModels\Profile\ProfileViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -352,6 +354,7 @@
     <Content Include="Content\Theme\img\bg.jpg" />
     <Content Include="Content\Theme\img\bg\picjumbo.com_HNCK3558.jpg" />
     <Content Include="Content\Theme\img\contact-us-bg.jpg" />
+    <Content Include="Content\Theme\img\profile\default.png" />
     <Content Include="Content\Theme\img\profile\picjumbo.com_HNCK4153_resize.jpg" />
     <Content Include="Content\Theme\img\profile\profile-1.jpg" />
     <Content Include="Content\Theme\img\screenshots\dashboard.png" />
@@ -415,9 +418,10 @@
     <Content Include="Areas\Private\Views\Shared\_LayoutAreas.cshtml" />
     <Content Include="Areas\Private\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Private\Views\User\Index.cshtml" />
+    <Content Include="Areas\Private\Views\Organization\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Private\Views\Partial\_HeaderPartial.cshtml" />
+    <Content Include="Areas\Private\Views\Profile\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

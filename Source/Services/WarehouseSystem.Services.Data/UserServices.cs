@@ -25,5 +25,10 @@ namespace WarehouseSystem.Services.Data
         {
             return this.users.All().FirstOrDefault(u => u.UserName == name);
         }
+
+        public void Update()
+        {
+            this.users.Save();
+        }
     }
 }

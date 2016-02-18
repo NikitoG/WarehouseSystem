@@ -8,5 +8,7 @@
         IQueryable<User> GetAll();
 
         User GetByName(string name);
+
+        void Update();
     }
 }

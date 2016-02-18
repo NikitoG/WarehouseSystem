@@ -1,4 +1,5 @@
-﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.UserViewModel
+﻿@using Microsoft.AspNet.Identity
+@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.UserViewModel
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-top">
     <div class="container-fluid">
@@ -7,7 +8,7 @@
                 <i class="fa fa-bars icon"></i>
             </button>
             <ol class="breadcrumb navbar-breadcrumb">
-                <li class="active">@Model.OrganizationName</li>
+                <li class="active">@(string.IsNullOrWhiteSpace(Model.OrganizationName) ? "Oraganization" : @Model.OrganizationName)</li>
             </ol>
             <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                 <i class="fa fa-th icon"></i>
@@ -70,7 +71,7 @@
                         }
                         else
                         {
-                            <img src="~/Content/Theme/img/profile/picjumbo.com_HNCK4153_resize.jpg" class="profile-img">
+                            <img src="~/Content/Theme/img/profile/default.png" class="profile-img">
                         }
                     </li>
                     <li>
@@ -78,7 +79,7 @@
                             <h4 class="username">@Model.FullName</h4>
                             <p>@Model.Email</p>
                             <div class="btn-group margin-bottom-2x" role="group">
-                                <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
+                                <a href="/Private/Profile" class="btn btn-default"><i class="fa fa-user"></i> Profile</a>
                                 @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                 {
                                     @Html.AntiForgeryToken()
@@ -92,4 +93,3 @@
         </ul>
     </div>
 </nav>
-

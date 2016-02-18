@@ -5,7 +5,7 @@
 }
 else if (Request.IsAuthenticated)
 {
-    @Html.ActionLink("User area »", "Index", "User", new { area = "Private"}, new { @class = "btn btn-primary btn-lg app-btn" })
+    @Html.ActionLink("User area »", "Index", "Organization", new { area = "Private"}, new { @class = "btn btn-primary btn-lg app-btn" })
 }
 else
 {

@@ -2,9 +2,8 @@
 {
     using System.Web.Mvc;
 
-    public class UserController : Controller
+    public class OrganizationController : Controller
     {
-        // GET: User/User
         public ActionResult Index()
         {
             return View();
