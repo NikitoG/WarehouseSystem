@@ -23,6 +23,17 @@ namespace WarehouseSystem.Services.Data
             return this.organizations.All();
         }
 
+        public IQueryable<Organization> GetAllSuppliers()
+        {
+            return this.organizations.All().Where(s => s.IsSupplier == true);
+        }
+
+        public IQueryable<Organization> GetSuppliersByCategory(int id)
+        {
+            return this.organizations.All()
+                .Where(s => s.IsSupplier == true && s.Products.Any(p => p.CategoryId == id));
+        }
+
         public IList<string> GetNames(bool isSupplier)
         {
             return this.organizations
@@ -30,6 +41,52 @@ namespace WarehouseSystem.Services.Data
                 .Where(o => o.IsSupplier == isSupplier)
                 .Select(o => o.Name)
                 .ToList();
+        }
+
+        public int CountAllPartners(User user)
+        {
+            return this.organizations.GetById(user.OrganizationId).Partners.Count();
+        }
+
+        public IQueryable<Organization> GetPartners(int id)
+        {
+            return this.organizations.GetById(id).Partners.AsQueryable();
+        }
+
+        public Organization GetById(int id)
+        {
+            return this.organizations.GetById(id);
+        }
+
+        public void SetPartners(int clientId, int id)
+        {
+            var client = this.organizations.GetById(clientId);
+            var supplier = this.organizations.GetById(id);
+
+            if (client.Partners.Contains(supplier))
+            {
+                return;
+            }
+
+            client.Partners.Add(supplier);
+
+            this.organizations.Save();
+        }
+
+        public void DeletePartners(int clientId, int id)
+        {
+            var client = this.organizations.GetById(clientId);
+            var supplier = this.organizations.GetById(id);
+
+            if (!client.Partners.Contains(supplier))
+            {
+                return;
+            }
+
+            client.Partners.Remove(supplier);
+            supplier.Partners.Remove(client);
+
+            this.organizations.Save();
         }
     }
 }

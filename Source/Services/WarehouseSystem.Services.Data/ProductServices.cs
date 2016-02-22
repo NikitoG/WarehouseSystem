@@ -25,5 +25,22 @@ namespace WarehouseSystem.Services.Data
                 .Select(o => o.Name)
                 .ToList();
         }
+
+        public int CountProductsByUser(User user)
+        {
+            if (user.Organization.IsSupplier)
+            {
+                return this.products.All().Count(p => p.SupplierId == user.OrganizationId);
+            }
+            else
+            {
+                return user.Organization.Partners.Sum(s => s.Products.Count());
+            }
+        }
+
+        public IQueryable<Product> GetProductsBySupplier(int id)
+        {
+            return this.products.All().Where(p => p.SupplierId == id);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using WarehouseSystem.Data.Common.Models;
 
@@ -24,7 +25,15 @@ namespace WarehouseSystem.Data
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            return base.SaveChanges();
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
         }
 
         private void ApplyAuditInfoRules()
@@ -115,14 +124,14 @@ namespace WarehouseSystem.Data
             modelBuilder
                 .Entity<PurchaseOrder>()
                 .HasRequired(m => m.Client)
-                .WithMany(t => t.Clients)
+                .WithMany(t => t.ClientOrders)
                 .HasForeignKey(m => m.ClientId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<PurchaseOrder>()
                 .HasRequired(m => m.Supplier)
-                .WithMany(t => t.Suppliers)
+                .WithMany(t => t.SupplierOrders)
                 .HasForeignKey(m => m.SupplierId)
                 .WillCascadeOnDelete(false);
 
@@ -147,12 +156,10 @@ namespace WarehouseSystem.Data
                 .HasForeignKey(m => m.SupplierId)
                 .WillCascadeOnDelete(false);
 
-            //modelBuilder
-            //    .Entity<User>()
-            //    .HasRequired(m => m.Organization)
-            //    .WithMany(t => t.Employees)
-            //    .HasForeignKey(m => m.OrganizationId)
-            //    .WillCascadeOnDelete(false);
+            modelBuilder
+                .Entity<Organization>()
+                .HasMany(m => m.Partners)
+                .WithMany();
 
             modelBuilder
                 .Entity<Product>()

@@ -1,5 +1,4 @@
 using System;
-using System.Net.Configuration;
 
 namespace WarehouseSystem.Data.Migrations
 {
@@ -30,6 +29,167 @@ namespace WarehouseSystem.Data.Migrations
             this.userManager = new UserManager<User>(new UserStore<User>(context));
             this.SeedOrganization(context);
             this.SeedUsers(context);
+            this.SeedDivisions(context);
+            this.SeedCategories(context);
+            this.SeedProducts(context);
+            this.SeedMessages(context);
+            this.SeedScheduleOrder(context);
+            this.SeedPartners(context);
+        }
+
+        private void SeedPartners(WarehouseSystemDbContext context)
+        {
+            var suppliers = context.Organizations.Where(x => x.IsSupplier == true).ToList();
+            var customers = context.Organizations.Where(x => x.IsSupplier == false).ToList();
+            foreach (var currentCustomer in customers)
+            {
+                if (currentCustomer.Partners.Any())
+                {
+                    continue;
+                }
+
+                for (int j = 0; j < this.random.RandomNumber(0, suppliers.Count - 1); j++)
+                {
+                    var currnetSupplier = suppliers[this.random.RandomNumber(0, suppliers.Count - 1)];
+                    if (!currentCustomer.Partners.Contains(currnetSupplier))
+                    {
+                        currentCustomer.Partners.Add(currnetSupplier);
+                    }
+                }
+            }
+
+            context.SaveChanges();
+        }
+
+        private void SeedScheduleOrder(WarehouseSystemDbContext context)
+        {
+            if (context.Organizations.Any())
+            {
+                return;
+            }
+
+            var suppliers = context.Organizations.Where(x => x.IsSupplier == true).ToList();
+            var customers = context.Organizations.Where(x => x.IsSupplier == false).ToList();
+            for (int i = 0; i < suppliers.Count; i++)
+            {
+                for (int j = 0; j < this.random.RandomNumber(0, customers.Count - 1); j++)
+                {
+                    var newScheduleOrder = new ScheduleOrder()
+                    {
+                        OrderDay = (DayOfWeek)this.random.RandomNumber(0, 6),
+                        DelivaryDay = (DayOfWeek)this.random.RandomNumber(0, 6),
+                        Supplier = suppliers[this.random.RandomNumber(0, suppliers.Count - 1)],
+                        Client = customers[(i + j) % customers.Count],
+
+                    };
+
+                    context.ScheduleOrders.Add(newScheduleOrder);
+                }
+            }
+
+            context.SaveChanges();
+        }
+
+        private void SeedMessages(WarehouseSystemDbContext context)
+        {
+            if (context.Messages.Any())
+            {
+                return;
+            }
+
+            var users = context.Users.ToList();
+            for (int i = 0; i < 50; i++)
+            {
+                var newMessage = new Message()
+                {
+                    Title = $"Title {i}",
+                    Content = $"Content {i}",
+                    FromId = users[this.random.RandomNumber(0, users.Count - 1)].Id,
+                    From = users[this.random.RandomNumber(0, users.Count - 1)],
+                    ToId = users[this.random.RandomNumber(0, users.Count - 1)].Id,
+                    To = users[this.random.RandomNumber(0, users.Count - 1)]
+                };
+
+                context.Messages.Add(newMessage);
+            }
+
+            context.SaveChanges();
+        }
+
+        private void SeedProducts(WarehouseSystemDbContext context)
+        {
+            if (context.Products.Any())
+            {
+                return;
+            }
+
+            var categories = context.Categories.ToList();
+            var suppliers = context.Organizations.Where(x => x.IsSupplier == true).ToList();
+            for (int i = 0; i < categories.Count; i++)
+            {
+                for (int j = 0; j < 50; j++)
+                {
+                    var newProduct = new Product()
+                    {
+                        Name = $"Product - {i}{j}",
+                        Barcode = this.random.RandomNumber(1000, 999999999).ToString(),
+                        Category = categories[i],
+                        DeliveryUnit = this.random.RandomNumber(4, 16),
+                        Sku = categories[i].Id + ((i + 1) * j),
+                        Supplier = suppliers[random.RandomNumber(0, suppliers.Count - 1)]
+                    };
+
+                    context.Products.Add(newProduct);
+                }
+            }
+
+            context.SaveChanges();
+        }
+
+        private void SeedCategories(WarehouseSystemDbContext context)
+        {
+            if (context.Categories.Any())
+            {
+                return;
+            }
+
+            var divisions = context.Divisions.ToList();
+            for (int i = 0; i < divisions.Count; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    var newCategory = new Category()
+                    {
+                        Name = $"Category - {i}{j}",
+                        Division = divisions[i]
+                    };
+
+                    context.Categories.Add(newCategory);
+                }
+            }
+
+            context.SaveChanges();
+        }
+
+        private void SeedDivisions(WarehouseSystemDbContext context)
+        {
+            if (context.Divisions.Any())
+            {
+                return;
+            }
+
+            var division = new[] { "Dairy", "Meat", "Sweet", "Food" };
+            for (int i = 0; i < division.Length; i++)
+            {
+                var newDivision = new Division()
+                {
+                    Name = division[i]
+                };
+
+                context.Divisions.Add(newDivision);
+            }
+
+            context.SaveChanges();
         }
 
         private void SeedOrganization(WarehouseSystemDbContext context)
@@ -39,7 +199,7 @@ namespace WarehouseSystem.Data.Migrations
                 return;
             }
 
-            var organization = new Organization
+            var organization = new Organization()
             {
                 Name = "WMS-NG",
                 MateriallyResponsiblePerson = "Nikolay Georgiev",
@@ -49,6 +209,22 @@ namespace WarehouseSystem.Data.Migrations
             };
 
             context.Organizations.AddOrUpdate(x => x.Name, organization);
+
+            var cities = new[] { "Plovdiv", "Sofia", "Varna" };
+            for (int i = 0; i < 20; i++)
+            {
+                var newOrganization = new Organization()
+                {
+                    Name = $"Organization - {i}",
+                    MateriallyResponsiblePerson = "Pesho Peshov",
+                    Address = cities[i % 3],
+                    Vat = "000000000",
+                    IsSupplier = i % 3 == 0
+                };
+
+                context.Organizations.Add(newOrganization);
+            }
+
             context.SaveChanges();
         }
 
@@ -65,7 +241,7 @@ namespace WarehouseSystem.Data.Migrations
             var role = new IdentityRole { Name = "Administrator" };
             roleManager.Create(role);
 
-            var admin = new User
+            var admin = new User()
             {
                 UserName = "admin@site.com",
                 Email = "admin@site.com",
@@ -75,7 +251,7 @@ namespace WarehouseSystem.Data.Migrations
                 CreatedOn = DateTime.Now
             };
 
-            var organization = context.Organizations.FirstOrDefault();
+            var organization = context.Organizations.FirstOrDefault(o => o.Name == "WMS-NG");
             if (organization != null)
             {
                 admin.OrganizationId = organization.Id;
@@ -84,18 +260,23 @@ namespace WarehouseSystem.Data.Migrations
             userManager.Create(admin);
             userManager.AddToRole(admin.Id, "Administrator");
 
+            var organizations = context.Organizations.ToList();
+            for (int i = 0; i < 10; i++)
+            {
+                var user = new User()
+                {
+                    Email = $"user{i}@site.com",
+                    UserName = $"user{i}@site.com",
+                    FirstName = $"user{i}",
+                    LastName = $"Userov{i}",
+                    CreatedOn = DateTime.Now,
+                    Organization = organizations[this.random.RandomNumber(0, organizations.Count - 1)]
+                };
+
+                this.userManager.Create(user, "123456");
+            }
+
             context.SaveChanges();
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    var user = new User
-            //    {
-            //        Email = string.Format("{0}@{1}.com", this.random.RandomString(6, 16), this.random.RandomString(6, 16)),
-            //        UserName = this.random.RandomString(6, 16)
-            //    };
-
-            //    this.userManager.Create(user, "123456");
-            //}
         }
     }
 }

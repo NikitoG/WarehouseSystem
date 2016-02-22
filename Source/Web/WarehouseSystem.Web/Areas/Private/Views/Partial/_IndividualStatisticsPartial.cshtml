@@ -1,0 +1,60 @@
+﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.IndividualStatisticsViewModel
+
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <a href="#">
+            <div class="card red summary-inline">
+                <div class="card-body">
+                    <i class="icon fa fa-inbox fa-4x"></i>
+                    <div class="content">
+                        <div class="title">@Model.Orders</div>
+                        <div class="sub-title">Orders</div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <a href="#">
+            <div class="card yellow summary-inline">
+                <div class="card-body">
+                    <i class="icon fa fa-comments fa-4x"></i>
+                    <div class="content">
+                        <div class="title">@Model.Messages</div>
+                        <div class="sub-title">New Message</div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <a href="#">
+            <div class="card green summary-inline">
+                <div class="card-body">
+                    <i class="icon fa fa-tags fa-4x"></i>
+                    <div class="content">
+                        <div class="title">@Model.Products</div>
+                        <div class="sub-title">Product</div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <a href="#">
+            <div class="card blue summary-inline">
+                <div class="card-body">
+                    <i class="icon fa fa-share-alt fa-4x"></i>
+                    <div class="content">
+                        <div class="title">@Model.Partners</div>
+                        <div class="sub-title">Partners</div>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

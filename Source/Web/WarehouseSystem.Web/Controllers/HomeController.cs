@@ -30,8 +30,8 @@
 
             var viewModel = new IndexViewModel
             {
-                Customers = allOrganizations.Count(o => o.IsSupplier == true),
-                Suppliers = allOrganizations.Count(o => o.IsSupplier == false),
+                Customers = allOrganizations.Count(o => o.IsSupplier == false),
+                Suppliers = allOrganizations.Count(o => o.IsSupplier == true),
                 Products = allOrganizations.Where(o => o.IsSupplier == true).Sum(o => o.Products)
             };
 

@@ -1,0 +1,41 @@
+﻿@model IList<WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.PartnersViewModel>
+@{
+    ViewBag.Title = "All";
+    var count = 0;
+}
+
+@for (int i = 0; i < Model.Count(); i += 4)
+{
+    <div class="row">
+        @for (int j = i; j < i + 4 && j < Model.Count(); j++)
+        {
+            <div class="col-md-4 col-sm-12">
+                <div class="thumbnail no-margin-bottom float-left">
+                    @if (string.IsNullOrWhiteSpace(Model[j].LogoUrl))
+                    {
+                        <img src="~/Content/Theme/img/profile/supplier.jpg" class="img-responsive">
+                    }
+                    else
+                    {
+                        <img src="@Model[j].LogoUrl" class="img-responsive">
+                    }
+                    <div class="caption">
+                        <h3 id="thumbnail-label">
+                            @Model[j].Name<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a>
+                        </h3>
+                        <p>@(string.Join(", ", Model[j].Categories))</p>
+                        <p>
+                            <a href="/orders/@Model[j].Id" class="btn btn-primary" role="button">Make Order</a>
+                        </p>
+                        <p>
+                            <a href="/Private/Suppliers/DeletePartner?id=@Model[j].Id" class="btn btn-danger" role="button">Delete</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+

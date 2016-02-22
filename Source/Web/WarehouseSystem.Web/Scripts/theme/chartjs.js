@@ -156,30 +156,30 @@ $(function() {
   };
   data = [
     {
-      value: 300,
-      color: "#FA2A00",
-      highlight: "#FA2A00",
-      label: "Red"
+        value: 300,
+        color: "#FA2A00",
+        highlight: "#FA2A00",
+        label: "Red"
     }, {
-      value: 50,
-      color: "#1ABC9C",
-      highlight: "#1ABC9C",
-      label: "Green"
+        value: 50,
+        color: "#1ABC9C",
+        highlight: "#1ABC9C",
+        label: "Green"
     }, {
-      value: 100,
-      color: "#FABE28",
-      highlight: "#FABE28",
-      label: "Yellow"
+        value: 100,
+        color: "#FABE28",
+        highlight: "#FABE28",
+        label: "Yellow"
     }, {
-      value: 40,
-      color: "#999",
-      highlight: "#999",
-      label: "Grey"
+        value: 40,
+        color: "#999",
+        highlight: "#999",
+        label: "Grey"
     }, {
-      value: 120,
-      color: "#22A7F0",
-      highlight: "#22A7F0",
-      label: "Blue"
+        value: 120,
+        color: "#22A7F0",
+        highlight: "#22A7F0",
+        label: "Blue"
     }
   ];
   myPolarAreaChart = new Chart(ctx).PolarArea(data, option_bars);

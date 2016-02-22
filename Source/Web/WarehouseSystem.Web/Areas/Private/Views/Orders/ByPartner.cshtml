@@ -1,0 +1,57 @@
+﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.Orders.MakeOrderViewModel
+@{
+    ViewBag.Title = "ByPartner";
+}
+
+<h2>@Model.Supplier.Name</h2>
+
+@(Html.Kendo().Grid(Model.Products)
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.ImageId).ClientTemplate(
+            @"<div class='customer-photo'
+                    style='background-image: url(../../Content/Theme/img/profile/profile-1.jpg);'></div>");
+          columns.Bound(c => c.Sku).Locked(true);
+          columns.Bound(c => c.Name).Locked(true);
+          columns.Bound(c => c.Barcode).Locked(true);
+          columns.Bound(c => c.Category).Locked(true);
+          columns.Bound(c => c.DeliveryUnit).Locked(true);
+          columns.Bound(c => c.Quantities);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Save();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InCell))
+      .Pageable()
+      .Navigatable()
+      .Sortable()
+      .Filterable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Batch(true)
+          .PageSize(20)
+          .ServerOperation(false)
+          .Events(events => events.Error("error_handler"))
+          .Model(model => model.Id(p => p.Id))
+          .Update(update => update.Action("Update", "Orders"))
+      ))
+
+@section scripts{
+    <script type="text/javascript">
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+    </script>
+}

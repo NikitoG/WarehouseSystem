@@ -221,7 +221,7 @@
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
-            return View();
+            return this.View();
         }
 
         //
@@ -230,25 +230,25 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View( model);
             }
 
-            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            var result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId());
                 if (user != null)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
 
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return this.RedirectToAction("Index", "Organization", new { area="Private",  Message = ManageMessageId.ChangePasswordSuccess });
             }
 
-            AddErrors(result);
-            return View(model);
+            this.AddErrors(result);
+            return this.View(model);
         }
 
         //

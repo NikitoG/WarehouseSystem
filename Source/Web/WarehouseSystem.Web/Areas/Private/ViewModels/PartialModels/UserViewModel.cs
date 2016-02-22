@@ -18,11 +18,14 @@ namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
 
         public int? ImageId { get; set; }
 
+        public bool IsSuplier { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<User, UserViewModel>()
                 .ForMember(x => x.FullName, opt => opt.MapFrom(x => $"{x.FirstName} {x.LastName}"))
-                .ForMember(x => x.OrganizationName, opt => opt.MapFrom(x => x.Organization.Name));
+                .ForMember(x => x.OrganizationName, opt => opt.MapFrom(x => x.Organization.Name))
+                .ForMember(x => x.IsSuplier, opt => opt.MapFrom(x => x.Organization.IsSupplier));
         }
     }
 }

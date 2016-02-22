@@ -1,0 +1,42 @@
+﻿
+@(Html.Kendo().Grid<WarehouseSystem.Data.Models.Product>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Sku);
+        columns.Bound(c => c.Barcode);
+        columns.Bound(c => c.HeigthInCm);
+        columns.Bound(c => c.WidthInCm);
+        columns.Bound(c => c.WeightInGr);
+        columns.Bound(c => c.DeliveryUnit);
+        columns.Bound(c => c.Stock);
+        columns.Bound(c => c.MinDayOfExpiryInDays);
+        columns.Bound(c => c.IsBlocked);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.ModifiedOn);
+        columns.Bound(c => c.IsDeleted);
+        columns.Bound(c => c.DeletedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable(scrollable => scrollable.Enabled(false))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Products_Read", "Grid"))
+          .Create(create => create.Action("Products_Create", "Grid"))
+          .Update(update => update.Action("Products_Update", "Grid"))
+          .Destroy(destroy => destroy.Action("Products_Destroy", "Grid"))
+      )
+)

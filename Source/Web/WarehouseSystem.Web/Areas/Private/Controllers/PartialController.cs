@@ -1,30 +1,77 @@
-﻿
-
-using System.Web;
-using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
-using WarehouseSystem.Web.Controllers;
+﻿using System.Linq;
+using AutoMapper.QueryableExtensions;
+using WebGrease.Css.ImageAssemblyAnalysis;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
-    using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
-    using System;
     using AutoMapper;
-    using WarehouseSystem.Data.Models;
-    using AutoMapper.QueryableExtensions;
     using Ninject;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
+    using WarehouseSystem.Web.Controllers;
     using WarehouseSystem.Services.Data.Contract;
-    using WarehouseSystem.Web.ViewModels.Home;
 
     public class PartialController : BaseController
     {
         [Inject]
         public IImageServices Images { get; set; }
 
+        [Inject]
+        public ICategoryServices Categories { get; set; }
+
+        [Inject]
+        public IMessageServices Messages { get; set; }
+
+        [Inject]
+        public IPurchaseOrderService Orders { get; set; }
+
+        [Inject]
+        public IProductServices Products { get; set; }
+
+        [Inject]
+        public IOrganizationServices Organizations { get; set; }
+
         public ActionResult Header()
         {
             var viewModel = Mapper.Map<UserViewModel>(this.UserProfile);
             return this.PartialView("_HeaderPartial", viewModel);
+        }
+
+        public ActionResult SideMenu()
+        {
+            var user = Mapper.Map<UserViewModel>(this.UserProfile);
+            var partners = this.Organizations.GetPartners(this.UserProfile.OrganizationId ?? 0)
+                .Project()
+                .To<PartnersViewModel>()
+                .ToList();
+
+            var categories = this.Categories.GetAll()
+                .Project()
+                .To<CategoryViewModel>()
+                .ToList();
+
+            var model = new SideMenuViewModel
+            {
+                Partners = partners,
+                UserViewModel = user,
+                Categories = categories
+            };
+
+            return this.PartialView("_SideMenuPartial", model);
+        }
+
+        public ActionResult IndividualStatistic()
+        {
+            var model = new IndividualStatisticsViewModel
+            {
+                Messages = this.Messages.CountMessagesByReceiver(this.UserProfile.Id),
+                Orders = this.Orders.CountPurchaseByClient(this.UserProfile),
+                Products = this.Products.CountProductsByUser(this.UserProfile),
+                Partners = this.Organizations.CountAllPartners(this.UserProfile)
+            };
+
+            return this.PartialView("_IndividualStatisticsPartial", model);
         }
 
         public ActionResult Image(int id)
@@ -35,7 +82,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
                 throw new HttpException(404, "Image not found");
             }
 
-            return File(image.Content, "image/" + image.FileExtension);
+            return this.File(image.Content, "image/" + image.FileExtension);
         }
     }
 }

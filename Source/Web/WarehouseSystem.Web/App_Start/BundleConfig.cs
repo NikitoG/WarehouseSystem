@@ -15,6 +15,10 @@ namespace WarehouseSystem.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/timeago").Include(
+                        "~/Scripts/jquery.timeago.js",
+                      "~/Scripts/js/timeago.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -54,8 +58,7 @@ namespace WarehouseSystem.Web
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                       "~/Content/KendoUi/kendo.common.min.css",
-                      "~/Content/KendoUi/kendo.moonlight.min.css",
-                      "~/Content/KendoUi/kendo.moonlight.mobile.min.css"));
+                      "~/Content/KendoUi/kendo.bootstrap.min.css"));
 
             bundles.Add(new StyleBundle("~/bundles/login").Include(
                       "~/Scripts/theme/app.js"));

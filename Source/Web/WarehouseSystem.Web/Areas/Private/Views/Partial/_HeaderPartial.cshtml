@@ -8,7 +8,9 @@
                 <i class="fa fa-bars icon"></i>
             </button>
             <ol class="breadcrumb navbar-breadcrumb">
-                <li class="active">@(string.IsNullOrWhiteSpace(Model.OrganizationName) ? "Oraganization" : @Model.OrganizationName)</li>
+                <li class="active">
+                    @(string.IsNullOrWhiteSpace(Model.OrganizationName) ? "Oraganization" : @Model.OrganizationName)
+                </li>
             </ol>
             <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                 <i class="fa fa-th icon"></i>
@@ -71,7 +73,7 @@
                         }
                         else
                         {
-                            <img src="~/Content/Theme/img/profile/default.png" class="profile-img">
+                            <img src="~/Content/Theme/img/profile/picjumbo.com_HNCK4153_resize.jpg" class="profile-img">
                         }
                     </li>
                     <li>

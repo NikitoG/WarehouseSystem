@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.UI.WebControls;
 using WarehouseSystem.Data.Models;
 using WarehouseSystem.Web.Infrastructure.Mapping;
 
