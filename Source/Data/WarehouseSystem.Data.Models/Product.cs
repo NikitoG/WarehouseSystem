@@ -19,8 +19,7 @@ namespace WarehouseSystem.Data.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(6, MinimumLength = 6)]
-        public string Sku { get; set; }
+        public int Sku { get; set; }
 
         [StringLength(20, MinimumLength = 4)]
         public string Barcode { get; set; }
@@ -39,7 +38,6 @@ namespace WarehouseSystem.Data.Models
 
         public bool IsBlocked { get; set; }
 
-        [Required]
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
@@ -56,6 +54,6 @@ namespace WarehouseSystem.Data.Models
         {
             get { return this.orderQuantities; }
             set { this.orderQuantities = value; }
-        } 
+        }
     }
 }

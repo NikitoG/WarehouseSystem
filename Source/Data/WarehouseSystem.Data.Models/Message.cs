@@ -4,11 +4,14 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using WarehouseSystem.Data.Common.Models;
 
-
     public class Message : BaseModel<int>
     {
         [Required]
-        [StringLength(1000, MinimumLength = 2)]
+        [StringLength(100, MinimumLength = 2)]
+        public string Title { get; set; }
+
+        [Required]
+        [StringLength(2000, MinimumLength = 2)]
         public string Content { get; set; }
 
         [Required]

@@ -8,20 +8,22 @@ namespace WarehouseSystem.Data.Models
     public class Organization : BaseModel<int>
     {
         private ICollection<User> employees;
-        private ICollection<PurchaseOrder> clients;
-        private ICollection<PurchaseOrder> suppliers;
+        private ICollection<PurchaseOrder> clientOrders;
+        private ICollection<PurchaseOrder> supplierOrders;
         private ICollection<ScheduleOrder> scheduleOrdersClient;
         private ICollection<ScheduleOrder> scheduleOrdersSupplier;
         private ICollection<Product> products;
+        private ICollection<Organization> partners;
 
         public Organization()
         {
             this.employees = new HashSet<User>();
-            this.clients = new HashSet<PurchaseOrder>();
-            this.suppliers = new HashSet<PurchaseOrder>();
+            this.clientOrders = new HashSet<PurchaseOrder>();
+            this.supplierOrders = new HashSet<PurchaseOrder>();
             this.scheduleOrdersClient = new HashSet<ScheduleOrder>();
             this.scheduleOrdersSupplier = new HashSet<ScheduleOrder>();
             this.products = new HashSet<Product>();
+            this.partners = new HashSet<Organization>();
         }
 
         [Required]
@@ -46,16 +48,16 @@ namespace WarehouseSystem.Data.Models
             set { this.employees = value; }
         }
 
-        public virtual ICollection<PurchaseOrder> Clients
+        public virtual ICollection<PurchaseOrder> ClientOrders
         {
-            get { return this.clients; }
-            set { this.clients = value; }
+            get { return this.clientOrders; }
+            set { this.clientOrders = value; }
         }
 
-        public virtual ICollection<PurchaseOrder> Suppliers
+        public virtual ICollection<PurchaseOrder> SupplierOrders
         {
-            get { return this.suppliers; }
-            set { this.suppliers = value; }
+            get { return this.supplierOrders; }
+            set { this.supplierOrders = value; }
         }
 
         public virtual ICollection<ScheduleOrder> ScheduleOrdersClient
@@ -74,6 +76,12 @@ namespace WarehouseSystem.Data.Models
         {
             get { return this.products; }
             set { this.products = value; }
+        }
+
+        public virtual ICollection<Organization> Partners
+        {
+            get { return this.partners; }
+            set { this.partners = value; }
         }
     }
 }

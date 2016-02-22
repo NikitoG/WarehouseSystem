@@ -24,12 +24,12 @@ namespace WarehouseSystem.Data.Models
 
         [Required]
         public int ClientId { get; set; }
-        
+
         public virtual Organization Client { get; set; }
 
         [Required]
         public int SupplierId { get; set; }
-        
+
         public virtual Organization Supplier { get; set; }
 
         [Required]
