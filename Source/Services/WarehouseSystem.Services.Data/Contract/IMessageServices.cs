@@ -1,0 +1,19 @@
+﻿using System.Linq;
+
+namespace WarehouseSystem.Services.Data.Contract
+{
+    using WarehouseSystem.Data.Models;
+
+    public interface IMessageServices
+    {
+        Message Add(Message message);
+
+        Message GetById(int id);
+
+        int CountMessagesByReceiver(string userId);
+
+        IQueryable<Message> GetReceivedMessage(string userId);
+
+        IQueryable<Message> GetSentMessage(string userId);
+    }
+}
