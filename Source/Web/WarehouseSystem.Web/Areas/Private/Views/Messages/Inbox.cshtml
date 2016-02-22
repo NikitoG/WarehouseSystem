@@ -1,0 +1,108 @@
+﻿@model IList<WarehouseSystem.Web.Areas.Private.ViewModels.Messages.MessageViewModel>
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<div class="btn btn-lg btn-primary">
+    <i class="fa fa-comments-o"></i>
+    @Html.ActionLink("Send Message", "Create", new { area = "Private"}, null)
+</div>
+
+<div id="content">
+</div>
+<div id="displayLoading" style="display: none">Loading...</div>
+
+@*<button class="btn btn-primary" id="send-message">
+    <div class="card card-primary">
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title">
+                    <i class="fa fa-comments-o"></i> Send Message
+                </div>
+            </div>
+            <div id="create-message"></div>
+            <div class="clear-both"></div>
+        </div>
+    </div>
+</button>*@
+
+<div class="card card-success">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">
+                <i class="fa fa-comments-o"></i> Last Message
+            </div>
+        </div>
+        <div class="clear-both"></div>
+    </div>
+    <div class="card-body no-padding">
+        <div class="step tabs-left card-no-padding">
+            <ul class="nav nav-tabs message-list" role="tablist">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <li role="step" class="@(i == 0 ? "active" : "")">
+                        <a href="@($"#stepv{Model[i].Id}")" id="@($"step{Model[i].Id}-vtab")" role="tab" data-toggle="tab" data-action="details" data-id="@Model[i].Id" aria-controls="home" aria-expanded="true">
+
+                            @if (Model[i].FromImgId != null)
+                            {
+                                <img src="@Url.Action("Image", "Partial", new {area = string.Empty})" id="@Model[i].FromImgId.Value" alt="@Model[i].From" class="profile-img pull-left" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/Theme/img/profile/profile-1.jpg" class="profile-img pull-left" />
+                            }
+                            <div class="message-block">
+                                <div class="message">
+                                    <span class="username">@(string.IsNullOrWhiteSpace(Model[i].Title) ? "No Title" : Model[i].Title )</span>
+                                </div>
+                                <hr />
+                                <div>
+                                    <span class="username">@Model[i].From</span>
+                                    <time class="message-datetime timeago" datetime="@Model[i].CreatedOn">@Model[i].CreatedOn</time>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="stepv1" aria-labelledby="home-tab">
+                    <p id="details-message">@Model[0].Content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="card-body no-padding">
+        <ul class="message-list">
+
+            <a href="#" id="message-load-more">
+                <li class="text-center load-more">
+                    <i class="fa fa-refresh"></i> load more..
+                </li>
+            </a>
+        </ul>
+        <div id="details-message"></div>
+    </div>*@
+
+@section scripts {
+    @Scripts.Render("~/bundles/timeago")
+
+    <script>
+        $("a[data-action='details']").click(function () {
+            var id = $(this).attr("data-id");
+            viewMessage(id);
+        });
+
+        function viewMessage(id) {
+            $(".tab-pane").attr("id", "stepv" + id);
+            $.get("/message/" + id,
+                function (data) {
+                    $("#details-message").html(data);
+                });
+        }
+    </script>
+}
+

@@ -1,0 +1,55 @@
+﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.Messages.SendMessageViewModel
+
+@using (Html.BeginForm("Create", "Messages", new { area = "Private" }, FormMethod.Post, new { role = "form", id="send" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="title">Sent Message</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="sub-title">To</div>
+                    <div class="demo-section k-content">
+                        @(Html.Kendo().MultiSelect()
+                                  .Name("reciever")
+                                  .DataTextField("Email")
+                                  .DataValueField("Id")
+                                  .Placeholder("Select email...")
+                                  .AutoBind(true)
+                                  .DataSource(source =>
+                                  {
+                                      source.Read(read =>
+                                      {
+                                          read.Action("GetEmails", "Messages");
+                                      })
+                                      .ServerFiltering(true);
+                                  }))
+                    </div>
+                    <div class="sub-title">Title</div>
+                    <div>
+                        @Html.EditorFor(m => m.Title, new { @class = "form-control" })
+                    </div>
+                    <div class="sub-title">Textarea</div>
+                    <div>
+                        @Html.EditorFor(m => m.Content, new { @class = "form-control" })
+                    </div>
+                    <div class="sub-title"></div>
+                    <div>
+                        <input type="submit" id="get" value="Send" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+    </script>
+}
