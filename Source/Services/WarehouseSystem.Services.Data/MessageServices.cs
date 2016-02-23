@@ -1,4 +1,6 @@
-﻿namespace WarehouseSystem.Services.Data
+﻿using System.Collections.Generic;
+
+namespace WarehouseSystem.Services.Data
 {
     using System.Linq;
     using WarehouseSystem.Data.Common;
@@ -49,6 +51,16 @@
                 .Where(m => m.FromId == userId)
                 .OrderByDescending(m => m.CreatedOn)
                 .ThenBy(m => m.Id);
+        }
+
+        public void AddCollection(IEnumerable<Message> allMessages)
+        {
+            foreach (var message in allMessages)
+            {
+                this.messages.Add(message);
+            }
+
+            this.messages.Save();
         }
     }
 }

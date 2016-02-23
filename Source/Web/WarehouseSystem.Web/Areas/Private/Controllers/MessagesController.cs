@@ -1,4 +1,6 @@
-﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿using System.Collections.Generic;
+
+namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
@@ -44,6 +46,13 @@
 
         public ActionResult Create()
         {
+            this.TempData["users"] = this.Cache.Get(
+                    "user",
+                    () => this.Users.GetAll()
+                                        .Select(c => new SelectListItem { Value = c.Id, Text = c.Email })
+                                        .ToList(),
+                    30 * 60);
+
             return this.View();
         }
 
@@ -63,25 +72,25 @@
         {
             if (!this.ModelState.IsValid)
             {
+                this.TempData["users"] = this.Cache.Get(
+                        "user",
+                        () => this.Users.GetAll()
+                                            .Select(c => new SelectListItem { Value = c.Id, Text = c.Email })
+                                            .ToList(),
+                        30 * 60);
+
                 return this.View(model);
             }
 
-            foreach (var reciever in model.RecieversId)
+            var messagge = new Message()
             {
-                var to = this.Users.GetById(reciever);
-                if (to != null)
-                {
-                    var newMessage = new Message()
-                    {
-                        Content = model.Content,
-                        Title = model.Title,
-                        FromId = this.UserProfile.Id,
-                        ToId = to.Id
-                    };
+                Content = model.Content,
+                Title = model.Title,
+                ToId = model.To,
+                FromId = this.UserProfile.Id
+            };
 
-                    this.Messages.Add(newMessage);
-                }
-            }
+            this.Messages.Add(messagge);
 
             return this.RedirectToAction("Sent");
         }

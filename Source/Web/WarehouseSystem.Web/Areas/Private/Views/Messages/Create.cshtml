@@ -1,67 +1,74 @@
-﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.Messages.SendMessageViewModel
+﻿@using System.Collections
+@model WarehouseSystem.Web.Areas.Private.ViewModels.Messages.SendMessageViewModel
 
-@using (Html.BeginForm("Create", "Messages", new { area = "Private" }, FormMethod.Post, new { role = "form", id="send" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <div class="title">Sent Message</div>
-                    </div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="title">Sent Message</div>
                 </div>
-                <div class="card-body">
-                    <div class="sub-title">To</div>
-                    <div class="demo-section k-content">
-                        @(Html.Kendo().MultiSelect()
-                                  .Name("reciever")
-                                  .DataTextField("Email")
-                                  .DataValueField("Id")
-                                  .Placeholder("Select email...")
-                                  .AutoBind(true)
-                                  .DataSource(source =>
-                                  {
-                                      source.Read(read =>
-                                      {
-                                          read.Action("GetEmails", "Messages");
-                                      })
-                                      .ServerFiltering(true);
-                                  }))
+            </div>
+            <br />
+            <br />
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Messages", new { area = "Private" }, FormMethod.Post, new { role = "form", id = "send" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.To, new {@class = "col-sm-2 control-label"})
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(m => m.To, (IEnumerable<SelectListItem>) TempData["users"], "-- Select User --", new {@class = "form-control"})
+                        </div>
                     </div>
-                    <div class="sub-title">Title</div>
-                    <div>
-                        @Html.EditorFor(m => m.Title, new { @class = "form-control", id="title" })
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Title, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(m => m.Title, new { @class = "form-control" })
+                        </div>
                     </div>
-                    <div class="sub-title">Textarea</div>
-                    <div>
-                        @Html.EditorFor(m => m.Content, new { @class = "form-control", id = "content" })
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Content, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(m => m.Content, new { @class = "form-control"})
+                        </div>
                     </div>
-                    <div class="sub-title"></div>
-                    <div>
-                        <input type="button" id="get" value="Send" class="btn btn-primary" />
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <div class="login-button text-center">
+                            <input type="submit" class="btn btn-primary" value="Send" />
+                        </div>
                     </div>
-                </div>
+
+                }
             </div>
         </div>
     </div>
-}
+</div>
 
 @section scripts{
-    <script>
-        $(function () {
-            $("#get").click(function() {
-
-                var model = new {
-                    RecieversId: $("#reciever").val(),
-                    Titel: $("#title").val(),
-                    Content: $("#reciever").val()
-                }
-
-                $("#send").submit(model);
-            })
-        });
-    </script>
+    @*<script>
+                $(function () {
+                    $("#get").on("click", function () {
+                        var model = {
+                            RecieversId: $("#reciever").val(),
+                            Titel: $("#Title").val(),
+                            Content: $("#Content").val()
+                        };
+                        $.post({
+                            url: "@Url.Action("Create", "Messages")",
+                            data: model,
+                        success: function (data) {
+                            options.success(data);
+                        }});
+                    });
+                }());
+        </script>*@
 }

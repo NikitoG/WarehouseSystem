@@ -128,7 +128,7 @@ namespace WarehouseSystem.Data.Migrations
             var suppliers = context.Organizations.Where(x => x.IsSupplier == true).ToList();
             for (int i = 0; i < categories.Count; i++)
             {
-                for (int j = 0; j < 50; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     var newProduct = new Product()
                     {
@@ -137,7 +137,7 @@ namespace WarehouseSystem.Data.Migrations
                         Category = categories[i],
                         DeliveryUnit = this.random.RandomNumber(4, 16),
                         Sku = categories[i].Id + ((i + 1) * j),
-                        Supplier = suppliers[random.RandomNumber(0, suppliers.Count - 1)]
+                        Supplier = suppliers[this.random.RandomNumber(0, suppliers.Count - 1)]
                     };
 
                     context.Products.Add(newProduct);
@@ -202,7 +202,7 @@ namespace WarehouseSystem.Data.Migrations
 
             var organization = new Organization()
             {
-                Name = "WMS-NG",
+                Name = "VW-NG",
                 MateriallyResponsiblePerson = "Nikolay Georgiev",
                 Address = "Sofia",
                 Vat = "000000000",
@@ -211,16 +211,20 @@ namespace WarehouseSystem.Data.Migrations
 
             context.Organizations.AddOrUpdate(x => x.Name, organization);
 
-            var cities = new[] { "Plovdiv", "Sofia", "Varna" };
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < SeedData.Organizations.Length; i++)
+            {
+                context.Organizations.Add(SeedData.Organizations[i]);
+            }
+
+            for (int i = 0; i < 5; i++)
             {
                 var newOrganization = new Organization()
                 {
-                    Name = $"Organization - {i}",
+                    Name = $"Customers - {i}",
                     MateriallyResponsiblePerson = "Pesho Peshov",
-                    Address = cities[i % 3],
-                    Vat = "000000000",
-                    IsSupplier = i % 3 == 0
+                    Address = "Sofia",
+                    Vat = this.random.RandomNumber(100000000, 999999999).ToString(),
+                    IsSupplier = false
                 };
 
                 context.Organizations.Add(newOrganization);
@@ -252,7 +256,7 @@ namespace WarehouseSystem.Data.Migrations
                 CreatedOn = DateTime.Now
             };
 
-            var organization = context.Organizations.FirstOrDefault(o => o.Name == "WMS-NG");
+            var organization = context.Organizations.FirstOrDefault(o => o.Name == "VW-NG");
             if (organization != null)
             {
                 admin.OrganizationId = organization.Id;

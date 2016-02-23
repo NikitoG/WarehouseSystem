@@ -11,14 +11,14 @@
         {
             <div class="col-md-3 col-sm-12">
                 <div class="thumbnail no-margin-bottom float-left">
-                    @if (string.IsNullOrWhiteSpace(Model[j].LogoUrl))
-                    {
-                        <img src="~/Content/Theme/img/profile/supplier.jpg" class="img-responsive">
-                    }
-                    else
-                    {
-                        <img src="@Model[j].LogoUrl" class="img-responsive">
-                    }
+                        @if (string.IsNullOrWhiteSpace(Model[j].LogoUrl))
+                        {
+                            <img src="~/Content/Theme/img/profile/supplier.jpg" class="img-responsive">
+                        }
+                        else
+                        {
+                            <img src="@Model[j].LogoUrl" class="img-responsive center-block" padding="50px">
+                        }
                     <div class="caption">
                         <h3 id="thumbnail-label">
                             @Model[j].Name<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a>

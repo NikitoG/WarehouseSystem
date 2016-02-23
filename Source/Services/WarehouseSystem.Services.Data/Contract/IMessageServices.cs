@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WarehouseSystem.Services.Data.Contract
 {
@@ -15,5 +16,7 @@ namespace WarehouseSystem.Services.Data.Contract
         IQueryable<Message> GetReceivedMessage(string userId);
 
         IQueryable<Message> GetSentMessage(string userId);
+
+        void AddCollection(IEnumerable<Message> allMessages);
     }
 }
