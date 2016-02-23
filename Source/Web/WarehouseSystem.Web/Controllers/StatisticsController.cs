@@ -8,7 +8,7 @@ namespace WarehouseSystem.Web.Controllers
 
     using WarehouseSystem.Services.Data.Contract;
 
-    public class StatisticsController : Controller
+    public class StatisticsController : BaseController
     {
         [Inject]
         public IOrganizationServices Organizations { get; set; }

@@ -58,19 +58,21 @@ namespace WarehouseSystem.Services.Data
             return this.organizations.GetById(id);
         }
 
-        public void SetPartners(int clientId, int id)
+        public Organization SetPartners(int clientId, int id)
         {
             var client = this.organizations.GetById(clientId);
             var supplier = this.organizations.GetById(id);
 
             if (client.Partners.Contains(supplier))
             {
-                return;
+                return client;
             }
 
             client.Partners.Add(supplier);
 
             this.organizations.Save();
+
+            return supplier;
         }
 
         public void DeletePartners(int clientId, int id)

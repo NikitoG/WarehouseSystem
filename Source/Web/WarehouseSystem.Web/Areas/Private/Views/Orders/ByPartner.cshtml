@@ -32,7 +32,7 @@
           .Ajax()
           .Batch(true)
           .PageSize(20)
-          .ServerOperation(false)
+          .ServerOperation(true)
           .Events(events => events.Error("error_handler"))
           .Model(model => model.Id(p => p.Id))
           .Update(update => update.Action("Update", "Orders"))
@@ -40,6 +40,14 @@
 
 @section scripts{
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            if ('@TempData["message"]' == "Added") {
+                toastr.success('Added');
+            }
+            else { }
+        });
+
         function error_handler(e) {
             if (e.errors) {
                 var message = "Errors:\n";

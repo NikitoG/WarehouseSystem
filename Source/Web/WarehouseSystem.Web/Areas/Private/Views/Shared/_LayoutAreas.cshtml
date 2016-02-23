@@ -9,6 +9,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
     <!-- CSS Libs -->
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/toastr")
     @Styles.Render("~/Content/kendo")
     <!-- CSS App -->
     @Scripts.Render("~/bundles/modernizr")
@@ -19,7 +20,7 @@
     <div class="app-container">
         <div class="row content-container">
 
-            @Html.Action("Header", "Partial", new { area = "Private"})
+            @Html.Action("Header", "Partial", new { area = "Private" })
 
             @Html.Action("SideMenu", "Partial", new { area = "Private" })
 
@@ -36,6 +37,9 @@
             </div>
         </footer>
     </div>
+
+    @Scripts.Render("~/bundles/toastr")
+    @Html.Partial("_Toastr")
     @Scripts.Render("~/bundles/theme")
     @RenderSection("scripts", required: false)
 </body>

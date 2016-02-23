@@ -11,12 +11,13 @@ using Kendo.Mvc.UI;
 ﻿using WarehouseSystem.Common;
 ﻿using WarehouseSystem.Data;
 ﻿using WarehouseSystem.Data.Models;
+﻿using WarehouseSystem.Web.Controllers;
 
 namespace WarehouseSystem.Web.Areas.Administration.Controllers
 {
 
     [Authorize(Roles = GlobalConstants.AdminRole)]
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private WarehouseSystemDbContext db = new WarehouseSystemDbContext();
 

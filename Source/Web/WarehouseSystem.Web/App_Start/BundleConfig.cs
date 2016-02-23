@@ -68,6 +68,12 @@ namespace WarehouseSystem.Web
 
             bundles.Add(new StyleBundle("~/bundles/login").Include(
                       "~/Scripts/theme/app.js"));
+
+            bundles.Add(new StyleBundle("~/content/toastr", "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css")
+                .Include("~/Content/toastr.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/toastr", "http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js")
+                            .Include("~/Scripts/toastr.js"));
         }
     }
 }

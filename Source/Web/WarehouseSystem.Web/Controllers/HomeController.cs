@@ -10,7 +10,7 @@
     using WarehouseSystem.Services.Data.Contract;
     using WarehouseSystem.Web.ViewModels.Home;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         [Inject]
         public IOrganizationServices Organization { get; set; }

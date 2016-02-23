@@ -20,8 +20,8 @@
         IQueryable<Organization> GetPartners(int id);
 
         Organization GetById(int id);
-        
-        void SetPartners(int clientId, int id);
+
+        Organization SetPartners(int clientId, int id);
 
         void DeletePartners(int clientId, int id);
     }

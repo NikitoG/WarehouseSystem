@@ -14,6 +14,7 @@ using WarehouseSystem.Web.Areas.Private.ViewModels.Messages;
 using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
 using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
 using WarehouseSystem.Web.Controllers;
+using WarehouseSystem.Web.ViewModels.ToastrModels;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
@@ -69,7 +70,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Update([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<ProductViewModel> products)
         {
-            if (products != null && ModelState.IsValid)
+            if (products != null && this.ModelState.IsValid)
             {
                 var purchaseOrder = new PurchaseOrder()
                 {
@@ -89,9 +90,12 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
 
                 this.OrderQuantities.Add(order);
 
+                this.AddToastMessage("Succefull", "You made order !", ToastType.Success);
+
                 return this.Redirect("/Private/Orders/All");
             }
 
+            this.AddToastMessage("Error!", string.Empty, ToastType.Error);
             return this.Json(products.ToDataSourceResult(request, this.ModelState));
         }
 

@@ -285,6 +285,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Filter\MessagesActionFilter.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,6 +299,9 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ToastrModels\ToastMessage.cs" />
+    <Compile Include="ViewModels\ToastrModels\Toastr.cs" />
+    <Compile Include="ViewModels\ToastrModels\ToastType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -404,6 +408,8 @@
     <Content Include="Content\Theme\img\home\background_warehouse.jpg" />
     <Content Include="Content\Theme\img\home\background_warehouse_1.jpg" />
     <Content Include="Content\Theme\img\home\background_warehouse_rev.jpg" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Scripts\theme\cufon-yui.js" />
     <Content Include="Content\Theme\img\home\dotted_line.png" />
     <Content Include="Content\Theme\img\home\final-dotted-line.png" />
@@ -515,6 +521,9 @@
     <Content Include="Areas\Private\Views\Orders\_OrderDetailsPartial.cshtml" />
     <Content Include="Areas\Private\Views\Products\Create.cshtml" />
     <Content Include="Areas\Private\Views\Products\Update.cshtml" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="App_Code\ToastrBuilder.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -558,6 +567,8 @@
     <Content Include="Scripts\theme\list.js" />
     <Content Include="Scripts\theme\modal.js" />
     <Content Include="Scripts\theme\theming.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -612,6 +623,8 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Scripts\KendoUi\kendo.all.min.js.map" />
     <Content Include="Scripts\KendoUi\kendo.aspnetmvc.min.js.map" />
+    <Content Include="stylecop.json" />
+    <Content Include="Views\Shared\_Toastr.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

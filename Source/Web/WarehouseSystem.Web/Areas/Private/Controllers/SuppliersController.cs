@@ -9,6 +9,7 @@ using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
 using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
 using WarehouseSystem.Web.Areas.Private.ViewModels.Suppliers;
 using WarehouseSystem.Web.Controllers;
+using WarehouseSystem.Web.ViewModels.ToastrModels;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
@@ -66,7 +67,15 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         public ActionResult SetPartner(int id)
         {
             var clientId = this.UserProfile.OrganizationId ?? 0;
-            this.Organizations.SetPartners(clientId, id);
+            var partner = this.Organizations.SetPartners(clientId, id);
+            if (partner.Id == clientId)
+            {
+                this.AddToastMessage("Error", "You was partners", ToastType.Info);
+            }
+            else
+            {
+                this.AddToastMessage(partner.Name, "Establishing a domestic partnership", ToastType.Success);
+            }
 
             return this.RedirectToAction("All", "Orders", new { area="Private" });
         }
@@ -75,6 +84,9 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         {
             var clientId = this.UserProfile.OrganizationId ?? 0;
             this.Organizations.DeletePartners(clientId, id);
+
+
+            this.AddToastMessage("Seccesfull", "Drop  your partnership!", ToastType.Success);
 
             return this.RedirectToAction("All", "Orders", new { area="Private" });
         }
