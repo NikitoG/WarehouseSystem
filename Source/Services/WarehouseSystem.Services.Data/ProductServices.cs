@@ -42,5 +42,42 @@ namespace WarehouseSystem.Services.Data
         {
             return this.products.All().Where(p => p.SupplierId == id);
         }
+
+        public Product Add(Product product)
+        {
+            this.products.Add(product);
+            this.products.Save();
+
+            return product;
+        }
+
+        public Product GetById(int id)
+        {
+            return this.products.GetById(id);
+        }
+
+        public Product Update(Product product)
+        {
+            var entity = this.products.GetById(product.Id);
+            entity.Name = product.Name;
+            entity.Sku = product.Sku;
+            entity.Barcode = product.Barcode;
+            entity.HeigthInCm = product.HeigthInCm;
+            entity.WidthInCm = product.WidthInCm;
+            entity.WeightInGr = product.WeightInGr;
+            entity.DeliveryUnit = product.DeliveryUnit;
+            entity.Stock = product.Stock;
+            entity.MinDayOfExpiryInDays = product.MinDayOfExpiryInDays;
+            entity.IsBlocked = product.IsBlocked;
+
+            this.products.Save();
+
+            return entity;
+        }
+
+        public void Delete(Product product)
+        {
+            this.products.Delete(product);
+        }
     }
 }

@@ -33,15 +33,15 @@
                     </div>
                     <div class="sub-title">Title</div>
                     <div>
-                        @Html.EditorFor(m => m.Title, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Title, new { @class = "form-control", id="title" })
                     </div>
                     <div class="sub-title">Textarea</div>
                     <div>
-                        @Html.EditorFor(m => m.Content, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Content, new { @class = "form-control", id = "content" })
                     </div>
                     <div class="sub-title"></div>
                     <div>
-                        <input type="submit" id="get" value="Send" class="btn btn-primary" />
+                        <input type="button" id="get" value="Send" class="btn btn-primary" />
                     </div>
                 </div>
             </div>
@@ -51,5 +51,17 @@
 
 @section scripts{
     <script>
+        $(function () {
+            $("#get").click(function() {
+
+                var model = new {
+                    RecieversId: $("#reciever").val(),
+                    Titel: $("#title").val(),
+                    Content: $("#reciever").val()
+                }
+
+                $("#send").submit(model);
+            })
+        });
     </script>
 }

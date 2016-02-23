@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WarehouseSystem.Web.Areas.Private.ViewModels.Orders.PurchaseOrderViewModel>
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Orders</h2>
+@if (!@Model.Any())
+{
+    <h2>Don`t have new Orders!!!</h2>
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Created By</th>
+                        <th>Date of delivery</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <th scope="row">@order.Id</th>
+                            <td>@order.ClientName</td>
+                            <td>@order.Creator</td>
+                            <td>@order.DateOfDelivery</td>
+                            <td>
+                                @Ajax.ActionLink("Deatils", "Details", null,
+                            new { id = order.Id },
+                            new AjaxOptions
+                            {
+                                UpdateTargetId = "display",
+                                LoadingElementId = "displayLoading",
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace
+                            }, new { @class = "btn btn-primary" })
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <div id="display"></div>
+            <div id="displayLoading" style="display: none">Loading...</div>
+        </div>
+    </div>
+}

@@ -40,14 +40,14 @@
                         </div>
                     </div>
                 </li>
-                <li class="active">
-                    <a href="/Private/Products">
-                        <span class="icon fa fa-archiver"></span><span class="title">My Products</span>
-                    </a>
-                </li>
 
                 @if (Model.UserViewModel.IsSuplier)
                 {
+                    <li class="active">
+                        <a href="/Private/Products">
+                            <span class="icon fa fa-archiver"></span><span class="title">My Products</span>
+                        </a>
+                    </li>
                     <li class="panel panel-default dropdown">
                         <a data-toggle="collapse" href="#dropdown-table">
                             <span class="icon fa fa-table"></span><span class="title">Orders</span>

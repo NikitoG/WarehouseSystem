@@ -65,9 +65,9 @@
                 return this.View(model);
             }
 
-            foreach (var reciever in model.Recievers)
+            foreach (var reciever in model.RecieversId)
             {
-                var to = this.Users.GetByName(reciever.Email);
+                var to = this.Users.GetById(reciever);
                 if (to != null)
                 {
                     var newMessage = new Message()

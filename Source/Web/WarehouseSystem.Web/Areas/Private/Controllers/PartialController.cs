@@ -61,19 +61,6 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
             return this.PartialView("_SideMenuPartial", model);
         }
 
-        public ActionResult IndividualStatistic()
-        {
-            var model = new IndividualStatisticsViewModel
-            {
-                Messages = this.Messages.CountMessagesByReceiver(this.UserProfile.Id),
-                Orders = this.Orders.CountPurchaseByClient(this.UserProfile),
-                Products = this.Products.CountProductsByUser(this.UserProfile),
-                Partners = this.Organizations.CountAllPartners(this.UserProfile)
-            };
-
-            return this.PartialView("_IndividualStatisticsPartial", model);
-        }
-
         public ActionResult Image(int id)
         {
             var image = this.Images.GetById(id);

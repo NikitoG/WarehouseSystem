@@ -30,5 +30,10 @@ namespace WarehouseSystem.Services.Data
         {
             this.users.Save();
         }
+
+        public User GetById(string id)
+        {
+            return this.users.GetById(id);
+        }
     }
 }

@@ -1,144 +1,83 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-﻿using WarehouseSystem.Data;
-﻿using WarehouseSystem.Data.Models;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Ninject;
+using WarehouseSystem.Services.Data.Contract;
+using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
+using WarehouseSystem.Web.Areas.Private.ViewModels.Products;
+using WarehouseSystem.Web.Controllers;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
-    public class ProductsController : Controller
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using WarehouseSystem.Data;
+    using WarehouseSystem.Data.Models;
+
+    public class ProductsController : BaseController
     {
-        private WarehouseSystemDbContext db = new WarehouseSystemDbContext();
+        [Inject]
+        public IProductServices Products { get; set; }
+
+        [Inject]
+        public ICategoryServices Categories { get; set; }
 
         public ActionResult Index()
         {
-            return View();
+            this.PopulateCategories();
+
+            return this.View();
         }
 
         public ActionResult Products_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Product> products = db.Products;
-            DataSourceResult result = products.ToDataSourceResult(request, product => new {
-                Id = product.Id,
-                Name = product.Name,
-                Sku = product.Sku,
-                Barcode = product.Barcode,
-                HeigthInCm = product.HeigthInCm,
-                WidthInCm = product.WidthInCm,
-                WeightInGr = product.WeightInGr,
-                DeliveryUnit = product.DeliveryUnit,
-                Stock = product.Stock,
-                MinDayOfExpiryInDays = product.MinDayOfExpiryInDays,
-                IsBlocked = product.IsBlocked,
-                CreatedOn = product.CreatedOn,
-                ModifiedOn = product.ModifiedOn,
-                IsDeleted = product.IsDeleted,
-                DeletedOn = product.DeletedOn
-            });
+            DataSourceResult result = this.Products.GetProductsBySupplier(this.UserProfile.OrganizationId ?? 0)
+                .Project()
+                .To<SupplierProductViewModel>()
+                .ToDataSourceResult(request);
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Products_Create([DataSourceRequest]DataSourceRequest request, Product product)
+        public ActionResult Products_Create([DataSourceRequest]DataSourceRequest request, SupplierProductViewModel product)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var entity = new Product
-                {
-                    Name = product.Name,
-                    Sku = product.Sku,
-                    Barcode = product.Barcode,
-                    HeigthInCm = product.HeigthInCm,
-                    WidthInCm = product.WidthInCm,
-                    WeightInGr = product.WeightInGr,
-                    DeliveryUnit = product.DeliveryUnit,
-                    Stock = product.Stock,
-                    MinDayOfExpiryInDays = product.MinDayOfExpiryInDays,
-                    IsBlocked = product.IsBlocked,
-                    CreatedOn = product.CreatedOn,
-                    ModifiedOn = product.ModifiedOn,
-                    IsDeleted = product.IsDeleted,
-                    DeletedOn = product.DeletedOn
-                };
+                var entity = Mapper.Map<Product>(product);
 
-                db.Products.Add(entity);
-                db.SaveChanges();
+                this.Products.Add(entity);
                 product.Id = entity.Id;
             }
 
-            return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { product }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Products_Update([DataSourceRequest]DataSourceRequest request, Product product)
+        public ActionResult Products_Update([DataSourceRequest]DataSourceRequest request, SupplierProductViewModel product)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var entity = new Product
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Sku = product.Sku,
-                    Barcode = product.Barcode,
-                    HeigthInCm = product.HeigthInCm,
-                    WidthInCm = product.WidthInCm,
-                    WeightInGr = product.WeightInGr,
-                    DeliveryUnit = product.DeliveryUnit,
-                    Stock = product.Stock,
-                    MinDayOfExpiryInDays = product.MinDayOfExpiryInDays,
-                    IsBlocked = product.IsBlocked,
-                    CreatedOn = product.CreatedOn,
-                    ModifiedOn = product.ModifiedOn,
-                    IsDeleted = product.IsDeleted,
-                    DeletedOn = product.DeletedOn
-                };
-
-                db.Products.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                var entity = Mapper.Map<Product>(product);
+                this.Products.Update(entity);
             }
 
-            return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { product }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Products_Destroy([DataSourceRequest]DataSourceRequest request, Product product)
+        public ActionResult Products_Destroy([DataSourceRequest]DataSourceRequest request, SupplierProductViewModel product)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var entity = new Product
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Sku = product.Sku,
-                    Barcode = product.Barcode,
-                    HeigthInCm = product.HeigthInCm,
-                    WidthInCm = product.WidthInCm,
-                    WeightInGr = product.WeightInGr,
-                    DeliveryUnit = product.DeliveryUnit,
-                    Stock = product.Stock,
-                    MinDayOfExpiryInDays = product.MinDayOfExpiryInDays,
-                    IsBlocked = product.IsBlocked,
-                    CreatedOn = product.CreatedOn,
-                    ModifiedOn = product.ModifiedOn,
-                    IsDeleted = product.IsDeleted,
-                    DeletedOn = product.DeletedOn
-                };
-
-                db.Products.Attach(entity);
-                db.Products.Remove(entity);
-                db.SaveChanges();
+                var entity = Mapper.Map<Product>(product);
+                this.Products.Delete(entity);
             }
 
-            return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { product }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpPost]
@@ -146,13 +85,21 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         {
             var fileContents = Convert.FromBase64String(base64);
 
-            return File(fileContents, contentType, fileName);
+            return this.File(fileContents, contentType, fileName);
         }
 
-        protected override void Dispose(bool disposing)
+        private void PopulateCategories()
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            var categories = this.Categories.GetAll()
+                        .Select(c => new CategoryViewModel
+                        {
+                            Id = c.Id,
+                            Name = c.Name
+                        })
+                        .OrderBy(e => e.Name);
+
+            ViewData["categories"] = categories;
+            ViewData["defaultCategory"] = categories.First();
         }
     }
 }

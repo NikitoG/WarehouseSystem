@@ -5,7 +5,7 @@ namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
 {
     public class SendMessageViewModel
     {
-        public IEnumerable<UserViewModel> Recievers { get; set; }
+        public IEnumerable<string> RecieversId { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 2)]

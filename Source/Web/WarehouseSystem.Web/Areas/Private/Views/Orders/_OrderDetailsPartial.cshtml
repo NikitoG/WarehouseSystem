@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WarehouseSystem.Web.Areas.Private.ViewModels.Orders.QuantitiesViewModel>
+<div class="col-sm-6">
+    <div class="sub-title">@(Model.FirstOrDefault()?.Client)<span class="description"></span></div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Delivery unit</th>
+            <th>Quantity</th>
+            <th>All</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <th scope="row">@product.Sku</th>
+                <td>@product.Product</td>
+                <td>@product.DeliveryUnit</td>
+                <td>@product.Quantity</td>
+                <td>@product.All</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (Model.Count() != 0 && !Model.FirstOrDefault().IsDone)
+    {
+        @Html.ActionLink("Done", "Done", "Orders", new { area = "Private", id = (int)@Model.FirstOrDefault().PurchaseOrderId }, new { @class = "btn btn-primary" })
+    }
+</div>

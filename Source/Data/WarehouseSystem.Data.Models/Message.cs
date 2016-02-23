@@ -1,4 +1,6 @@
-﻿namespace WarehouseSystem.Data.Models
+﻿using System.ComponentModel;
+
+namespace WarehouseSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +15,9 @@
         [Required]
         [StringLength(2000, MinimumLength = 2)]
         public string Content { get; set; }
+
+        [DefaultValue(false)]
+        public bool IsRead { get; set; }
 
         [Required]
         public string FromId { get; set; }

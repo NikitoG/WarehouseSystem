@@ -25,6 +25,8 @@
         public Message GetById(int id)
         {
             var message = this.messages.GetById(id);
+            message.IsRead = true;
+            this.messages.Save();
             return message;
         }
 

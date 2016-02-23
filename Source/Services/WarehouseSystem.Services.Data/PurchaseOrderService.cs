@@ -34,5 +34,23 @@ namespace WarehouseSystem.Services.Data
 
             return order;
         }
+
+        public IQueryable<PurchaseOrder> GetNewPurchaseOrder(int id)
+        {
+            return this.orders.All().Where(p => p.SupplierId == id && !p.isDone);
+        }
+
+        public void MarkAsRead(int id)
+        {
+            var order = this.orders.GetById(id);
+            order.isDone = true;
+
+            this.orders.Save();
+        }
+
+        public IQueryable<PurchaseOrder> AllByUser(int id)
+        {
+            return this.orders.All().Where(o => o.SupplierId == id);
+        }
     }
 }

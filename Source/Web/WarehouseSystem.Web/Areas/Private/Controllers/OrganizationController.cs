@@ -1,12 +1,19 @@
-﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿using AutoMapper;
+using WarehouseSystem.Web.Areas.Private.ViewModels.Organizations;
+using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
+using WarehouseSystem.Web.Controllers;
+
+namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
     using System.Web.Mvc;
 
-    public class OrganizationController : Controller
+    public class OrganizationController : BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            var model = Mapper.Map<IndividualStatisticsViewModel>(this.UserProfile);
+
+            return this.View(model);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using WarehouseSystem.Data.Common.Models;
+﻿using System.ComponentModel;
+using WarehouseSystem.Data.Common.Models;
 
 namespace WarehouseSystem.Data.Models
 {
@@ -21,6 +22,9 @@ namespace WarehouseSystem.Data.Models
 
         [Required]
         public DateTime DateOfDelivery { get; set; }
+
+        [DefaultValue(false)]
+        public bool isDone { get; set; }
 
         [Required]
         public int ClientId { get; set; }

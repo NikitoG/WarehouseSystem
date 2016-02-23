@@ -1,42 +1,68 @@
 ﻿
-@(Html.Kendo().Grid<WarehouseSystem.Data.Models.Product>()
+@(Html.Kendo().Grid<WarehouseSystem.Web.Areas.Private.ViewModels.Products.SupplierProductViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.Name);
-        columns.Bound(c => c.Sku);
-        columns.Bound(c => c.Barcode);
-        columns.Bound(c => c.HeigthInCm);
-        columns.Bound(c => c.WidthInCm);
-        columns.Bound(c => c.WeightInGr);
-        columns.Bound(c => c.DeliveryUnit);
-        columns.Bound(c => c.Stock);
-        columns.Bound(c => c.MinDayOfExpiryInDays);
-        columns.Bound(c => c.IsBlocked);
-        columns.Bound(c => c.CreatedOn);
-        columns.Bound(c => c.ModifiedOn);
-        columns.Bound(c => c.IsDeleted);
-        columns.Bound(c => c.DeletedOn);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.Sku);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.Barcode);
+          columns.Bound(p => p.Category).ClientTemplate("#=Category.Name#").Width(180);
+          columns.Bound(c => c.HeigthInCm);
+          columns.Bound(c => c.WidthInCm);
+          columns.Bound(c => c.WeightInGr);
+          columns.Bound(c => c.DeliveryUnit);
+          columns.Bound(c => c.MinDayOfExpiryInDays);
+          columns.Bound(c => c.IsBlocked);
+          columns.Command(command =>
+          {
+              command.Destroy();
+          }).Width(180);
       })
-      .ToolBar(toolbar => {
-            toolbar.Create();
-            toolbar.Excel();
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+          toolbar.Save();
       })
-      .ColumnMenu()
-      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Editable(editable => editable.Mode(GridEditMode.InCell))
       .Pageable()
-      .Sortable(sortable => {
-          sortable.SortMode(GridSortMode.SingleColumn);
-      })
+      .Sortable()
+      .Scrollable()
       .Filterable()
-      .Scrollable(scrollable => scrollable.Enabled(false))
+      .HtmlAttributes(new { style = "height:550px;" })
       .DataSource(dataSource => dataSource
           .Ajax()
-          .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Products_Read", "Grid"))
-          .Create(create => create.Action("Products_Create", "Grid"))
-          .Update(update => update.Action("Products_Update", "Grid"))
-          .Destroy(destroy => destroy.Action("Products_Destroy", "Grid"))
+          .Batch(true)
+          .ServerOperation(false)
+          .Events(events => events.Error("error_handler"))
+          .Model(model =>
+          {
+              model.Id(p => p.Id);
+              model.Field(p => p.Id).Editable(false);
+              model.Field(p => p.Category).DefaultValue(
+                  ViewData["defaultCategory"] as WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.CategoryViewModel);
+          })
+          .PageSize(20)
+          .Read(read => read.Action("Products_Read", "Products"))
+          .Create(create => create.Action("Products_Create", "Products"))
+          .Update(update => update.Action("Products_Update", "Products"))
+          .Destroy(destroy => destroy.Action("Products_Destroy", "Products"))
       )
 )
+
+@section scripts{
+    <script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
+}

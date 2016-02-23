@@ -29,7 +29,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         public IProductServices Products { get; set; }
 
         [Inject]
-        public IPurchaseOrderService PurchaseOrder { get; set; }
+        public IPurchaseOrderService PurchaseOrders { get; set; }
 
         [Inject]
         public IOrderQuantitiesServices OrderQuantities { get; set; }
@@ -79,7 +79,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
                     CreatorId = this.UserProfile.Id
                 };
 
-                this.PurchaseOrder.Add(purchaseOrder);
+                this.PurchaseOrders.Add(purchaseOrder);
 
                 var order = products.Select(product => new OrderQuantity()
                 {
@@ -88,20 +88,47 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
 
                 this.OrderQuantities.Add(order);
 
-                return this.RedirectToAction("All");
+                return this.Redirect("/Private/Orders/All");
             }
 
             return this.Json(products.ToDataSourceResult(request, this.ModelState));
         }
 
+        public ActionResult Details(int id)
+        {
+            var model = this.OrderQuantities.GetByOrderId(id)
+                .Project()
+                .To<QuantitiesViewModel>()
+                .ToList();
+
+            return this.PartialView("_OrderDetailsPartial", model);
+        }
+
         public ActionResult New()
         {
-            throw new NotImplementedException();
+            var model = this.PurchaseOrders.GetNewPurchaseOrder(this.UserProfile.OrganizationId ?? 0)
+                .Project()
+                .To<PurchaseOrderViewModel>()
+                .ToList();
+
+            return this.View(model);
         }
 
         public ActionResult Supplier()
         {
-            throw new NotImplementedException();
+            var model = this.PurchaseOrders.AllByUser(this.UserProfile.OrganizationId ?? 0)
+                .Project()
+                .To<PurchaseOrderViewModel>()
+                .ToList();
+
+            return this.View("New", model);
+        }
+
+        public ActionResult Done(int id)
+        {
+            this.PurchaseOrders.MarkAsRead(id);
+
+            return this.RedirectToAction("New");
         }
     }
 }

@@ -54,6 +54,7 @@ namespace WarehouseSystem.Data.Migrations
                     if (!currentCustomer.Partners.Contains(currnetSupplier))
                     {
                         currentCustomer.Partners.Add(currnetSupplier);
+                        currnetSupplier.Partners.Add(currentCustomer);
                     }
                 }
             }

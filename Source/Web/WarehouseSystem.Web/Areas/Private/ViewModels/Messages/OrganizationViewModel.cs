@@ -3,7 +3,7 @@ using WarehouseSystem.Web.Infrastructure.Mapping;
 
 namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
 {
-    public class OrganizationViewModel : IMapFrom<Organization>
+    public class OrganizationViewModel : IMapFrom<Data.Models.Organization>
     {
         public int Id { get; set; }
 

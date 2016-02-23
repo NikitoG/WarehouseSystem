@@ -7,7 +7,7 @@ using WarehouseSystem.Web.Infrastructure.Mapping;
 
 namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
 {
-    public class PartnersViewModel : IMapFrom<Organization>, IHaveCustomMappings
+    public class PartnersViewModel : IMapFrom<Data.Models.Organization>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
