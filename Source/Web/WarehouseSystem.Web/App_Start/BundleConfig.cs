@@ -19,6 +19,10 @@ namespace WarehouseSystem.Web
                         "~/Scripts/jquery.timeago.js",
                       "~/Scripts/js/timeago.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/font").Include(
+                        "~/Scripts/theme/cufon-yui.js",
+                      "~/Scripts/theme/League_Gothic_400.font.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -53,12 +57,14 @@ namespace WarehouseSystem.Web
                       "~/Content/Theme/css/dataTables.bootstrap.css",
                       "~/Content/Theme/css/select2.min.css",
                       "~/Content/Theme/home/style.css",
-                      "~/Content/Theme/home/flat-blue.css",
-                      "~/Content/site.css"));
+                      "~/Content/Theme/home/flat-blue.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                       "~/Content/KendoUi/kendo.common.min.css",
                       "~/Content/KendoUi/kendo.bootstrap.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/home").Include(
+                      "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/login").Include(
                       "~/Scripts/theme/app.js"));

@@ -1,24 +1,70 @@
-﻿body {
-    /*padding-top: 50px;
-    padding-bottom: 20px;*/
+﻿.landing-page .navbar .navbar-right {
+    position: relative;
+    right: 0;
+    font-size: 22px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
+.landing-page .navbar.affix {
+    z-index: 4000;
+    background-color: #BFBFBF !important;
+    height: 60px;
+    opacity: 1;
+    margin-top: 0px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    /*white-space: normal;*/
+.landing-page .app-header {
+    padding-top: 100px;
+    background-color: #252D35;
+    background-image: url("Theme/img/home/background_warehouse_1.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover !important;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    /*max-width: 280px;*/
+
+.color-white-title {
+    color: white;
+    position: relative;
+    font-size: 50px;
+}
+
+.pfblock-lib {
+    background-image: url("Theme/img/home/skyview.jpg") !important;
+    /* background-color: #222; */
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
+}
+
+.white {
+    color: white;
+}
+
+.centered {
+    text-align: center;
+    color: #EAEAEA;
+    font-size: 55px;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+ul {
+    list-style: none;
+    font-size: 30px;
+}
+
+.row > [class*="col-"] {
+    margin-bottom: 50px;
+}
+
+button {
+    opacity: 0.1;
+    position: absolute;
+    left: 50%;
+    width: 722px;
+    height: 35px;
+    margin: 44px 21px 0 -377px;
+    line-height: 10px;
+    background: url('Theme/img/home/dotted_line.png') repeat-x 0 50%;
+    border: none;
 }

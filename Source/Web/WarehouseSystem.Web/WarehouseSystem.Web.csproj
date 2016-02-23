@@ -401,6 +401,15 @@
     <Content Include="Content\Theme\home\flat-blue.css" />
     <Content Include="Content\Theme\home\style.css" />
     <Content Include="Content\Theme\img\app-header-bg.jpg" />
+    <Content Include="Content\Theme\img\home\background_warehouse.jpg" />
+    <Content Include="Content\Theme\img\home\background_warehouse_1.jpg" />
+    <Content Include="Content\Theme\img\home\background_warehouse_rev.jpg" />
+    <Content Include="Scripts\theme\cufon-yui.js" />
+    <Content Include="Content\Theme\img\home\dotted_line.png" />
+    <Content Include="Content\Theme\img\home\final-dotted-line.png" />
+    <Content Include="Scripts\theme\League_Gothic_400.font.js" />
+    <Content Include="Content\Theme\img\home\shaded_dot.png" />
+    <Content Include="Content\Theme\img\home\skyview.jpg" />
     <Content Include="Content\Theme\img\profile\backdrop\micro_carbon.png" />
     <Content Include="Content\Theme\img\profile\backdrop\tactile_noise.png" />
     <Content Include="Content\Theme\img\bg.jpg" />

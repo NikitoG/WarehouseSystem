@@ -9,15 +9,80 @@
 <div class="jumbotron app-header">
     <div class="container">
         <h2 class="text-center">
-            <i class="app-logo fa fa-connectdevelop fa-5x color-white"></i>
-            <div class="color-white">Warehouse System - NG</div>
+            <i class="app-logo fa fa fa-barcode fa-5x color-white">
+            </i>
+            <div class="color-white-title ">VW</div>
         </h2>
-        <p class="text-center color-white app-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p class="text-center color-white app-description">
+            A Virtual Warehouse is a powerful and convenient system that allows businesses to access information
+            from multiple sources throughout the production system.
+        </p>
         <p class="text-center">
             @Html.Partial("_AreasPartial")
         </p>
     </div>
 </div>
+<div class="container-fluid app-content-a">
+    <div class="container">
+        <div class="row text-center">
+            <button></button>
+            <div class="col-md-4 col-sm-6">
+                <span class="fa-stack fa-lg fa-5x">
+
+                    <i class="fa fa-desktop fa-stack-1x" style="color:#4e5b6e"></i>
+                </span>
+                <h2>Pick Your Goods</h2>
+
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-md-4 col-sm-6">
+                <span class="fa-stack fa-lg fa-5x">
+
+                    <i class="fa fa-shopping-basket fa-stack-1x" style="color: #374058"></i>
+                </span>
+                <h2>Make an order</h2>
+
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-md-4 col-sm-6">
+                <span class="fa-stack fa-lg fa-5x">
+
+                    <i class="fa fa-truck fa-stack-1x" style="color: #202b3c"></i>
+                </span>
+                <h2>Receive It</h2>
+
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+    </div>
+</div>
+<div class="container-fluid app-content-b feature-1 pfblock-lib white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="centered"> Who can benefit from Virtual Warehouse: </h2>
+            </div>
+
+            <div class="col-lg-5 col-lg-offset-2 twenty">
+                <ul>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Retails </li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Shops</li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Restorants</li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Hotels</li>
+                </ul>
+            </div>
+            <div class="col-lg-5 twenty">
+                <ul>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Content delivery networks</li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> System Integrators</li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> Enterprise video</li>
+                    <li><span class="glyphicon glyphicon-ok"> </span> OEMs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="container-fluid app-content-a" id="about">
     <div class="container">
         <div class="row">
@@ -93,29 +158,37 @@
             </div>
         </div>
     </div>
-
-
-    <section class="container-fluid app-content-b contact-us" id="contact">
-        <div class="container">
-            <div class="row featurette">
-                <div class="col-md-6">
-                    <h2 class="color-white contact-us-header">Contact Us</h2>
-                    <p class="color-white contact-us-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut </p>
-                </div>
-                <div class="col-md-6">
-                    @Html.Action("Send")
-                    @*@Html.Partial("_ContactUsPartial");*@
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div id="content">
     </div>
     <div id="displayLoading" style="display: none">Loading...</div>
 </section>
+<section class="container-fluid app-content-b contact-us" id="contact">
+    <div class="container">
+        <div class="row featurette">
+            <div class="col-md-6">
+                <h2 class="color-white contact-us-header">Contact Us</h2>
+                <p class="color-white contact-us-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut </p>
+            </div>
+            <div class="col-md-6">
+                @Html.Action("Send")
+                @*@Html.Partial("_ContactUsPartial");*@
+            </div>
+        </div>
+    </div>
+</section>
 
+@section css{
+    @Styles.Render("~/Content/home")
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/font")
+    <script type="text/javascript">
+        Cufon.replace('.centered');
+        Cufon.replace('.title');
+        Cufon.replace('ul');
+        Cufon.replace('h2');
+        Cufon.replace(' .color-white-title');
+    </script>
 }
