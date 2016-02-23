@@ -12,6 +12,7 @@ using WarehouseSystem.Web.Controllers;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    [Authorize]
     public class SuppliersController : BaseController
     {
         [Inject]

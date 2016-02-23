@@ -9,6 +9,7 @@
     using WarehouseSystem.Web.Controllers;
     using WarehouseSystem.Data.Models;
 
+    [Authorize]
     public class MessagesController : BaseController
     {
         [Inject]

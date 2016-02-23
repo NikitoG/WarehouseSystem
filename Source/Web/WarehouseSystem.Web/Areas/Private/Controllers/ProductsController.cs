@@ -17,6 +17,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
     using WarehouseSystem.Data;
     using WarehouseSystem.Data.Models;
 
+    [Authorize]
     public class ProductsController : BaseController
     {
         [Inject]

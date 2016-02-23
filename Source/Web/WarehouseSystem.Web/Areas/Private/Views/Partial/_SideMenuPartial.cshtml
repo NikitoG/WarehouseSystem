@@ -1,4 +1,6 @@
-﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.SideMenuViewModel
+﻿@using WarehouseSystem.Common
+@using Microsoft.AspNet.Identity
+@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.SideMenuViewModel
 
 
 <div class="side-menu sidebar-inverse">
@@ -19,48 +21,27 @@
                         <span class="icon fa fa-tachometer"></span><span class="title">Dashboard</span>
                     </a>
                 </li>
-                <li class="panel panel-default dropdown">
-                    <a data-toggle="collapse" href="#dropdown-element">
-                        <span class="icon fa fa-desktop"></span><span class="title">Suppliers</span>
-                    </a>
-                    <!-- Dropdown level 1 -->
-                    <div id="dropdown-element" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    @Html.ActionLink("All", "Index", "Suppliers", new { area = "Private" }, null)
-                                </li>
-                                @foreach (var category in Model.Categories)
-                                {
-                                    <li>
-                                        <a href="/byCategories/@category.Id">@category.Name</a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-
-                @if (Model.UserViewModel.IsSuplier)
+                @if (User.IsInRole("Administrator"))
                 {
-                    <li class="active">
-                        <a href="/Private/Products">
-                            <span class="icon fa fa-archiver"></span><span class="title">My Products</span>
-                        </a>
-                    </li>
                     <li class="panel panel-default dropdown">
-                        <a data-toggle="collapse" href="#dropdown-table">
-                            <span class="icon fa fa-table"></span><span class="title">Orders</span>
+                        <a data-toggle="collapse" href="#dropdown-element">
+                            <span class="icon fa fa-desktop"></span><span class="title">All</span>
                         </a>
                         <!-- Dropdown level 1 -->
-                        <div id="dropdown-table" class="panel-collapse collapse">
+                        <div id="dropdown-element" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        @Html.ActionLink("New", "New", "Orders", new { area = "Private" }, null)
+                                        @Html.ActionLink("Products", "Index", "Products", new { area = "Administration" }, null)
                                     </li>
                                     <li>
-                                        @Html.ActionLink("All", "Supplier", "Orders", new { area = "Private" }, null)
+                                        @Html.ActionLink("Categories", "Index", "Categories", new {area = "Administration"}, null)
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Users", "Index", "Users", new {area = "Administration"}, null)
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Organizations", "Index", "Organizations", new { area = "Administration" }, null)
                                     </li>
                                 </ul>
                             </div>
@@ -70,45 +51,96 @@
                 else
                 {
                     <li class="panel panel-default dropdown">
-                        <a data-toggle="collapse" href="#dropdown-table">
-                            <span class="icon fa fa-table"></span><span class="title">Orders</span>
+                        <a data-toggle="collapse" href="#dropdown-element">
+                            <span class="icon fa fa-desktop"></span><span class="title">Suppliers</span>
                         </a>
                         <!-- Dropdown level 1 -->
-                        <div id="dropdown-table" class="panel-collapse collapse">
+                        <div id="dropdown-element" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        @Html.ActionLink("All Suppliers", "All", "Orders", new { area = "Private" }, null)
+                                        @Html.ActionLink("All", "Index", "Suppliers", new { area = "Private" }, null)
                                     </li>
-                                    @foreach (var partner in Model.Partners)
+                                    @foreach (var category in Model.Categories)
                                     {
                                         <li>
-                                            <a href="/orders/@partner.Id">@partner.Name</a>
+                                            <a href="/byCategories/@category.Id">@category.Name</a>
                                         </li>
                                     }
                                 </ul>
                             </div>
                         </div>
                     </li>
-                }
-                <li class="panel panel-default dropdown">
-                    <a data-toggle="collapse" href="#dropdown-form">
-                        <span class="icon fa fa-file-text-o"></span><span class="title">Messages</span>
-                    </a>
-                    <!-- Dropdown level 1 -->
-                    <div id="dropdown-form" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    @Html.ActionLink("Inbox", "Inbox", "Messages", new { area = "Private"}, null)
-                                </li>
-                                <li>
-                                    @Html.ActionLink("Sent", "Sent", "Messages", new { area = "Private" }, null)
-                                </li>
-                            </ul>
+
+                    if (Model.UserViewModel.IsSuplier)
+                    {
+                        <li class="active">
+                            <a href="/Private/Products">
+                                <span class="icon fa fa-archiver"></span><span class="title">My Products</span>
+                            </a>
+                        </li>
+                        <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#dropdown-table">
+                                <span class="icon fa fa-table"></span><span class="title">Orders</span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="dropdown-table" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li>
+                                            @Html.ActionLink("New", "New", "Orders", new { area = "Private" }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("All", "Supplier", "Orders", new { area = "Private" }, null)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#dropdown-table">
+                                <span class="icon fa fa-table"></span><span class="title">Orders</span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="dropdown-table" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li>
+                                            @Html.ActionLink("All Suppliers", "All", "Orders", new { area = "Private" }, null)
+                                        </li>
+                                        @foreach (var partner in Model.Partners)
+                                        {
+                                            <li>
+                                                <a href="/orders/@partner.Id">@partner.Name</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    <li class="panel panel-default dropdown">
+                        <a data-toggle="collapse" href="#dropdown-form">
+                            <span class="icon fa fa-file-text-o"></span><span class="title">Messages</span>
+                        </a>
+                        <!-- Dropdown level 1 -->
+                        <div id="dropdown-form" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        @Html.ActionLink("Inbox", "Inbox", "Messages", new { area = "Private" }, null)
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Sent", "Sent", "Messages", new { area = "Private" }, null)
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                }
             </ul>
         </div>
         <!-- /.navbar-collapse -->

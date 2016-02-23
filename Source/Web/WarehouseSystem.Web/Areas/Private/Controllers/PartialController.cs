@@ -12,6 +12,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
     using WarehouseSystem.Web.Controllers;
     using WarehouseSystem.Services.Data.Contract;
 
+    [Authorize]
     public class PartialController : BaseController
     {
         [Inject]

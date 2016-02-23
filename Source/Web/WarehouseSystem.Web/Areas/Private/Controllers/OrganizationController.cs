@@ -7,6 +7,7 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
     using System.Web.Mvc;
 
+    [Authorize]
     public class OrganizationController : BaseController
     {
         public ActionResult Index()

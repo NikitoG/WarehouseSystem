@@ -617,6 +617,10 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\WarehouseSystem.Common\WarehouseSystem.Common.csproj">
+      <Project>{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}</Project>
+      <Name>WarehouseSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Common\WarehouseSystem.Data.Common.csproj">
       <Project>{a11fb528-d078-4c89-8373-70d7400e35ff}</Project>
       <Name>WarehouseSystem.Data.Common</Name>

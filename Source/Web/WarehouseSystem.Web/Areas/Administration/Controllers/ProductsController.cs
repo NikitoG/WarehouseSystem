@@ -8,11 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+﻿using WarehouseSystem.Common;
 ﻿using WarehouseSystem.Data;
 ﻿using WarehouseSystem.Data.Models;
 
 namespace WarehouseSystem.Web.Areas.Administration.Controllers
 {
+
+    [Authorize(Roles = GlobalConstants.AdminRole)]
     public class ProductsController : Controller
     {
         private WarehouseSystemDbContext db = new WarehouseSystemDbContext();

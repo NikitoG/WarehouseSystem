@@ -17,6 +17,7 @@ using WarehouseSystem.Web.Controllers;
 
 namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    [Authorize]
     public class OrdersController : BaseController
     {
         [Inject]
