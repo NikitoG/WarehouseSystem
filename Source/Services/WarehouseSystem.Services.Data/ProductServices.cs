@@ -43,14 +43,6 @@ namespace WarehouseSystem.Services.Data
             return this.products.All().Where(p => p.SupplierId == id);
         }
 
-        public Product Add(Product product)
-        {
-            this.products.Add(product);
-            this.products.Save();
-
-            return product;
-        }
-
         public Product GetById(int id)
         {
             return this.products.GetById(id);
@@ -61,6 +53,8 @@ namespace WarehouseSystem.Services.Data
             var entity = this.products.GetById(product.Id);
             entity.Name = product.Name;
             entity.Sku = product.Sku;
+            entity.Image = product.Image;
+            entity.CategoryId = product.CategoryId;
             entity.Barcode = product.Barcode;
             entity.HeigthInCm = product.HeigthInCm;
             entity.WidthInCm = product.WidthInCm;
@@ -73,6 +67,14 @@ namespace WarehouseSystem.Services.Data
             this.products.Save();
 
             return entity;
+        }
+
+        public Product Add(Product product)
+        {
+            this.products.Add(product);
+            this.products.Save();
+
+            return product;
         }
 
         public void Delete(Product product)

@@ -1,7 +1,0 @@
-﻿@model WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.CategoryViewModel
-
-@(Html.Kendo().DropDownListFor(m => m)
-        .DataValueField("Id")
-        .DataTextField("Name")
-        .BindTo((System.Collections.IEnumerable)ViewData["categories"])
-)

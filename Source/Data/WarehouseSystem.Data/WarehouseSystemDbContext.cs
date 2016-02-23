@@ -31,7 +31,7 @@ namespace WarehouseSystem.Data
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }

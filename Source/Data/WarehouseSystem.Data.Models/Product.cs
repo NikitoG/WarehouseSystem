@@ -14,7 +14,7 @@ namespace WarehouseSystem.Data.Models
             this.orderQuantities = new HashSet<OrderQuantity>();
         }
 
-        [Required] 
+        [Required]
         [StringLength(50, MinimumLength = 2)]
         public string Name { get; set; }
 

@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Ninject;
 using WarehouseSystem.Data.Models;
 using WarehouseSystem.Services.Data.Contract;
+using WarehouseSystem.Services.Web;
 
 namespace WarehouseSystem.Web.Controllers
 {
@@ -15,6 +16,9 @@ namespace WarehouseSystem.Web.Controllers
     {
         [Inject]
         public IUserServices Users { get; set; }
+
+        [Inject]
+        public ICacheService Cache { get; set; }
 
         protected User UserProfile { get; private set; }
 

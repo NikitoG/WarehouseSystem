@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Common", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Data.Common", "Data\WarehouseSystem.Data.Common\WarehouseSystem.Data.Common.csproj", "{A11FB528-D078-4C89-8373-70D7400E35FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseSystem.Services.Web", "Services\WarehouseSystem.Services.Web\WarehouseSystem.Services.Web.csproj", "{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{A11FB528-D078-4C89-8373-70D7400E35FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11FB528-D078-4C89-8373-70D7400E35FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11FB528-D078-4C89-8373-70D7400E35FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 		{B6C34989-1965-4971-84D7-7BB2F3EC5A35} = {B48C2F89-C073-45C5-8E05-04F9E4990413}
 		{EDD39A31-4812-43E3-A6FE-48AAE494BF0D} = {91F28054-32D8-41E1-AA4D-C06F120DA2E1}
 		{A11FB528-D078-4C89-8373-70D7400E35FF} = {67611D07-2119-4CAC-85EB-77DC6FB97C6B}
+		{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C} = {B48C2F89-C073-45C5-8E05-04F9E4990413}
 	EndGlobalSection
 EndGlobal

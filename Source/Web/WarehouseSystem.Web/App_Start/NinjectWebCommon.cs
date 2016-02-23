@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using WarehouseSystem.Data.Common;
+using WarehouseSystem.Services.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WarehouseSystem.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WarehouseSystem.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -70,6 +71,8 @@ namespace WarehouseSystem.Web.App_Start
             kernel.Bind(typeof(IWarehouseSystemDbContext)).To(typeof(WarehouseSystemDbContext));
             kernel.Bind(typeof(DbContext)).To(typeof(WarehouseSystemDbContext));
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
+            kernel.Bind(typeof(ICacheService)).To(typeof(HttpCacheService));
+            kernel.Bind(typeof(IIdentifierProvider)).To(typeof(IdentifierProvider));
 
             kernel.Bind(b => b
                 .From("WarehouseSystem.Services.Data")

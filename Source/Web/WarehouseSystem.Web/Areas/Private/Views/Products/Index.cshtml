@@ -1,68 +1,80 @@
-﻿
-@(Html.Kendo().Grid<WarehouseSystem.Web.Areas.Private.ViewModels.Products.SupplierProductViewModel>()
-      .Name("grid")
-      .Columns(columns =>
-      {
-          columns.Bound(c => c.Sku);
-          columns.Bound(c => c.Name);
-          columns.Bound(c => c.Barcode);
-          columns.Bound(p => p.Category).ClientTemplate("#=Category.Name#").Width(180);
-          columns.Bound(c => c.HeigthInCm);
-          columns.Bound(c => c.WidthInCm);
-          columns.Bound(c => c.WeightInGr);
-          columns.Bound(c => c.DeliveryUnit);
-          columns.Bound(c => c.MinDayOfExpiryInDays);
-          columns.Bound(c => c.IsBlocked);
-          columns.Command(command =>
-          {
-              command.Destroy();
-          }).Width(180);
-      })
-      .ToolBar(toolbar =>
-      {
-          toolbar.Create();
-          toolbar.Save();
-      })
-      .Editable(editable => editable.Mode(GridEditMode.InCell))
-      .Pageable()
-      .Sortable()
-      .Scrollable()
-      .Filterable()
-      .HtmlAttributes(new { style = "height:550px;" })
-      .DataSource(dataSource => dataSource
-          .Ajax()
-          .Batch(true)
-          .ServerOperation(false)
-          .Events(events => events.Error("error_handler"))
-          .Model(model =>
-          {
-              model.Id(p => p.Id);
-              model.Field(p => p.Id).Editable(false);
-              model.Field(p => p.Category).DefaultValue(
-                  ViewData["defaultCategory"] as WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels.CategoryViewModel);
-          })
-          .PageSize(20)
-          .Read(read => read.Action("Products_Read", "Products"))
-          .Create(create => create.Action("Products_Create", "Products"))
-          .Update(update => update.Action("Products_Update", "Products"))
-          .Destroy(destroy => destroy.Action("Products_Destroy", "Products"))
-      )
-)
-
-@section scripts{
-    <script type="text/javascript">
-    function error_handler(e) {
-        if (e.errors) {
-            var message = "Errors:\n";
-            $.each(e.errors, function (key, value) {
-                if ('errors' in value) {
-                    $.each(value.errors, function() {
-                        message += this + "\n";
-                    });
-                }
-            });
-            alert(message);
-        }
-    }
-</script>
+﻿@using WarehouseSystem.Data.Models
+@model IEnumerable<WarehouseSystem.Web.Areas.Private.ViewModels.Products.SupplierProductViewModel>
+@{
+    ViewBag.Title = "My Products";
 }
+
+
+<div class="container-fluid">
+    <div class="side-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-title">
+                            <div class="title">
+                                @ViewBag.Title -
+                                @Html.ActionLink("Add new Product", "Create", "Products", new { area = "Private" }, null)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="datatable table table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Sku</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Size</th>
+                                    <th>Delivery Unit</th>
+                                    <th>Blocked</th>
+                                    <th>Command</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Sku</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Size</th>
+                                    <th>Delivery Unit</th>
+                                    <th>Blocked</th>
+                                    <th>Command</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var product in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (product.ImageId != null)
+                                            {
+                                                <img src="@Url.Action("Image", "Partial", new { id = product.ImageId.Value })" alt="@product.Name" class="img-circle" width="80" height="60"/>
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Theme/img/profile/profile-1.jpg" class="img-circle" width="80" height="60"/>
+                                            }
+                                        </td>
+                                        <td>@product.Sku</td>
+                                        <td>@product.Name</td>
+                                        <td>@product.Category</td>
+                                        <td>@product.Size</td>
+                                        <td>@product.DeliveryUnit</td>
+                                        <td>@product.IsBlocked</td>
+                                        <td>
+                                            <a href="/product/@product.Id" class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

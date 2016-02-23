@@ -26,14 +26,19 @@
                 defaults: new { controller = "Orders", action = "ByPartner", Area = "Private" });
 
             context.MapRoute(
+                name: "Supplier",
+                url: "suppliers/{id}",
+                defaults: new { controller = "Suppliers", action = "GetById", Area = "Private" });
+
+            context.MapRoute(
                 name: "Category",
                 url: "byCategories/{id}",
                 defaults: new { controller = "Suppliers", action = "GetPartners", Area = "Private" });
 
             context.MapRoute(
-                name: "Supplier",
-                url: "suppliers/{id}",
-                defaults: new { controller = "Suppliers", action = "GetById", Area = "Private" });
+                name: "Product",
+                url: "product/{id}",
+                defaults: new { controller = "Products", action = "Update", Area = "Private" });
 
             context.MapRoute(
                 "Private_default",

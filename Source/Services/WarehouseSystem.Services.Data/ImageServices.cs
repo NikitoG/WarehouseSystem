@@ -22,5 +22,13 @@ namespace WarehouseSystem.Services.Data
         {
             return this.images.GetById(id);
         }
+
+        public Image Add(Image image)
+        {
+            this.images.Add(image);
+            this.images.Save();
+
+            return image;
+        }
     }
 }

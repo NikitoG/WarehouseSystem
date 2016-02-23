@@ -10,5 +10,7 @@ namespace WarehouseSystem.Services.Data.Contract
     public interface IImageServices
     {
         Image GetById(int id);
+
+        Image Add(Image image);
     }
 }

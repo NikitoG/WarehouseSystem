@@ -254,11 +254,11 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\ProductsController.cs" />
-    <Compile Include="Areas\Private\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Private\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Private\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Private\Controllers\PartialController.cs" />
     <Compile Include="Areas\Private\Controllers\OrganizationController.cs" />
+    <Compile Include="Areas\Private\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Private\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Private\Controllers\SuppliersController.cs" />
     <Compile Include="Areas\Private\UserAreaRegistration.cs" />
@@ -275,6 +275,7 @@
     <Compile Include="Areas\Private\ViewModels\PartialModels\PartnersViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\PartialModels\SideMenuViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\PartialModels\UserViewModel.cs" />
+    <Compile Include="Areas\Private\ViewModels\Products\CreateProductModel.cs" />
     <Compile Include="Areas\Private\ViewModels\Products\SupplierProductViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\Profile\ProfileViewModel.cs" />
     <Compile Include="Areas\Private\ViewModels\Suppliers\DetailsViewModel.cs" />
@@ -501,9 +502,10 @@
     <Content Include="Areas\Private\Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Areas\Private\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Private\Views\Shared\EditorTemplates\Url.cshtml" />
-    <Content Include="Areas\Private\Views\Products\ClientCategory.cshtml" />
     <Content Include="Areas\Private\Views\Orders\New.cshtml" />
     <Content Include="Areas\Private\Views\Orders\_OrderDetailsPartial.cshtml" />
+    <Content Include="Areas\Private\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Private\Views\Products\Update.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -608,7 +610,6 @@
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Grid\" />
-    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -617,8 +618,13 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\WarehouseSystem.Common\WarehouseSystem.Common.csproj">
-      <Project>{EDD39A31-4812-43E3-A6FE-48AAE494BF0D}</Project>
+      <Project>{edd39a31-4812-43e3-a6fe-48aae494bf0d}</Project>
       <Name>WarehouseSystem.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\WarehouseSystem.Data.Common\WarehouseSystem.Data.Common.csproj">
@@ -637,11 +643,10 @@
       <Project>{b6c34989-1965-4971-84d7-7bb2f3ec5a35}</Project>
       <Name>WarehouseSystem.Services.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    <ProjectReference Include="..\..\Services\WarehouseSystem.Services.Web\WarehouseSystem.Services.Web.csproj">
+      <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
+      <Name>WarehouseSystem.Services.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
