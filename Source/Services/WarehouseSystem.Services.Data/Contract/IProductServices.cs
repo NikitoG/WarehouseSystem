@@ -19,5 +19,7 @@
         Product Update(Product product);
 
         void Delete(Product product);
+
+        IQueryable<Product> All();
     }
 }

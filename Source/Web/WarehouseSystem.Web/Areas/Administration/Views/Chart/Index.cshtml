@@ -1,0 +1,12 @@
+﻿@(Html.Kendo().Chart<WarehouseSystem.Data.Models.Product>()
+      .Name("chart")
+      .Title("")
+      .Legend(legend => legend.Position(ChartLegendPosition.Right))
+      .Tooltip(tooltip => tooltip.Visible(true))
+      .DataSource(ds => ds.Read(read => read.Action("Products_Read", "Chart")))
+      .Series(series => {
+            series.Area(a => a.WidthInCm).Name("Width").Color("Red");
+            series.Area(a => a.DeliveryUnit).Name("DU").Color("Blue");
+      })
+      .CategoryAxis(axis => axis.Categories(model => model.WidthInCm))
+)

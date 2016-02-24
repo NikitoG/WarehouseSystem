@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -253,7 +254,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ChartController.cs" />
+    <Compile Include="Areas\Administration\Controllers\DivisionsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Administration\Controllers\OrganizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ProductViewModel.cs" />
     <Compile Include="Areas\Private\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Private\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Private\Controllers\PartialController.cs" />
@@ -524,6 +532,15 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="App_Code\ToastrBuilder.cshtml" />
+    <AdditionalFiles Include="..\..\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Organizations\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Chart\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Divisions\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Messages\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -623,15 +640,20 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Scripts\KendoUi\kendo.all.min.js.map" />
     <Content Include="Scripts\KendoUi\kendo.aspnetmvc.min.js.map" />
-    <Content Include="stylecop.json" />
     <Content Include="Views\Shared\_Toastr.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProductViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Chart\" />
+    <Folder Include="Views\Divisions\" />
     <Folder Include="Views\Grid\" />
+    <Folder Include="Views\Messages\" />
+    <Folder Include="Views\Orders\" />
+    <Folder Include="Views\Organizations\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

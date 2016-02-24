@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using Ninject;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Services.Data.Contract;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Messages;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
-using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
-using WarehouseSystem.Web.Controllers;
-using WarehouseSystem.Web.ViewModels.ToastrModels;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using Ninject;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Services.Data.Contract;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Messages;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
+    using WarehouseSystem.Web.Controllers;
+    using WarehouseSystem.Web.ViewModels.ToastrModels;
+
     [Authorize]
     public class OrdersController : BaseController
     {

@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Ninject;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Services.Data.Contract;
-using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Profile;
-using WarehouseSystem.Web.Controllers;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Profile;
+    using WarehouseSystem.Web.Controllers;
+
     [Authorize]
     public class ProfileController : BaseController
     {

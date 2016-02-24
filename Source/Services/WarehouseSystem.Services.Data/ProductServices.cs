@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WarehouseSystem.Data.Common;
 using WarehouseSystem.Data.Models;
 using WarehouseSystem.Services.Data.Contract;
@@ -51,10 +48,9 @@ namespace WarehouseSystem.Services.Data
         public Product Update(Product product)
         {
             var entity = this.products.GetById(product.Id);
+
             entity.Name = product.Name;
             entity.Sku = product.Sku;
-            entity.Image = product.Image;
-            entity.CategoryId = product.CategoryId;
             entity.Barcode = product.Barcode;
             entity.HeigthInCm = product.HeigthInCm;
             entity.WidthInCm = product.WidthInCm;
@@ -63,6 +59,10 @@ namespace WarehouseSystem.Services.Data
             entity.Stock = product.Stock;
             entity.MinDayOfExpiryInDays = product.MinDayOfExpiryInDays;
             entity.IsBlocked = product.IsBlocked;
+            entity.CreatedOn = product.CreatedOn;
+            entity.ModifiedOn = product.ModifiedOn;
+            entity.IsDeleted = product.IsDeleted;
+            entity.DeletedOn = product.DeletedOn;
 
             this.products.Save();
 
@@ -80,6 +80,11 @@ namespace WarehouseSystem.Services.Data
         public void Delete(Product product)
         {
             this.products.Delete(product);
+        }
+
+        public IQueryable<Product> All()
+        {
+            return this.products.All();
         }
     }
 }

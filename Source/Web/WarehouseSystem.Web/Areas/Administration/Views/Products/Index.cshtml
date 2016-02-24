@@ -1,5 +1,5 @@
 ﻿
-@(Html.Kendo().Grid<WarehouseSystem.Data.Models.Product>()
+@(Html.Kendo().Grid<WarehouseSystem.Web.Areas.Administration.ViewModels.ProductViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
@@ -10,13 +10,8 @@
           columns.Bound(c => c.WidthInCm);
           columns.Bound(c => c.WeightInGr);
           columns.Bound(c => c.DeliveryUnit);
-          columns.Bound(c => c.Stock);
           columns.Bound(c => c.MinDayOfExpiryInDays);
           columns.Bound(c => c.IsBlocked);
-          columns.Bound(c => c.CreatedOn).Format("{0: yyyy-MM-dd HH:mm }"); ;
-          columns.Bound(c => c.ModifiedOn).Format("{0: yyyy-MM-dd HH:mm }"); ;
-          columns.Bound(c => c.IsDeleted);
-          columns.Bound(c => c.DeletedOn).Format("{0: yyyy-MM-dd HH:mm }"); ;
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar => {

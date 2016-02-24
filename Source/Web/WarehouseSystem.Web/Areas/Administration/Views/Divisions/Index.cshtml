@@ -1,0 +1,31 @@
+﻿
+@(Html.Kendo().Grid<WarehouseSystem.Data.Models.Division>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.ModifiedOn);
+        columns.Bound(c => c.IsDeleted);
+        columns.Bound(c => c.DeletedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Divisions_Read", "Divisions"))
+          .Create(create => create.Action("Divisions_Create", "Divisions"))
+          .Update(update => update.Action("Divisions_Update", "Divisions"))
+          .Destroy(destroy => destroy.Action("Divisions_Destroy", "Divisions"))
+      )
+)

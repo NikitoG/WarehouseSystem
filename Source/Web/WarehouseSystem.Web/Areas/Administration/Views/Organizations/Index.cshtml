@@ -1,0 +1,36 @@
+﻿
+@(Html.Kendo().Grid<WarehouseSystem.Data.Models.Organization>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.MateriallyResponsiblePerson);
+        columns.Bound(c => c.LogoUrl);
+        columns.Bound(c => c.Vat);
+        columns.Bound(c => c.Address);
+        columns.Bound(c => c.IsSupplier);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.ModifiedOn);
+        columns.Bound(c => c.IsDeleted);
+        columns.Bound(c => c.DeletedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable(scrollable => scrollable.Enabled(false))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Organizations_Read", "Organizations"))
+          .Create(create => create.Action("Organizations_Create", "Organizations"))
+          .Update(update => update.Action("Organizations_Update", "Organizations"))
+          .Destroy(destroy => destroy.Action("Organizations_Destroy", "Organizations"))
+      )
+)

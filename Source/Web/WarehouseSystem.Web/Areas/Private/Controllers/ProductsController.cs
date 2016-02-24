@@ -1,17 +1,17 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Web.Mvc;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Ninject;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Services.Data.Contract;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Products;
-using WarehouseSystem.Web.Controllers;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    using System.IO;
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using Ninject;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Services.Data.Contract;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Products;
+    using WarehouseSystem.Web.Controllers;
+
+    [Authorize]
     public class ProductsController : BaseController
     {
         [Inject]

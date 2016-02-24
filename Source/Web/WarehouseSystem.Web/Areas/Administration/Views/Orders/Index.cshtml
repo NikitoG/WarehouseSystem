@@ -1,0 +1,36 @@
+﻿
+@(Html.Kendo().Grid<WarehouseSystem.Data.Models.ScheduleOrder>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.OrderDay);
+        columns.Bound(c => c.DelivaryDay);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.ModifiedOn);
+        columns.Bound(c => c.IsDeleted);
+        columns.Bound(c => c.DeletedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Selectable(selectable => {
+            selectable.Mode(GridSelectionMode.Single);
+            selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable(scrollable => scrollable.Enabled(false))
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("ScheduleOrders_Read", "Orders"))
+          .Create(create => create.Action("ScheduleOrders_Create", "Orders"))
+          .Update(update => update.Action("ScheduleOrders_Update", "Orders"))
+          .Destroy(destroy => destroy.Action("ScheduleOrders_Destroy", "Orders"))
+      )
+)
