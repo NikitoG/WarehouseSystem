@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace WarehouseSystem.Web.Controllers.Tests
 {
@@ -16,16 +18,16 @@ namespace WarehouseSystem.Web.Controllers.Tests
         [Test]
         public void ByIdShouldWorkCorrectly()
         {
-            const string MessageContent = "SomeContent";
-            const string MessageTitle = "SomeTitle";
-            var messagesServiceMock = new Mock<IMessageServices>();
-            messagesServiceMock.Setup(x => x.GetById(It.IsAny<int>()))
-                .Returns(new Message { Content = MessageContent, Title = MessageTitle, ToId = "user1", FromId = "user2"});
-            var controller = new MessagesController();
-            var result = controller.ById(444) as ContentResult;
-
-            Assert.NotNull(result);
-            Assert.AreEqual(MessageContent, result.Content);
+            var organizationServiceMock = new Mock<IOrganizationServices>();
+            organizationServiceMock.Setup(x => x.GetAll())
+                .Returns(new List<Organization>() { new Organization { Name = "Organization", Id = 12 } }.AsQueryable());
+            var publicMessageServiceMock = new Mock<IPublicMessageServices>();
+            publicMessageServiceMock.Setup(x => x.Add(It.IsAny<PublicMessage>()))
+                .Returns(new PublicMessage { Content = "Test", Email = "test@site.com", FullName = "Test" });
+            var controller = new HomeController();
+            var expected = "Index";
+            var actual = ((ViewResult)controller.Index()).ViewName;
+            Assert.AreEqual(expected, actual);
         }
     }
 }

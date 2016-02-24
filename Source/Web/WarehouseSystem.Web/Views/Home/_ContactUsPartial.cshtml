@@ -1,12 +1,7 @@
 ﻿@using Microsoft.Ajax.Utilities
 @model SendMassageViewModel
 
-@using (Ajax.BeginForm("Send",
-                null,
-                new AjaxOptions
-                {
-                    HttpMethod = "POST"
-                }, new { id = "sendMessage" }))
+@using (Html.BeginForm("Send", "Home", FormMethod.Post, new { role = "form", id = "sendMessage" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })

@@ -42,7 +42,6 @@
                                         .ToList(),
                     30 * 60);
 
-
             var model = Mapper.Map<SupplierProductViewModel>(this.Products.GetById(id));
 
             return this.View(model);

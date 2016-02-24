@@ -1,14 +1,15 @@
 ﻿namespace WarehouseSystem.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
-    using System;
     using AutoMapper;
-    using WarehouseSystem.Data.Models;
     using AutoMapper.QueryableExtensions;
     using Ninject;
+    using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
     using WarehouseSystem.Web.ViewModels.Home;
+    using WarehouseSystem.Web.ViewModels.ToastrModels;
 
     public class HomeController : BaseController
     {
@@ -18,15 +19,15 @@
         [Inject]
         public IPublicMessageServices PublicMessage { get; set; }
 
-        //TODO: remove comment
-        //[OutputCache(Duration = 60 * 60)]
         public ActionResult Index()
         {
-            var allOrganizations = this.Organization
-                .GetAll()
-                .Project()
-                .To<StatisticsViewModel>()
-                .ToList();
+            var allOrganizations = this.Cache.Get(
+                    "homeStatistics",
+                    () => this.Organization.GetAll()
+                                            .Project()
+                                            .To<StatisticsViewModel>()
+                                            .ToList(),
+                    30 * 60);
 
             var viewModel = new IndexViewModel
             {
@@ -56,8 +57,8 @@
             var newMessage = Mapper.Map<PublicMessage>(message);
             newMessage.CreatedOn = DateTime.Now;
             this.PublicMessage.Add(newMessage);
-            this.TempData["success"] = "Successfull";
-            return this.PartialView("_ContactUsPartial", new SendMassageViewModel());
+            this.AddToastMessage("Succefull", "We will answer you as soon as possible!", ToastType.Success);
+            return this.RedirectToAction("Index");
         }
     }
 }
