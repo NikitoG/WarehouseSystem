@@ -1,9 +1,7 @@
-﻿using WarehouseSystem.Data.Common;
-
-namespace WarehouseSystem.Services.Data
+﻿namespace WarehouseSystem.Services.Data
 {
     using System.Linq;
-
+    using WarehouseSystem.Data.Common;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
 
@@ -14,7 +12,7 @@ namespace WarehouseSystem.Services.Data
         public UserServices(IDbRepository<User> users)
         {
             this.users = users;
-        } 
+        }
 
         public IQueryable<User> GetAll()
         {

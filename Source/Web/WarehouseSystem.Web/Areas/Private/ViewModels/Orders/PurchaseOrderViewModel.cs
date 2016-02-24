@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
 {
+    using System;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class PurchaseOrderViewModel : IMapFrom<PurchaseOrder>, IHaveCustomMappings
     {
         public int Id { get; set; }

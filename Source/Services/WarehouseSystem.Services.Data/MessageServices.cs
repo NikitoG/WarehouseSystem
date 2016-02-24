@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace WarehouseSystem.Services.Data
+﻿namespace WarehouseSystem.Services.Data
 {
+    using System.Collections.Generic;
     using System.Linq;
     using WarehouseSystem.Data.Common;
     using WarehouseSystem.Data.Models;

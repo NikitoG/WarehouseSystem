@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WarehouseSystem.Web.Controllers;
-using WarehouseSystem.Web.ViewModels.ToastrModels;
-
-namespace WarehouseSystem.Web.Filter
+﻿namespace WarehouseSystem.Web.Filter
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using WarehouseSystem.Web.Controllers;
+    using WarehouseSystem.Web.ViewModels.ToastrModels;
+
     public class MessagesActionFilter : ActionFilterAttribute
     {
         // This method is called BEFORE the action method is executed

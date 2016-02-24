@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Organizations
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Organizations
 {
+    using System.Linq;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class IndividualStatisticsViewModel : IMapFrom<User>, IHaveCustomMappings
     {
         public int Partners { get; set; }

@@ -3,22 +3,22 @@
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.OrderDay);
-        columns.Bound(c => c.DelivaryDay);
-        columns.Bound(c => c.CreatedOn);
-        columns.Bound(c => c.ModifiedOn);
-        columns.Bound(c => c.IsDeleted);
-        columns.Bound(c => c.DeletedOn);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.OrderDay).Format("{0: EEEE}");
+          columns.Bound(c => c.DelivaryDay).Format("{0: EEEE}");
+          columns.Bound(c => c.CreatedOn).Format("{0: yyyy-MM-dd HH:mm }");
+          columns.Bound(c => c.ModifiedOn).Format("{0: yyyy-MM-dd HH:mm }");
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.DeletedOn).Format("{0: yyyy-MM-dd HH:mm }");
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar => {
-            toolbar.Create();
+          toolbar.Create();
       })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
       .Selectable(selectable => {
-            selectable.Mode(GridSelectionMode.Single);
-            selectable.Type(GridSelectionType.Row);
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
       })
       .Sortable(sortable => {
           sortable.SortMode(GridSortMode.SingleColumn);

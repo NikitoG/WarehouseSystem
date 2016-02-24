@@ -1,10 +1,9 @@
-﻿using System.Web;
-using Moq;
-
-namespace WarehouseSystem.Web.Routes.Tests
+﻿namespace WarehouseSystem.Web.Routes.Tests
 {
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using Moq;
     using MvcRouteTester;
     using NUnit.Framework;
     using WarehouseSystem.Web.Areas.Private;
@@ -16,7 +15,6 @@ namespace WarehouseSystem.Web.Routes.Tests
         [Test]
         public void TestRouteMessagesById()
         {
-
             const string Url = "/message/222";
             var routes = new RouteCollection();
 
@@ -41,7 +39,6 @@ namespace WarehouseSystem.Web.Routes.Tests
         [Test]
         public void TestRouteOrdersByPartners()
         {
-
             const string Url = "/orders/222";
             var routes = new RouteCollection();
 
@@ -66,7 +63,6 @@ namespace WarehouseSystem.Web.Routes.Tests
         [Test]
         public void TestRouteSuppliersGetById()
         {
-
             const string Url = "/suppliers/222";
             var routes = new RouteCollection();
 
@@ -91,7 +87,6 @@ namespace WarehouseSystem.Web.Routes.Tests
         [Test]
         public void TestRouteSuppliersGetPartners()
         {
-
             const string Url = "/byCategories/222";
             var routes = new RouteCollection();
 
@@ -116,7 +111,6 @@ namespace WarehouseSystem.Web.Routes.Tests
         [Test]
         public void TestRouteProductsUpdates()
         {
-
             const string Url = "/product/222";
             var routes = new RouteCollection();
 

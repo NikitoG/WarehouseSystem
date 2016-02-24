@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.ViewModels.Home
+﻿namespace WarehouseSystem.Web.ViewModels.Home
 {
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class StatisticsViewModel : IMapFrom<Organization>, IHaveCustomMappings
     {
         public bool IsSupplier { get; set; }

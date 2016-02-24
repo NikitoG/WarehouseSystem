@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using AutoMapper;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class SendMessageViewModel
     {
         [Required]

@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using WarehouseSystem.Data;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.ViewModels;
-
-namespace WarehouseSystem.Web
+﻿namespace WarehouseSystem.Web
 {
+    using System;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security;
+    using WarehouseSystem.Data;
+    using WarehouseSystem.Data.Models;
+
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -42,9 +37,10 @@ namespace WarehouseSystem.Web
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<User>(context.Get<WarehouseSystemDbContext>()));
+
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<User>(manager)
             {
@@ -69,23 +65,19 @@ namespace WarehouseSystem.Web
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User>
-            {
-                MessageFormat = "Your security code is {0}"
-            });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User>
-            {
-                Subject = "Security Code",
-                BodyFormat = "Your security code is {0}"
-            });
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User> { MessageFormat = "Your security code is {0}" });
+
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User> { Subject = "Security Code", BodyFormat = "Your security code is {0}" });
+
             manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
+
             return manager;
         }
     }
@@ -100,7 +92,7 @@ namespace WarehouseSystem.Web
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user)
         {
-            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+            return user.GenerateUserIdentityAsync((ApplicationUserManager)this.UserManager);
         }
 
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)

@@ -13,13 +13,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
         public ActionResult Products_Read()
         {
-            return Json(db.Products.Select(product => new {
+            return this.Json(this.db.Products.Select(product => new
+            {
                 Name = product.Name,
                 Sku = product.Sku,
                 Barcode = product.Barcode,
@@ -39,7 +40,7 @@
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

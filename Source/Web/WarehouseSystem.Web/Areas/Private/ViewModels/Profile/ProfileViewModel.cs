@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Web;
-using System.Web.UI.WebControls;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Profile
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Profile
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class ProfileViewModel : IMapFrom<User>
     {
         public string Id { get; set; }

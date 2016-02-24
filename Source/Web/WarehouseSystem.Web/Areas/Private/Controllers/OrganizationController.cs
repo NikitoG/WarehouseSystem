@@ -1,11 +1,9 @@
-﻿using AutoMapper;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Organizations;
-using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
-using WarehouseSystem.Web.Controllers;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
     using System.Web.Mvc;
+    using AutoMapper;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Organizations;
+    using WarehouseSystem.Web.Controllers;
 
     [Authorize]
     public class OrganizationController : BaseController

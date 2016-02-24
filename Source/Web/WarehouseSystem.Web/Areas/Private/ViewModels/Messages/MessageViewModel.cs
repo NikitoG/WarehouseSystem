@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Messages
 {
+    using System;
     using AutoMapper;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Web.Infrastructure.Mapping;

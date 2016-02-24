@@ -15,13 +15,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Messages_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Message> messages = db.Messages;
-            DataSourceResult result = messages.ToDataSourceResult(request, message => new {
+            IQueryable<Message> messages = this.db.Messages;
+            DataSourceResult result = messages.ToDataSourceResult(request, message => new
+            {
                 Id = message.Id,
                 Title = message.Title,
                 Content = message.Content,
@@ -32,13 +33,13 @@
                 DeletedOn = message.DeletedOn
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Messages_Create([DataSourceRequest]DataSourceRequest request, Message message)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Message
                 {
@@ -51,18 +52,18 @@
                     DeletedOn = message.DeletedOn
                 };
 
-                db.Messages.Add(entity);
-                db.SaveChanges();
+                this.db.Messages.Add(entity);
+                this.db.SaveChanges();
                 message.Id = entity.Id;
             }
 
-            return Json(new[] { message }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { message }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Messages_Update([DataSourceRequest]DataSourceRequest request, Message message)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Message
                 {
@@ -76,18 +77,18 @@
                     DeletedOn = message.DeletedOn
                 };
 
-                db.Messages.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Messages.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { message }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { message }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Messages_Destroy([DataSourceRequest]DataSourceRequest request, Message message)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Message
                 {
@@ -101,17 +102,17 @@
                     DeletedOn = message.DeletedOn
                 };
 
-                db.Messages.Attach(entity);
-                db.Messages.Remove(entity);
-                db.SaveChanges();
+                this.db.Messages.Attach(entity);
+                this.db.Messages.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { message }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { message }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

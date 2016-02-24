@@ -14,7 +14,6 @@
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-
             context.MapRoute(
                 name: "Message",
                 url: "message/{id}",
@@ -43,8 +42,7 @@
             context.MapRoute(
                 "Private_default",
                 "Private/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

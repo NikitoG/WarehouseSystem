@@ -1,16 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace WarehouseSystem.Web.Controllers.Tests
+﻿namespace WarehouseSystem.Web.Controllers.Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
     using Moq;
     using NUnit.Framework;
-    using TestStack.FluentMVCTesting;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
-    using WarehouseSystem.Web.App_Start;
-    using WarehouseSystem.Web.Areas.Private.Controllers;
 
     [TestFixture]
     public class MessagesControllerTests

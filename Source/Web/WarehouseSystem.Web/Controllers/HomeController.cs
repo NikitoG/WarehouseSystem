@@ -36,7 +36,7 @@
                 Products = allOrganizations.Where(o => o.IsSupplier == true).Sum(o => o.Products)
             };
 
-            return View(viewModel);
+            return this.View(viewModel);
         }
 
         [ChildActionOnly]

@@ -1,7 +1,6 @@
-﻿using System.ComponentModel;
-
-namespace WarehouseSystem.Data.Models
+﻿namespace WarehouseSystem.Data.Models
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using WarehouseSystem.Data.Common.Models;

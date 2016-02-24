@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Products
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Products
 {
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class SupplierProductViewModel : IMapFrom<Product>, IHaveCustomMappings
     {
         [Key]

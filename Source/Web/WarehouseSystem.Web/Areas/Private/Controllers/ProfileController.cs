@@ -15,20 +15,19 @@
         [HttpGet]
         public ActionResult Index()
         {
-            var currentUser = Mapper.Map<ProfileViewModel>(this.UserProfile); ;
+            var currentUser = Mapper.Map<ProfileViewModel>(this.UserProfile);
 
-            return View(currentUser);
+            return this.View(currentUser);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(ProfileViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
-
 
             this.UpdateUserSettings(this.UserProfile, model);
             if (model.UploadedImage != null)
@@ -48,7 +47,7 @@
             }
 
             this.Users.Update();
-            return this.RedirectToAction("Index", "Organization", new {area = "Private"});
+            return this.RedirectToAction("Index", "Organization", new {area = "Private" });
         }
 
         private void UpdateUserSettings(User model, ProfileViewModel viewModel)

@@ -1,12 +1,10 @@
-﻿using System.ComponentModel;
-using WarehouseSystem.Data.Common.Models;
-
-namespace WarehouseSystem.Data.Models
+﻿namespace WarehouseSystem.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    using WarehouseSystem.Data.Common.Models;
 
     public class PurchaseOrder : BaseModel<int>
     {
@@ -45,6 +43,6 @@ namespace WarehouseSystem.Data.Models
         {
             get { return this.orderQuantities; }
             set { this.orderQuantities = value; }
-        } 
+        }
     }
 }

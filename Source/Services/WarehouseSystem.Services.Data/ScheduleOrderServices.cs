@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using WarehouseSystem.Data.Common;
-using WarehouseSystem.Data.Models;
-
-namespace WarehouseSystem.Services.Data
+﻿namespace WarehouseSystem.Services.Data
 {
+    using System;
+    using System.Linq;
+    using WarehouseSystem.Data.Common;
+    using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
 
     public class ScheduleOrderServices : IScheduleOrderServices

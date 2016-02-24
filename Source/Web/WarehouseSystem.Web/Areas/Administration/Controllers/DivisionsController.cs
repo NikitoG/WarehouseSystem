@@ -17,13 +17,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Divisions_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Division> divisions = db.Divisions;
-            DataSourceResult result = divisions.ToDataSourceResult(request, division => new {
+            IQueryable<Division> divisions = this.db.Divisions;
+            DataSourceResult result = divisions.ToDataSourceResult(request, division => new
+            {
                 Id = division.Id,
                 Name = division.Name,
                 CreatedOn = division.CreatedOn,
@@ -32,13 +33,13 @@
                 DeletedOn = division.DeletedOn
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Divisions_Create([DataSourceRequest]DataSourceRequest request, Division division)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Division
                 {
@@ -49,18 +50,18 @@
                     DeletedOn = division.DeletedOn
                 };
 
-                db.Divisions.Add(entity);
-                db.SaveChanges();
+                this.db.Divisions.Add(entity);
+                this.db.SaveChanges();
                 division.Id = entity.Id;
             }
 
-            return Json(new[] { division }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { division }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Divisions_Update([DataSourceRequest]DataSourceRequest request, Division division)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Division
                 {
@@ -72,18 +73,18 @@
                     DeletedOn = division.DeletedOn
                 };
 
-                db.Divisions.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Divisions.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { division }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { division }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Divisions_Destroy([DataSourceRequest]DataSourceRequest request, Division division)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Division
                 {
@@ -95,17 +96,17 @@
                     DeletedOn = division.DeletedOn
                 };
 
-                db.Divisions.Attach(entity);
-                db.Divisions.Remove(entity);
-                db.SaveChanges();
+                this.db.Divisions.Attach(entity);
+                this.db.Divisions.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { division }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { division }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

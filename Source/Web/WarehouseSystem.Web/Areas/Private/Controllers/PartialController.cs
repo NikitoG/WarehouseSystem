@@ -1,16 +1,14 @@
-﻿using System.Linq;
-using AutoMapper.QueryableExtensions;
-using WebGrease.Css.ImageAssemblyAnalysis;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Ninject;
+    using WarehouseSystem.Services.Data.Contract;
     using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
     using WarehouseSystem.Web.Controllers;
-    using WarehouseSystem.Services.Data.Contract;
 
     [Authorize]
     public class PartialController : BaseController

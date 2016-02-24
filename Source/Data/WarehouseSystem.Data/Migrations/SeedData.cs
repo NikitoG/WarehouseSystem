@@ -1,10 +1,12 @@
-﻿using WarehouseSystem.Data.Models;
-
-namespace WarehouseSystem.Data.Migrations
+﻿namespace WarehouseSystem.Data.Migrations
 {
+    using WarehouseSystem.Data.Models;
+
     public class SeedData
     {
-        public static readonly Organization[] Organizations = new Organization[] { new Organization()
+        public static readonly Organization[] Organizations = new Organization[]
+        {
+            new Organization()
         {
             Name = "Bella Bulgaria",
             MateriallyResponsiblePerson = "Georgi Iliev ",
@@ -172,6 +174,7 @@ namespace WarehouseSystem.Data.Migrations
             Vat = "131566678",
             IsSupplier = true,
             LogoUrl = "http://blog.wyo.in/wp-content/uploads/2015/06/Maggi-Open-Letter.jpg"
-        }};
+        }
+    };
     }
 }

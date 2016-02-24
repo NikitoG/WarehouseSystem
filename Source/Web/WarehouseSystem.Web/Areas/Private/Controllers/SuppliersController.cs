@@ -1,18 +1,17 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using System.Web.UI;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Ninject;
-using WarehouseSystem.Services.Data.Contract;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
-using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
-using WarehouseSystem.Web.Areas.Private.ViewModels.Suppliers;
-using WarehouseSystem.Web.Controllers;
-using WarehouseSystem.Web.ViewModels.ToastrModels;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using Ninject;
+    using WarehouseSystem.Services.Data.Contract;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Orders;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels;
+    using WarehouseSystem.Web.Areas.Private.ViewModels.Suppliers;
+    using WarehouseSystem.Web.Controllers;
+    using WarehouseSystem.Web.ViewModels.ToastrModels;
+
     [Authorize]
     public class SuppliersController : BaseController
     {
@@ -84,7 +83,6 @@ namespace WarehouseSystem.Web.Areas.Private.Controllers
         {
             var clientId = this.UserProfile.OrganizationId ?? 0;
             this.Organizations.DeletePartners(clientId, id);
-
 
             this.AddToastMessage("Seccesfull", "Drop  your partnership!", ToastType.Success);
 

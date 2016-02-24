@@ -1,6 +1,5 @@
 ﻿namespace WarehouseSystem.Web.Areas.Administration.Controllers
 {
-    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper;
@@ -9,7 +8,6 @@
     using Kendo.Mvc.UI;
     using Ninject;
     using WarehouseSystem.Common;
-    using WarehouseSystem.Data;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
     using WarehouseSystem.Web.Areas.Administration.ViewModels;
@@ -33,7 +31,7 @@
                                         .ToList(),
                     30 * 60);
 
-            return View();
+            return this.View();
         }
 
         public ActionResult Products_Read([DataSourceRequest]DataSourceRequest request)
@@ -50,7 +48,7 @@
                 .To<ProductViewModel>()
                 .ToDataSourceResult(request);
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -118,7 +116,7 @@
         {
             this.Products.Delete(Mapper.Map<Product>(product));
 
-            return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { product }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

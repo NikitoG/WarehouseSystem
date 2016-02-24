@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class PartnersViewModel : IMapFrom<Data.Models.Organization>, IHaveCustomMappings
     {
         public int Id { get; set; }

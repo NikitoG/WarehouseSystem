@@ -1,9 +1,8 @@
-﻿using WarehouseSystem.Data.Common.Models;
-
-namespace WarehouseSystem.Data.Models
+﻿namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using WarehouseSystem.Data.Common.Models;
 
     public class Organization : BaseModel<int>
     {

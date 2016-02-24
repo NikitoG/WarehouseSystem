@@ -1,13 +1,10 @@
-using System;
-
 namespace WarehouseSystem.Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-
     using WarehouseSystem.Common;
     using WarehouseSystem.Data.Models;
 
@@ -81,7 +78,6 @@ namespace WarehouseSystem.Data.Migrations
                         DelivaryDay = (DayOfWeek)this.random.RandomNumber(0, 6),
                         Supplier = suppliers[this.random.RandomNumber(0, suppliers.Count - 1)],
                         Client = customers[(i + j) % customers.Count],
-
                     };
 
                     context.ScheduleOrders.Add(newScheduleOrder);

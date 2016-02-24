@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace WarehouseSystem.Web.Areas.Private.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Private.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using Ninject;
+    using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
     using WarehouseSystem.Web.Areas.Private.ViewModels.Messages;
     using WarehouseSystem.Web.Controllers;
-    using WarehouseSystem.Data.Models;
 
     [Authorize]
     public class MessagesController : BaseController

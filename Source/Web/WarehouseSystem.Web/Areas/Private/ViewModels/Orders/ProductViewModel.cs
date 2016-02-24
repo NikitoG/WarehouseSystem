@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
 {
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;

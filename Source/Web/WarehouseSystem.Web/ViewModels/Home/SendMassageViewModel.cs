@@ -1,10 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Web.Mvc.Html;
-
-namespace WarehouseSystem.Web.ViewModels.Home
+﻿namespace WarehouseSystem.Web.ViewModels.Home
 {
+    using System.ComponentModel.DataAnnotations;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Web.Infrastructure.Mapping;
 

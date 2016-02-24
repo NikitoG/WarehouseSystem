@@ -1,11 +1,10 @@
 ﻿namespace WarehouseSystem.Data
 {
     using System;
-    using System.Linq;
     using System.Data.Entity;
-    using WarehouseSystem.Data.Common.Models;
+    using System.Linq;
     using Microsoft.AspNet.Identity.EntityFramework;
-
+    using WarehouseSystem.Data.Common.Models;
     using WarehouseSystem.Data.Models;
 
     public class WarehouseSystemDbContext : IdentityDbContext<User>, IWarehouseSystemDbContext
@@ -29,8 +28,7 @@
             }
             catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
         }
 

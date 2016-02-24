@@ -32,7 +32,6 @@
             return this.Toastr.AddToastMessage(title, message, toastType);
         }
 
-
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {
             var userName = requestContext.HttpContext.User.Identity.Name;

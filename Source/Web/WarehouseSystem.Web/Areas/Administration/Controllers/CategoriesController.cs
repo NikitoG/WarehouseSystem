@@ -17,13 +17,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Categories_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Category> categories = db.Categories;
-            DataSourceResult result = categories.ToDataSourceResult(request, category => new {
+            IQueryable<Category> categories = this.db.Categories;
+            DataSourceResult result = categories.ToDataSourceResult(request, category => new
+            {
                 Id = category.Id,
                 Name = category.Name,
                 CreatedOn = category.CreatedOn,
@@ -32,13 +33,13 @@
                 DeletedOn = category.DeletedOn
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Categories_Create([DataSourceRequest]DataSourceRequest request, Category category)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Category
                 {
@@ -49,18 +50,18 @@
                     DeletedOn = category.DeletedOn
                 };
 
-                db.Categories.Add(entity);
-                db.SaveChanges();
+                this.db.Categories.Add(entity);
+                this.db.SaveChanges();
                 category.Id = entity.Id;
             }
 
-            return Json(new[] { category }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { category }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Categories_Update([DataSourceRequest]DataSourceRequest request, Category category)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Category
                 {
@@ -72,18 +73,18 @@
                     DeletedOn = category.DeletedOn
                 };
 
-                db.Categories.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Categories.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { category }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { category }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Categories_Destroy([DataSourceRequest]DataSourceRequest request, Category category)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Category
                 {
@@ -95,17 +96,17 @@
                     DeletedOn = category.DeletedOn
                 };
 
-                db.Categories.Attach(entity);
-                db.Categories.Remove(entity);
-                db.SaveChanges();
+                this.db.Categories.Attach(entity);
+                this.db.Categories.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { category }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { category }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

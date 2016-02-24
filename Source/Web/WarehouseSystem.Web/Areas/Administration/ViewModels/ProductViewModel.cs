@@ -5,7 +5,6 @@
     using System.Web;
     using AutoMapper;
     using WarehouseSystem.Data.Models;
-    using WarehouseSystem.Web.Areas.Private.ViewModels.Products;
     using WarehouseSystem.Web.Infrastructure.Mapping;
 
     public class ProductViewModel : IMapFrom<Product>, IHaveCustomMappings
@@ -41,7 +40,6 @@
 
         [DisplayName("Blocked")]
         public bool IsBlocked { get; set; }
-        
 
         public int CategoryId { get; set; }
 

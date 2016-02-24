@@ -17,13 +17,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Organizations_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Organization> organizations = db.Organizations;
-            DataSourceResult result = organizations.ToDataSourceResult(request, organization => new {
+            IQueryable<Organization> organizations = this.db.Organizations;
+            DataSourceResult result = organizations.ToDataSourceResult(request, organization => new
+            {
                 Id = organization.Id,
                 Name = organization.Name,
                 MateriallyResponsiblePerson = organization.MateriallyResponsiblePerson,
@@ -37,13 +38,13 @@
                 DeletedOn = organization.DeletedOn
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Organizations_Create([DataSourceRequest]DataSourceRequest request, Organization organization)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Organization
                 {
@@ -59,18 +60,18 @@
                     DeletedOn = organization.DeletedOn
                 };
 
-                db.Organizations.Add(entity);
-                db.SaveChanges();
+                this.db.Organizations.Add(entity);
+                this.db.SaveChanges();
                 organization.Id = entity.Id;
             }
 
-            return Json(new[] { organization }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { organization }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Organizations_Update([DataSourceRequest]DataSourceRequest request, Organization organization)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Organization
                 {
@@ -87,18 +88,18 @@
                     DeletedOn = organization.DeletedOn
                 };
 
-                db.Organizations.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Organizations.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { organization }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { organization }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Organizations_Destroy([DataSourceRequest]DataSourceRequest request, Organization organization)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Organization
                 {
@@ -115,17 +116,17 @@
                     DeletedOn = organization.DeletedOn
                 };
 
-                db.Organizations.Attach(entity);
-                db.Organizations.Remove(entity);
-                db.SaveChanges();
+                this.db.Organizations.Attach(entity);
+                this.db.Organizations.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { organization }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { organization }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

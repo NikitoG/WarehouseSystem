@@ -1,10 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Web.Infrastructure.Mapping;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Orders
 {
+    using AutoMapper;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Infrastructure.Mapping;
+
     public class QuantitiesViewModel : IMapFrom<OrderQuantity>, IHaveCustomMappings
     {
         public double Quantity { get; set; }

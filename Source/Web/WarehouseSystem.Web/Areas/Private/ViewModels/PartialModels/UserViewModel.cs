@@ -1,10 +1,6 @@
-﻿
-
-using System.Security.Cryptography.X509Certificates;
-using AutoMapper;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.PartialModels
 {
+    using AutoMapper;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Web.Infrastructure.Mapping;
 

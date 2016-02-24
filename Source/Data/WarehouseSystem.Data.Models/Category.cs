@@ -1,10 +1,9 @@
-﻿using WarehouseSystem.Data.Common.Models;
-
-namespace WarehouseSystem.Data.Models
+﻿namespace WarehouseSystem.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using WarehouseSystem.Data.Common.Models;
 
     public class Category : BaseModel<int>
     {

@@ -43,7 +43,7 @@
                 .To<PartnersViewModel>()
                 .ToList();
 
-            return View(model);
+            return this.View(model);
         }
 
         public ActionResult ByPartner(int id)

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WarehouseSystem.Data.Common;
-using WarehouseSystem.Data.Models;
-using WarehouseSystem.Services.Data.Contract;
-
-namespace WarehouseSystem.Services.Data
+﻿namespace WarehouseSystem.Services.Data
 {
+    using WarehouseSystem.Data.Common;
+    using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Services.Data.Contract;
+
     public class ImageServices : IImageServices
     {
         private IDbRepository<Image> images;

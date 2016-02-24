@@ -9,13 +9,10 @@ namespace WarehouseSystem.Web.App_Start
 {
     using System;
     using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
-    using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
-
+    using Ninject.Web.Common;
     using WarehouseSystem.Data;
 
     public static class NinjectWebCommon

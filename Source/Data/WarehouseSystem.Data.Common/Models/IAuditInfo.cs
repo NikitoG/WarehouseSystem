@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace WarehouseSystem.Data.Common.Models
+﻿namespace WarehouseSystem.Data.Common.Models
 {
+    using System;
+
     public interface IAuditInfo
     {
         DateTime CreatedOn { get; set; }

@@ -53,7 +53,6 @@
         {
             if (!this.ModelState.IsValid)
             {
-
                 this.TempData["Categories"] = this.Cache.Get(
                         "categories",
                         () => this.Categories.GetAll()

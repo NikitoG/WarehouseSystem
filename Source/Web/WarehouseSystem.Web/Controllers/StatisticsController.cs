@@ -1,6 +1,4 @@
-﻿
-
-namespace WarehouseSystem.Web.Controllers
+﻿namespace WarehouseSystem.Web.Controllers
 {
     using System.Web.Mvc;
 
@@ -16,25 +14,25 @@ namespace WarehouseSystem.Web.Controllers
         [Inject]
         public IProductServices Products { get; set; }
 
-        //[OutputCache(Duration = 60 * 60)]
+        // [OutputCache(Duration = 60 * 60)]
         public ActionResult AllSuppliers()
         {
             var suppliers = this.Organizations.GetNames(true);
-            return PartialView("_AllSuppliersPartial", suppliers);
+            return this.PartialView("_AllSuppliersPartial", suppliers);
         }
 
-        //[OutputCache(Duration = 60 * 60)]
+        // [OutputCache(Duration = 60 * 60)]
         public ActionResult AllCustomers()
         {
             var customers = this.Organizations.GetNames(false);
-            return PartialView("_AllCustomersPartial", customers);
+            return this.PartialView("_AllCustomersPartial", customers);
         }
 
-        //[OutputCache(Duration = 60 * 60)]
+        // [OutputCache(Duration = 60 * 60)]
         public ActionResult AllProducts()
         {
             var products = this.Products.GetNames();
-            return PartialView("_AllProductsPartial", products);
+            return this.PartialView("_AllProductsPartial", products);
         }
     }
 }

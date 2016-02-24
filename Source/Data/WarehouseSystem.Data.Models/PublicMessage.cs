@@ -1,8 +1,6 @@
 ﻿namespace WarehouseSystem.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
     using WarehouseSystem.Data.Common.Models;
 
     public class PublicMessage : BaseModel<int>

@@ -17,13 +17,14 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<User> users = db.Users;
-            DataSourceResult result = users.ToDataSourceResult(request, user => new {
+            IQueryable<User> users = this.db.Users;
+            DataSourceResult result = users.ToDataSourceResult(request, user => new
+            {
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
@@ -45,13 +46,13 @@
                 UserName = user.UserName
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Users_Create([DataSourceRequest]DataSourceRequest request, User user)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new User
                 {
@@ -75,18 +76,18 @@
                     UserName = user.UserName
                 };
 
-                db.Users.Add(entity);
-                db.SaveChanges();
+                this.db.Users.Add(entity);
+                this.db.SaveChanges();
                 user.Id = entity.Id;
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Users_Update([DataSourceRequest]DataSourceRequest request, User user)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new User
                 {
@@ -111,18 +112,18 @@
                     UserName = user.UserName
                 };
 
-                db.Users.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                this.db.Users.Attach(entity);
+                this.db.Entry(entity).State = EntityState.Modified;
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Users_Destroy([DataSourceRequest]DataSourceRequest request, User user)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new User
                 {
@@ -147,17 +148,17 @@
                     UserName = user.UserName
                 };
 
-                db.Users.Attach(entity);
-                db.Users.Remove(entity);
-                db.SaveChanges();
+                this.db.Users.Attach(entity);
+                this.db.Users.Remove(entity);
+                this.db.SaveChanges();
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.db.Dispose();
             base.Dispose(disposing);
         }
     }

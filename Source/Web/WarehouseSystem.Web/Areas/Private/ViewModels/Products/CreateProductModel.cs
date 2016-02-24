@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web;
-using System.Web.Mvc;
-
-namespace WarehouseSystem.Web.Areas.Private.ViewModels.Products
+﻿namespace WarehouseSystem.Web.Areas.Private.ViewModels.Products
 {
+    using System.Collections.Generic;
+    using System.Web;
+    using System.Web.Mvc;
+
     public class CreateProductModel
     {
         public SupplierProductViewModel Product { get; set; }
