@@ -254,6 +254,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\ChartController.cs" />
     <Compile Include="Areas\Administration\Controllers\DivisionsController.cs" />
     <Compile Include="Areas\Administration\Controllers\MessagesController.cs" />
@@ -541,6 +542,7 @@
     <Content Include="Areas\Administration\Views\Divisions\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Messages\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -647,6 +649,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Categories\" />
     <Folder Include="Views\Chart\" />
     <Folder Include="Views\Divisions\" />
     <Folder Include="Views\Grid\" />
