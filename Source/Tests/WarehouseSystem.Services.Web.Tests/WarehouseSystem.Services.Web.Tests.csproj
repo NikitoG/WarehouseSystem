@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\WarehouseSystem.Services.Data\WarehouseSystem.Services.Data.csproj">
+      <Project>{b6c34989-1965-4971-84d7-7bb2f3ec5a35}</Project>
+      <Name>WarehouseSystem.Services.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\WarehouseSystem.Services.Web\WarehouseSystem.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
       <Name>WarehouseSystem.Services.Web</Name>
