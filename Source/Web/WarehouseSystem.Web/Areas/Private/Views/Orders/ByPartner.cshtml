@@ -9,9 +9,6 @@
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.ImageId).ClientTemplate(
-            @"<div class='customer-photo'
-                    style='background-image: url(../../Content/Theme/img/profile/profile-1.jpg);'></div>");
           columns.Bound(c => c.Sku);
           columns.Bound(c => c.Name).Locked(true);
           columns.Bound(c => c.Barcode).Locked(true);

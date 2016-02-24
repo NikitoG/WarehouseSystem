@@ -1,12 +1,10 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using WarehouseSystem.Web.Areas.Administration.ViewModels;
-
-namespace WarehouseSystem.Web.Areas.Administration.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Administration.Controllers
 {
     using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Ninject;
@@ -14,6 +12,7 @@ namespace WarehouseSystem.Web.Areas.Administration.Controllers
     using WarehouseSystem.Data;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Services.Data.Contract;
+    using WarehouseSystem.Web.Areas.Administration.ViewModels;
     using WarehouseSystem.Web.Controllers;
 
     [Authorize(Roles = GlobalConstants.AdminRole)]
@@ -77,7 +76,8 @@ namespace WarehouseSystem.Web.Areas.Administration.Controllers
                     WeightInGr = product.WeightInGr,
                     DeliveryUnit = product.DeliveryUnit,
                     MinDayOfExpiryInDays = product.MinDayOfExpiryInDays,
-                    IsBlocked = product.IsBlocked
+                    IsBlocked = product.IsBlocked,
+                    SupplierId = this.UserProfile.Organization.Id
                 };
 
                 this.Products.Add(entity);

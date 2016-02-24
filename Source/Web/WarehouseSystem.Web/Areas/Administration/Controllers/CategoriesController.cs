@@ -8,9 +8,10 @@
     using WarehouseSystem.Common;
     using WarehouseSystem.Data;
     using WarehouseSystem.Data.Models;
+    using WarehouseSystem.Web.Controllers;
 
     [Authorize(Roles = GlobalConstants.AdminRole)]
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseController
     {
         private WarehouseSystemDbContext db = new WarehouseSystemDbContext();
 

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using WarehouseSystem.Data.Common.Models;
-
-namespace WarehouseSystem.Data
+﻿namespace WarehouseSystem.Data
 {
+    using System;
+    using System.Linq;
     using System.Data.Entity;
+    using WarehouseSystem.Data.Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using WarehouseSystem.Data.Models;

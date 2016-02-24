@@ -1,16 +1,14 @@
-﻿using WarehouseSystem.Common;
-
-namespace WarehouseSystem.Web.Areas.Administration.Controllers
+﻿namespace WarehouseSystem.Web.Areas.Administration.Controllers
 {
     using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
+    using WarehouseSystem.Common;
     using WarehouseSystem.Data;
     using WarehouseSystem.Data.Models;
     using WarehouseSystem.Web.Controllers;
-
 
     [Authorize(Roles = GlobalConstants.AdminRole)]
     public class UsersController : BaseController

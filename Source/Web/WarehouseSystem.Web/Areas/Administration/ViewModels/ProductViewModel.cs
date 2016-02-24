@@ -41,9 +41,11 @@
 
         [DisplayName("Blocked")]
         public bool IsBlocked { get; set; }
+        
 
-        [Required]
         public int CategoryId { get; set; }
+
+        public string Category { get; set; }
 
         public int? ImageId { get; set; }
 
@@ -53,9 +55,9 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            //configuration.CreateMap<Product, ProductViewModel>()
-            //    .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
-            //    .ReverseMap();
+            configuration.CreateMap<Product, ProductViewModel>()
+                .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
+                .ReverseMap();
         }
     }
 }
